@@ -33,20 +33,15 @@
         </a><!-- End Notification Icon -->
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-          <li class="dropdown-header">
-            You have 4 new notifications
-            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
+
+
 
           <li class="notification-item">
             <i class="bi bi-exclamation-circle text-warning"></i>
             <div>
-              <h4>Lorem Ipsum</h4>
-              <p>Quae dolorem earum veritatis oditseno</p>
-              <p>30 min. ago</p>
+              <h4>تحديث بيانات الحساب</h4>
+              <p></p>
+              <p> قبل 30 د</p>
             </div>
           </li>
 
@@ -57,9 +52,9 @@
           <li class="notification-item">
             <i class="bi bi-x-circle text-danger"></i>
             <div>
-              <h4>Atque rerum nesciunt</h4>
-              <p>Quae dolorem earum veritatis oditseno</p>
-              <p>1 hr. ago</p>
+              <h4>رفض الطلب</h4>
+              <p>لقد تم رفضك في الفاعاليه</p>
+              <p>قبل ساعة</p>
             </div>
           </li>
 
@@ -70,9 +65,9 @@
           <li class="notification-item">
             <i class="bi bi-check-circle text-success"></i>
             <div>
-              <h4>Sit rerum fuga</h4>
-              <p>Quae dolorem earum veritatis oditseno</p>
-              <p>2 hrs. ago</p>
+              <h4>قبول الطلب </h4>
+              <p>لقد تم قبولك في الفاعليه</p>
+              <p>قبل ساعتان</p>
             </div>
           </li>
 
@@ -83,17 +78,17 @@
           <li class="notification-item">
             <i class="bi bi-info-circle text-primary"></i>
             <div>
-              <h4>Dicta reprehenderit</h4>
-              <p>Quae dolorem earum veritatis oditseno</p>
-              <p>4 hrs. ago</p>
+              <h4>اشعارات اخرى</h4>
+              <p>تتضمن اشعارا </p>
+              <p>قبل 4ساعات</p>
             </div>
           </li>
 
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li class="dropdown-footer">
-            <a href="#">Show all notifications</a>
+          <li class="">
+            <a href="notification.php">عرض جميع الاشعارات</a>
           </li>
 
         </ul><!-- End Notification Dropdown Items -->
@@ -129,7 +124,7 @@
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="#">
+            <a class="dropdown-item d-flex align-items-center" href="login.php">
               <i class="bi bi-box-arrow-right"></i>
               <span>تسجيل الخروج</span>
             </a>
