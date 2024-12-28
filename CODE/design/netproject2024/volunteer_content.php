@@ -1,6 +1,6 @@
 <main id="main" class="main">
 <h1>وظيفه المتطوعين</h1>
-    <div class="pagetitle">
+    <div class="pagetitle" >
       <h1>الملف الشخصي</h1>
 
     </div><!-- End Page Title -->
