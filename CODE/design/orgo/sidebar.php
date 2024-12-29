@@ -35,7 +35,7 @@
     <li class="nav-item">
       <a class="nav-link " href="request.php">
         <i class="bi bi-grid"></i>
-        <span>وظيفة التقديم وقبول الطلبات </span>
+        <span>إدارة الطلبات</span>
       </a>
     </li>
     <li class="nav-item">
