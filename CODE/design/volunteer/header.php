@@ -52,7 +52,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="organizationlist.php">
               <i class="bi bi-briefcase"></i>
                 <span>المنظمات</span>
               </a>
