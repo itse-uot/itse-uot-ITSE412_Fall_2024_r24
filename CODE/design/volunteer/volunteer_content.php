@@ -128,5 +128,58 @@
       </div>
     </section>
 
+    <div class="container">
+  <div class="row">
+    <!-- البطاقة الأولى -->
+    <div class="col-md-4">
+      <div class="card" style="width: 100%;">
+        <div class="d-flex align-items-center p-2">
+          <img src="anythislink/personal.jpg" alt="Organization Logo" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;">
+          <h6 class="m-0">أطباء بلا حدود</h6>
+        </div>
+        <img src="anythislink/event.jpg" class="card-img-top" alt="Event Image 1">
+        <div class="card-body">
+          <h5 class="card-title">أطباء بلا حدود</h5>
+          <p class="card-text">تم الانضمام الى الفاعاليه</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- البطاقة الثانية -->
+    <div class="col-md-4">
+      <div class="card" style="width: 100%;">
+        <div class="d-flex align-items-center p-2">
+          <img src="anythislink/personal.jpg" alt="Organization Logo" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;">
+          <h6 class="m-0">الصليب الأحمر</h6>
+        </div>
+        <img src="anythislink/event.jpg" class="card-img-top" alt="Event Image 2">
+        <div class="card-body">
+          <h5 class="card-title">حملة التبرع بالدم في المنطقة الشرقية</h5>
+          <p class="card-text">تم الانضمام الى الفاعاليه</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- البطاقة الثالثة -->
+    <div class="col-md-4">
+      <div class="card" style="width: 100%;">
+        <div class="d-flex align-items-center p-2">
+          <img src="anythislink/personal.jpg" alt="Organization Logo" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;">
+          <h6 class="m-0">منظمة السلام الأخضر</h6>
+        </div>
+        <img src="anythislink/event.jpg" class="card-img-top" alt="Event Image 3">
+        <div class="card-body">
+          <h5 class="card-title">مظاهرة ضد التلوث البيئي في البحر</h5>
+          <p class="card-text">تم الانضمام الى الفاعاليه</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div  >
+
+
+
+
+
 
 </main>
