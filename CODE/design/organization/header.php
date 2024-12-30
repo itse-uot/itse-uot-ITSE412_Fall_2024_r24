@@ -52,19 +52,9 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>إعدادات الحساب</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>هل تحتاج إلى مساعدة؟</span>
+              <a class="dropdown-item d-flex align-items-center" href="../volunteer/dashboard.php">
+              <i class="ri-arrow-go-forward-line"></i>
+                <span>العودة إلى متطوع</span>
               </a>
             </li>
             <li>
