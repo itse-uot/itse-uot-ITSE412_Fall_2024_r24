@@ -11,7 +11,7 @@
 <?php
  include "header.php";
  include "sidebar.php";
- include "volunteer_content.php";
+ include "volunteer_profile-content.php";
  include "footer.php";
  include "tail.php";
  ?>

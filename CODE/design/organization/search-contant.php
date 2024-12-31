@@ -42,7 +42,7 @@
             <img src="assets/img/profile-img.jpg" alt="Organization Logo" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
               <div>
                 <h5 class="card-title mb-0">
-                  <a href="../organization/dashboard.php" class="text-decoration-none text-dark">اسم المنظمة</a>
+                  <a href="volunteer_profile_other.php" class="text-decoration-none text-dark">اسم المنظمة</a>
                 </h5>
                 <p class="mb-0 text-muted">المجال: التعليم</p>
                 <p class="mb-0 text-muted">الموقع: طرابلس، ليبيا</p>
