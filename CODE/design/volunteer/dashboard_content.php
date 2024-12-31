@@ -163,6 +163,7 @@
     <button class="btn btn-outline-primary btn-classic" onclick="applyToEvent()">تقديم طلب للمشاركة</button>
     <button class="btn btn-outline-secondary btn-classic" onclick="openReviewModal()">تقييم الفعالية</button>
   </div>
+  
 
   <!-- نموذج التقييم (يظهر عند النقر على زر تقييم الفعالية) -->
   <div id="eventReviewModal" style="display: none; background: rgba(0, 0, 0, 0.5); position: fixed; top: 0; left: 0; width: 100%; height: 100%; align-items: center; justify-content: center;">
