@@ -127,7 +127,7 @@
             </div>
             <div class="row">
               <div class="col-lg-3 col-md-4 label">الموقع</div>
-              <div class="col-lg-9 col-md-8">شارع الأمل، المدينة، الدولة</div>
+              <div class="col-lg-9 col-md-8">شارع النصر , طرابلس , ليبيا</div>
             </div>
             <div class="text-center">
               <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#editProfile">تعديل البيانات</button>
