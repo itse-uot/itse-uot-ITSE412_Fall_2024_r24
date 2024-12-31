@@ -5,31 +5,31 @@
   <li class="nav-item">
       <a class="nav-link " href="dashboard.php">
         <i class="bi bi-grid"></i>
-        <span>dash</span>
+        <span>القائمه الرئيسية</span>
       </a>
 
     <li class="nav-item">
       <a class="nav-link " href="user.php">
-        <i class="bi bi-grid"></i>
-        <span>وظيفة ادارة الحسابات</span>
+        <i class="bi bi-person-circle"></i></i>
+        <span>ادارة الحساب</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link " href="volunteer.php">
         <i class="bi bi-person-lines-fill"></i>
-        <span>وظيفة المتطوعين</span>
+        <span> ادارة المتطوعين</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link " href="organization.php">
         <i class="bi bi-grid"></i>
-        <span>وظيفة المنظمات</span>
+        <span>ادارة المنظمات</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link " href="event.php">
         <i class="bi bi-grid"></i>
-        <span>وظيفة ادارة الفاعاليات</span>
+        <span> ادارة الفاعاليات</span>
       </a>
     </li>
     <li class="nav-item">

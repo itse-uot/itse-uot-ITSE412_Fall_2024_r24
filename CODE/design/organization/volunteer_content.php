@@ -29,23 +29,17 @@
               <ul class="nav nav-tabs nav-tabs-bordered" role="tablist">
 
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-overview" aria-selected="false" role="tab" fdprocessedid="609t1o" tabindex="-1">معلومات</button>
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview" aria-selected="false" role="tab" fdprocessedid="609t1o" tabindex="-1">معلومات</button>
                 </li>
 
                 <li class="nav-item" role="presentation">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit" aria-selected="false" role="tab" tabindex="-1">تعديل البيانات </button>
                 </li>
 
-
-
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password" aria-selected="false" role="tab" tabindex="-1">تغيير كلمة السر</button>
-                </li>
-
               </ul>
               <div class="tab-content pt-2">
 
-                <div class="tab-pane fade profile-overview" id="profile-overview" role="tabpanel">
+                <div class="tab-pane fade profile-overview show active" id="profile-overview" role="tabpanel">
                   <h5 class="card-title">المهارات</h5>
                   <p class="small fst-italic">مهارات المتطوع</p>
 
@@ -123,37 +117,7 @@
 
 
 
-                <div class="tab-pane fade pt-3" id="profile-change-password" role="tabpanel">
-                  <!-- Change Password Form -->
-                  <form>
 
-                    <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">كلمه السر الحاليه</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="currentPassword">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">كلمه السر الجديده</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="newpassword" type="password" class="form-control" id="newPassword">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">تأكيد كلمه السر الجديدة</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">تغيير كلمه السر</button>
-                    </div>
-                  </form><!-- End Change Password Form -->
-
-                </div>
 
               </div><!-- End Bordered Tabs -->
 

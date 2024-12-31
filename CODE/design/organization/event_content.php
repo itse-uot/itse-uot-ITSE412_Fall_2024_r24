@@ -1,5 +1,5 @@
 <main id="main" class="main">
-<div class="card-body">
+div class="card-body">
     <br>
 <span class="badge bg-primary fs-5">
   <i class="bi bi-plus-circle-fill me-2"></i> إنشاء فعالية
