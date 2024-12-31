@@ -61,18 +61,10 @@
               <hr class="dropdown-divider">
             </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-              <i class="bi bi-plus-square"></i>
-                <span>أنشاء منظمة</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+            
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="user.php">
                 <i class="bi bi-gear"></i>
                 <span>إعدادات الحساب</span>
               </a>

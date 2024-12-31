@@ -22,9 +22,6 @@
                 <select class="datatable-selector" fdprocessedid="zt2avy"><option value="5">5</option><option value="10" selected="">10</option><option value="15">15</option><option value="-1">All</option></select> entries per page
             </label> -->
                                 </div>
-                                <div class="datatable-search">
-                                    <input class="datatable-input" placeholder="Search..." type="search" title="Search within table">
-                                </div>
                             </div>
                             <div class="datatable-container">
                                 <table class="table datatable datatable-table">
@@ -45,21 +42,21 @@
                                             <td>احمد</td>
                                             <td>ahmed@com</td>
                                             <td><img src="anythislink/personal.jpg" width="50px" height="50px" alt=""></td>
-                                            <td class="green"><button type="button" class="btn btn-primary" fdprocessedid="lbopeo" onlicick="window.location.href='volunteer_profile.php';">عرض </button></td>
+                                            <td class="green"><a href="volunteer_profile_other.php" class="btn btn-primary" fdprocessedid="lbopeo">عرض</a></td>
                                         </tr>
                                         <tr data-index="1">
                                             <td>2</td>
                                             <td>حسن</td>
                                             <td>hasen@com</td>
                                             <td><img src="anythislink/personal.jpg" width="50px" height="50px" alt=""></td>
-                                            <td class="green"><button type="button" class="btn btn-primary" fdprocessedid="lbopeo">عرض </button></td>
+                                            <td class="green"><a href="volunteer_profile_other.php" class="btn btn-primary" fdprocessedid="lbopeo">عرض</a></td>
                                         </tr>
                                         <tr data-index="2">
                                             <td>3</td>
                                             <td>عماد</td>
                                             <td>emad@com</td>
                                             <td><img src="anythislink/personal.jpg" width="50px" height="50px" alt=""></td>
-                                            <td class="green"><button type="button" class="btn btn-primary" fdprocessedid="lbopeo">عرض </button></td>
+                                            <td class="green"><a href="volunteer_profile_other.php" class="btn btn-primary" fdprocessedid="lbopeo">عرض</a></td>
                                         </tr>
                                     </tbody>
                                 </table>

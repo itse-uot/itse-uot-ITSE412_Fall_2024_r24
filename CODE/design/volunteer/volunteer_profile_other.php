@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+
+<?php
+  include "head.php";
+
+?>
+
+
+<body>
+
+<?php
+ include "header.php";
+ include "sidebar.php";
+?>
 <main id="main" class="main">
 <h1>وظيفه المتطوعين</h1>
     <div class="pagetitle" >
@@ -32,10 +46,6 @@
                   <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview" aria-selected="false" role="tab" fdprocessedid="609t1o" tabindex="-1">معلومات</button>
                 </li>
 
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit" aria-selected="false" role="tab" tabindex="-1">تعديل البيانات </button>
-                </li>
-
               </ul>
               <div class="tab-content pt-2">
 
@@ -64,56 +74,6 @@
 
                 </div>
 
-                <div class="tab-pane fade profile-edit pt-3" id="profile-edit" role="tabpanel">
-
-                  <!-- Profile Edit Form -->
-                  <form>
-                    <div class="row mb-3">
-                      <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">صورة الملف</label>
-                      <div class="col-md-8 col-lg-9">
-                        <img src="assets/img/profile-img.jpg" alt="Profile">
-                        <div class="pt-2">
-                          <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                          <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">الاسم الكامل</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="fullName" type="text" class="form-control" id="fullName" value="احمد الشريف">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="about" class="col-md-4 col-lg-3 col-form-label">المهارات</label>
-                      <div class="col-md-8 col-lg-9">
-                        <textarea name="about" class="form-control" id="about" style="height: 100px">مهارات المتطوع</textarea>
-                      </div>
-                    </div>
-
-
-                    <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">رقم الهاتف</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="Phone" value="092-0000000">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">البريد الالكتروني</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">حفظ التغيرات</button>
-                    </div>
-                  </form><!-- End Profile Edit Form -->
-
-                </div>
 
 
 
@@ -127,7 +87,6 @@
         </div>
       </div>
     </section>
-
     <div class="container">
   <div class="row">
     <!-- البطاقة الأولى -->
@@ -178,8 +137,13 @@
 </div>
 
 
-
-
-
-
 </main>
+<?php
+ include "footer.php";
+ include "tail.php";
+ ?>
+
+
+</body>
+
+</html>
