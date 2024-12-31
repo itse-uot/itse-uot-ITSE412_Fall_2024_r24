@@ -8,24 +8,29 @@
     <i class="bi bi-list toggle-sidebar-btn"></i>
   </div><!-- Logo -->
 
+  
   <div class="search-bar">
-    <form class="search-form d-flex align-items-center" method="POST" action="#">
-      <input type="text" name="query" placeholder="بحث" title="أدخل كلمة البحث">
-      <button type="submit" title="بحث"><i class="bi bi-search"></i></button>
-    </form>
-  </div><!-- شريط البحث -->
+  <form class="search-form d-flex align-items-center" method="POST" action="search.php">
+    <input 
+      type="text" 
+      name="query" 
+      placeholder="بحث" 
+      title="أدخل كلمة البحث" 
+      class="form-control me-2">
+    <button 
+      type="submit" 
+      title="بحث" 
+      class="btn btn-primary">
+      <i class="bi bi-search"></i>
+    </button>
+  </form>
+</div>
+<!-- شريط البحث -->
+
+  <!-- شريط البحث -->
   <!-- Example single danger button -->
   <!-- زر القائمة المنسدلة -->
-  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    تحديد
-  </button>
-
-  <!-- القائمة المنسدلة -->
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">الفاعاليات</a>
-    <a class="dropdown-item" href="#">المتطوعين</a>
-    <a class="dropdown-item" href="#">المنظمات</a>
-  </div>
+  
 
 
   <nav class="header-nav ms-auto">
