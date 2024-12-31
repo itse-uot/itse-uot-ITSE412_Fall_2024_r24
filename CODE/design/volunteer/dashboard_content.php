@@ -101,18 +101,46 @@
                 <i class="bi bi-star fs-4" data-value="4"></i>
                 <i class="bi bi-star fs-4" data-value="5"></i>
               </div>
-              <input type="hidden" id="ratingValue" name="ratingValue" value="0">
-            </div>
-            <div class="mb-3">
-              <label for="reviewDescription" class="form-label">الوصف:</label>
-              <textarea id="reviewDescription" class="form-control" rows="3" placeholder="اكتب تعليقك هنا..." required></textarea>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">إرسال</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-            </div>
-          </form>
-        </div>
+              <div class="card-body">
+  <h5 class="card-title" style="font-weight: bold; color: #333;">تفاصيل الفعالية</h5>
+
+  <!-- تفاصيل الفعالية -->
+  <div class="event-details">
+    <img src="assets/img/Turkey__ig_@withahsen.jpeg" alt="صورة الفعالية" style="width: 100%; height: auto; border-radius: 6px; margin-bottom: 15px; border: 1px solid #ddd;">
+    <h6>اسم الفعالية: <span style="font-weight: bold; color: #000;">فعالية اليوم المفتوح</span></h6>
+    <p>الوصف: <span style="color: #555;">يوم مفتوح للمشاركة في أنشطة اجتماعية وتعليمية متنوعة</span></p>
+    <p>الموقع: <span style="color: #555;">المدينة الجامعية</span></p>
+    <p>التاريخ والوقت: <span style="color: #555;">25 ديسمبر 2024، الساعة 9:00 صباحًا</span></p>
+    <p>عدد المشاركين الحالي: <span style="color: #555;">45</span></p>
+    <p>المهارات المطلوبة: <span style="color: #555;">التواصل، التنظيم، والإدارة</span></p>
+    <p>التقييم الإجمالي: 
+      <span class="rating-stars-total" style="font-size: 18px; color: #ffc107;">⭐⭐⭐⭐☆</span> 
+      <span style="color: #555;">(4.0)</span>
+    </p>
+  </div>
+
+  <!-- الأزرار -->
+  <div class="event-actions mt-4" style="display: flex; gap: 10px;">
+    <button class="btn btn-outline-primary btn-classic" onclick="applyToEvent()">تقديم طلب للمشاركة</button>
+    <button class="btn btn-outline-secondary btn-classic" onclick="openReviewModal()">تقييم الفعالية</button>
+  </div>
+
+  <!-- نموذج التقييم (يظهر عند النقر على زر تقييم الفعالية) -->
+  <div id="eventReviewModal" style="display: none; background: rgba(0, 0, 0, 0.5); position: fixed; top: 0; left: 0; width: 100%; height: 100%; align-items: center; justify-content: center;">
+    <div style="background: #fff; padding: 20px; border-radius: 8px; max-width: 400px; text-align: center; border: 1px solid #ddd;">
+      <h5 style="color: #333; font-weight: bold;">تقييم الفعالية</h5>
+      <div class="rating-stars" style="margin: 15px 0; display: flex; justify-content: center; gap: 8px; font-size: 24px;">
+        <span class="star" data-value="1">☆</span>
+        <span class="star" data-value="2">☆</span>
+        <span class="star" data-value="3">☆</span>
+        <span class="star" data-value="4">☆</span>
+        <span class="star" data-value="5">☆</span>
+      </div>
+      <p id="selected-rating" style="color: #555; font-size: 14px;">عدد النجوم المختارة: 0</p>
+      <textarea class="form-control mt-3" rows="3" placeholder="اكتب تعليقك هنا..." style="resize: none; border: 1px solid #ccc; border-radius: 5px; padding: 8px; font-size: 14px;"></textarea>
+      <div class="mt-3" style="display: flex; justify-content: space-around;">
+        <button class="btn btn-primary btn-classic" onclick="submitReview()">إرسال</button>
+        <button class="btn btn-secondary btn-classic" onclick="closeReviewModal()">إغلاق</button>
       </div>
     </div>
   </div>
