@@ -25,7 +25,7 @@
       <img src="assets/img/profile-img.jpg" alt="Volunteer Profile Picture" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
       <div>
         <h5 class="card-title mb-0">
-          <a href="../volunteer/profile.php" class="text-decoration-none text-dark">اسم المتطوع</a>
+          <a href="volunteer_profile_other.php" class="text-decoration-none text-dark">اسم المتطوع</a>
         </h5>
         <p class="mb-0 text-muted">البريد الإلكتروني: volunteer@example.com</p>
       </div>
