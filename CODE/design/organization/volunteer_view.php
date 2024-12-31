@@ -1,7 +1,4 @@
 <main id="main" class="main">
-    <div style="margin-bottom: 40px;"><h3>عرض الملف الشخصي</h3>
-        <button class="btn btn-primary" type="button" fdprocessedid="hok90m" onclick="window.location.href='volunteer_profile.php';">الملف الشخصي</button>
-    </div>
     <div class="pagetitle">
         <h1>عرض المتطوعين</h1>
 
