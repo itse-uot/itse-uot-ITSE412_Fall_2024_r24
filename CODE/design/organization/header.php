@@ -17,7 +17,7 @@
   <!-- Example single danger button -->
   <!-- زر القائمة المنسدلة -->
   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    الفاعاليات
+    تحديد
   </button>
 
   <!-- القائمة المنسدلة -->

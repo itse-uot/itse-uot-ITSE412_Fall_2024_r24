@@ -14,6 +14,16 @@
         <button type="submit" title="بحث"><i class="bi bi-search"></i></button>
       </form>
     </div><!-- شريط البحث -->
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    تحديد
+  </button>
+
+  <!-- القائمة المنسدلة -->
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">الفاعاليات</a>
+    <a class="dropdown-item" href="#">المتطوعين</a>
+    <a class="dropdown-item" href="#">المنظمات</a>
+  </div>
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
