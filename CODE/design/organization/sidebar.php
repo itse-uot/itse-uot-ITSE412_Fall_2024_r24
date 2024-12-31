@@ -22,13 +22,13 @@
     </li>
     <li class="nav-item">
       <a class="nav-link " href="organization.php">
-        <i class="bi bi-grid"></i>
+        <i class="bi bi-building"></i>
         <span>وظيفة المنظمات</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link " href="event.php">
-        <i class="bi bi-grid"></i>
+        <i class="bi bi-calendar"></i>
         <span>وظيفة ادارة الفاعاليات</span>
       </a>
     </li>
