@@ -168,8 +168,8 @@
       <!--بداية الاضافة يعني كودها كامل -->
       <div class="row">
         <div class="col-12">
-          <div class="card mb-4" style="max-width: 620px; margin: auto;">
-            <div class="d-flex align-items-center p-2">
+          <div class="card mb-4" style="max-width: 720px; margin: auto;">
+            <div class="d-flex align-items-center p-3">
               <img src="assets/img/prof.jpeg" alt="Profile Picture" class="rounded-circle me-3"
                 style="width: 50px; height: 50px;">
               <input type="text" class="form-control rounded-pill" placeholder="اضغط لإنشاء فاعلية" readonly
@@ -177,6 +177,7 @@
             </div>
           </div>
         </div>
+
         <!--الان تم الدف الرئيس ليلفي الايفينت-->
         <!-- المودال -->
         <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
@@ -261,29 +262,15 @@
         </div>
 
         <!--نهاية اضافة الفاعلية -->
+        <?php
 
-        <!-- الفعالية الأولى -->
-        <div class="col-12">
-          <div class="card mb-4" style="max-width: 620px; margin: auto;">
-            <div class="d-flex align-items-center p-2">
-              <img src="assets/img/prof.jpeg" alt="Event Image" class="rounded-circle me-3"
-                style="width: 50px; height: 50px;">
-              <div>
-                <h6 class="m-0">حملة التبرع بالدم</h6>
-                <small class="text-muted">تاريخ: 2023-09-20</small>
-              </div>
-            </div>
-            <img src="assets/img/Turkey __ ig_ @withahsen.jpeg" class="card-img-top" alt="Event Image"
-              style="height: 220px; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">تفاصيل الفعالية</h5>
-              <p class="card-text mb-1"><strong>الوصف:</strong> حملة تهدف إلى جمع التبرعات بالدم لصالح المستشفيات
-                المحلية.
-              </p>
-              <p class="card-text mb-1"><strong>المهارات المطلوبة:</strong> التنظيم، التواصل.</p>
-            </div>
-          </div>
-        </div>
+        include "event-content-card-organization-owner.php";
+
+
+        ?>
+
+
+
       </div>
     </div>
 </main>
