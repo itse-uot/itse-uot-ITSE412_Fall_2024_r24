@@ -1,0 +1,639 @@
+[33mcommit d012fc0e34c1f9654d6a86248e16af06432d1546[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 1ed6a11 1c94f6d
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Wed Jan 1 03:05:37 2025 +0200
+
+    Merge branch 'main' of https://github.com/itse-uot/itse-uot-ITSE412_Fall_2024_r24
+
+[33mcommit 1ed6a11831d2fb99a2dfa30806bcedd7c2912a25[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Wed Jan 1 03:03:34 2025 +0200
+
+    sdd not
+
+[33mcommit a7c5fce59d33d2884298d2a6cc5fd28cdcd04821[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Wed Jan 1 02:56:51 2025 +0200
+
+    تعديلات
+
+[33mcommit 8cb8914b13d490ed0e251e22f949f92972a37b40[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Wed Jan 1 02:55:21 2025 +0200
+
+    تعديلات
+
+[33mcommit 1c94f6d28be70b170649cbcb27d758069332b3c8[m
+Merge: 962ec22 e71a1ea
+Author: aisha-mansour <aishamasnour002@gmail.com>
+Date:   Wed Jan 1 02:51:40 2025 +0200
+
+    Merge branch 'main' of https://github.com/itse-uot/itse-uot-ITSE412_Fall_2024_r24
+
+[33mcommit 962ec2206011c3b336850885083ea82e15119ba1[m
+Author: aisha-mansour <aishamasnour002@gmail.com>
+Date:   Wed Jan 1 02:45:49 2025 +0200
+
+    رفع ملف sdd
+
+[33mcommit e71a1ea1c1f19bea495b2f13c9cfde3ebb39b6c6[m
+Merge: d9a4255 918fbf2
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Wed Jan 1 02:02:50 2025 +0200
+
+    Merge branch 'main' of https://github.com/itse-uot/itse-uot-ITSE412_Fall_2024_r24
+
+[33mcommit d9a4255a527407fc6ea73d3d630d2e00f7a7e8be[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Wed Jan 1 02:02:37 2025 +0200
+
+    تعديل جماليات
+
+[33mcommit 918fbf2df2b536bd3d162797413078e15d266b7d[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Wed Jan 1 02:00:46 2025 +0200
+
+    اضافة الوضيفة اضافة الفعاليةفي المكاان اصحيح
+
+[33mcommit 2c8925135101c4f458a63363fb41fc7dfe12c671[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Wed Jan 1 00:31:26 2025 +0200
+
+    تعديل علي اللوقو والمفات الشخصية وبعص الملفات الاخري
+
+[33mcommit f36ec0cb3629b2ccea26b3e15805aa82e02b9e01[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Tue Dec 31 22:43:09 2024 +0200
+
+    تعديل  الاخيرة
+
+[33mcommit 71a8fb1687bd1e2a2fa3c37bfb845eb8709585e3[m
+Merge: ed08fc8 0a7144a
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Tue Dec 31 21:36:01 2024 +0200
+
+    Merge branch 'main' of https://github.com/itse-uot/itse-uot-ITSE412_Fall_2024_r24
+
+[33mcommit ed08fc8bf80645348be17bb09fa763c0c49d247d[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Tue Dec 31 21:35:44 2024 +0200
+
+    تعديل طريقة عرض الملف الشحصي للمتطوع
+
+[33mcommit 0a7144a9e5f9a93c951cbcf6e6abbefbd673982a[m
+Merge: 74dae4c a138030
+Author: 2181806626 <amola0011@gmail.com>
+Date:   Tue Dec 31 21:30:29 2024 +0200
+
+    ادارة الفعاليات
+
+[33mcommit 74dae4c95697cda2b4d7d47b11be83ffe0a375a7[m
+Author: 2181806626 <amola0011@gmail.com>
+Date:   Tue Dec 31 21:10:02 2024 +0200
+
+    ادارة الفعالية
+
+[33mcommit a13803024abe6cc36b3ea938971fc29cd8d05cad[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Tue Dec 31 21:08:14 2024 +0200
+
+    عدلت خطاء املائي
+
+[33mcommit 3d1dc3ec678e5792ad4de665d6aa513723cf18dd[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Tue Dec 31 20:47:33 2024 +0200
+
+    تعديل البروفايل
+
+[33mcommit af9e62f0283581b26bebe5e645cd64c38239f4b0[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Tue Dec 31 20:22:57 2024 +0200
+
+    اضافة البحث ف  المنظمة
+
+[33mcommit 6866310f6441979a6b3a993d98a61b6abaedcfe7[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Tue Dec 31 20:17:47 2024 +0200
+
+    انشاء البحث في المنظومة المتطوع
+
+[33mcommit 5a29fd7448219eea2fcc35ae1d3ddd1cc928eeec[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Tue Dec 31 19:32:16 2024 +0200
+
+    اضافه ERD و الجداول
+
+[33mcommit 317ab3340625fed6612d8d4f174cae1e2b6eebb8[m
+Merge: 77606c7 0e94bd5
+Author: aisha-mansour <aishamasnour002@gmail.com>
+Date:   Tue Dec 31 18:19:44 2024 +0200
+
+    Merge branch 'main' of https://github.com/itse-uot/itse-uot-ITSE412_Fall_2024_r24
+
+[33mcommit 77606c7f6e286a38e14e78fb4f01764fed2eff50[m
+Author: aisha-mansour <aishamasnour002@gmail.com>
+Date:   Tue Dec 31 18:19:26 2024 +0200
+
+    وظيفة المنظمات
+
+[33mcommit 0e94bd55eed362ce53afe869605bbdadeac7bb8e[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Tue Dec 31 18:16:40 2024 +0200
+
+    تعديل داش
+
+[33mcommit 13fd88dcf7e100bfda4fdfff49785f16ed4cfd70[m
+Merge: d0b8e5f 4f7a703
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Tue Dec 31 18:10:33 2024 +0200
+
+    Merge branch 'main' of https://github.com/itse-uot/itse-uot-ITSE412_Fall_2024_r24
+
+[33mcommit d0b8e5f234382fb3daa70b978fa3bdb4dfa27be5[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Tue Dec 31 18:10:30 2024 +0200
+
+    متطوعين
+
+[33mcommit 4f7a70313e904ebb14bd21439195744755ae5b90[m
+Merge: 7968585 1899889
+Author: Emad455 <arabtyemad@gmail.com>
+Date:   Tue Dec 31 17:59:57 2024 +0200
+
+    Merge branch 'main' of https://github.com/itse-uot/itse-uot-ITSE412_Fall_2024_r24
+
+[33mcommit 7968585352cafd075fb51a945a931be768466cc9[m
+Author: Emad455 <arabtyemad@gmail.com>
+Date:   Tue Dec 31 17:44:48 2024 +0200
+
+    التقييم
+
+[33mcommit 18998894c678fa040c08a0e9071473d7acc43328[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Tue Dec 31 16:44:57 2024 +0200
+
+    عرض المتطوعين
+
+[33mcommit 2150dbba7de40b32ce3f7fb1f669a4fd6efbb260[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Tue Dec 31 16:44:38 2024 +0200
+
+    قوائم البحث
+
+[33mcommit cd530bd75922548fb0374f93194878061336bfaf[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Tue Dec 31 16:36:42 2024 +0200
+
+    sdd
+
+[33mcommit d2d8a9d4f220db0c84e431cb721b230cff277435[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Tue Dec 31 14:40:36 2024 +0200
+
+    تعديل وظيفه المنظمه
+
+[33mcommit 3339694a3d71cd67f74abc001f9c0f99c4f856cd[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Tue Dec 31 06:52:21 2024 +0200
+
+    تعديل ادارة الحساب واضافةت التقيمات مع تعدي الفاعلية
+
+[33mcommit 236fa7c0050e2c5053c99032e207de9bf8d39e04[m
+Author: aisha-mansour <aishamasnour002@gmail.com>
+Date:   Tue Dec 31 03:33:43 2024 +0200
+
+    تعديل في المنظمة
+
+[33mcommit 4e2bf551fcd896175a5591f861a70c9806ebba35[m
+Merge: 4d4b23a def17d5
+Author: aisha-mansour <aishamasnour002@gmail.com>
+Date:   Tue Dec 31 03:29:25 2024 +0200
+
+    Merge branch 'main' of https://github.com/itse-uot/itse-uot-ITSE412_Fall_2024_r24
+
+[33mcommit 4d4b23af6f40a538462994967f168228be95bd14[m
+Author: aisha-mansour <aishamasnour002@gmail.com>
+Date:   Tue Dec 31 03:27:33 2024 +0200
+
+    وظيفة المنظمة
+
+[33mcommit def17d5c74a626bf1434539f3ad459c85ab8051b[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Tue Dec 31 02:59:48 2024 +0200
+
+    اداره الحسابات
+
+[33mcommit 988dcc49e322e0df7001ef028c2716df4b22b20d[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Tue Dec 31 02:59:29 2024 +0200
+
+    متطوعين
+
+[33mcommit 118b8b75fae21c9c128ae062af1f5c88f59101e9[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Tue Dec 31 01:01:33 2024 +0200
+
+    عرض الفاعاليات
+
+[33mcommit dbd84aa3bd8520c7f87e1faebb0e5721ebb0f786[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Tue Dec 31 00:44:27 2024 +0200
+
+    قائمه انضمام متطوعين الفاعاليه
+
+[33mcommit 72c3a86cc5ba9682266e839a27e7573aaf6f2316[m
+Merge: bcc5922 832c110
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Mon Dec 30 21:48:13 2024 +0200
+
+    Merge branch 'main' of https://github.com/itse-uot/itse-uot-ITSE412_Fall_2024_r24
+
+[33mcommit bcc592229ea17c8716b47ef8fd17810cc19b1016[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Mon Dec 30 21:47:57 2024 +0200
+
+    وظيفيه المتطوعين
+
+[33mcommit 832c110fa3258a463effc51e5535271344091a9e[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Mon Dec 30 20:48:02 2024 +0200
+
+    حدف زر غير مهم
+
+[33mcommit 72aba86f96eb8662e99f649a2b1634a5afc70adf[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Mon Dec 30 20:40:35 2024 +0200
+
+    تعديل عناوين المنظمات
+
+[33mcommit 211942b73a4f705853eef4c4b2b96a08c28e56ab[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Mon Dec 30 20:27:34 2024 +0200
+
+    تعديل التنقل بين المنظمة و المتطوع
+
+[33mcommit 3106c35af6b4a494bea3aa792f0a59dbc99b324e[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Mon Dec 30 20:07:50 2024 +0200
+
+    اضافة انشاء منظمة وطريقة الانتقال بينها وبين الحساب
+
+[33mcommit 3fca87cdc4f2e307b6cb88d0eeea2f10f7ee2e4b[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Mon Dec 30 17:59:11 2024 +0200
+
+    تغير الاسماء
+
+[33mcommit 79fb13106271da77fc5a9911a82af3c2becbf601[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Mon Dec 30 17:54:44 2024 +0200
+
+    تعديل البيانات اخاصة بالحساب في المتطوع
+
+[33mcommit 773010349a1ee0f8f3cebfa28f5a11450b900848[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Mon Dec 30 17:30:24 2024 +0200
+
+    تعديل الهدر  في صفحة المتطوع
+
+[33mcommit 7b6ae1dcaf2b2c3915ee2e1d2c4132f6ed611635[m
+Merge: 5addfed 7562ebb
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Mon Dec 30 17:23:57 2024 +0200
+
+    Merge branch 'main' of https://github.com/itse-uot/itse-uot-ITSE412_Fall_2024_r24
+
+[33mcommit 5addfeda76210043cdfb3c76046cb6c0fdfca1a1[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Mon Dec 30 17:23:20 2024 +0200
+
+    تعديل الهدر
+
+[33mcommit 7562ebb18f0adf924a88378b727a62d2a0a4cc11[m
+Merge: ecf9b78 3bc2a8d
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Sun Dec 29 23:04:22 2024 +0200
+
+    Merge branch 'main' of https://github.com/itse-uot/itse-uot-ITSE412_Fall_2024_r24
+
+[33mcommit ecf9b7801f8e85bce5fb0cf03cb0ab8357b8043a[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Sun Dec 29 23:03:58 2024 +0200
+
+    test
+
+[33mcommit 3bc2a8d04802939e11fc5d3bda05e90a8f232d32[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Sun Dec 29 18:28:02 2024 +0200
+
+    أدارة الطلبات في المنظمة
+
+[33mcommit dad7eba6e9d32fb70720d57e0e6edf5be422e80b[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Sun Dec 29 04:03:34 2024 +0200
+
+    إدارة الطلبات
+
+[33mcommit 3ecf3b24bc40e9b31db0e1e8c8adfb4ee78672da[m
+Merge: 60d9721 bee4a7c
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Sun Dec 29 00:22:55 2024 +0200
+
+    Merge branch 'main' of https://github.com/itse-uot/itse-uot-ITSE412_Fall_2024_r24
+
+[33mcommit 60d9721396b3b7b2cb68f916908fc2d63b8c90f7[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Sun Dec 29 00:22:40 2024 +0200
+
+    ملف المنظمة
+
+[33mcommit bee4a7cad0a89fe444baca3538bd52ebd1c8d240[m
+Author: aisha-mansour <aishamasnour002@gmail.com>
+Date:   Sat Dec 28 23:37:52 2024 +0200
+
+    تعديل الوثيقة
+
+[33mcommit 9cbef7bba276754045da015fe7efd1c587ac76d8[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Sat Dec 28 23:22:54 2024 +0200
+
+    div for events
+
+[33mcommit 0b6f79053bc67d94106c44c0d1bd14c9e8f9e051[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Sat Dec 28 19:17:54 2024 +0200
+
+    اضافة صفحة التسجل وتسجل الدخول
+
+[33mcommit 9bbcfb085005e86312d57219b2a4d89bfe95c949[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Sat Dec 28 18:31:43 2024 +0200
+
+    اشعارات
+
+[33mcommit 93804d82eeb768c017cf670d85234b9034cf4fab[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Sat Dec 28 17:57:00 2024 +0200
+
+    ازاله الملف
+
+[33mcommit 7bad902a6367d70a287e04733f7b88f3dee264aa[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Sat Dec 28 17:07:06 2024 +0200
+
+    تعديلات
+
+[33mcommit eaeda1125d559eafe2d884465786063e18e01a96[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Sat Dec 28 12:58:57 2024 +0200
+
+    متطوعين
+
+[33mcommit 2756621b7091c908a68e6a2e5f54187937a84ecb[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Fri Dec 27 22:40:15 2024 +0200
+
+    اداره المتطوعين
+
+[33mcommit d4e854e6b48af64f0c678082507cb3312845ef19[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Thu Dec 26 19:00:50 2024 +0200
+
+    تعريب
+
+[33mcommit 0537b3c10faf3d35bb96c3e9a7a9c08d398d0f54[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Wed Dec 25 23:55:44 2024 +0200
+
+    وظيفه المتطوعين
+
+[33mcommit 52114af602dc065f0d1a10024d28152a822b60e4[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Wed Dec 25 21:08:40 2024 +0200
+
+    الغاء كوبي رايت
+
+[33mcommit 30db8f1ca6e4e119b076203bf8b1683a7ff19abc[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Wed Dec 25 19:28:02 2024 +0200
+
+    add design code
+
+[33mcommit 4732ec2c42462321947f0be7ae67807ec1c1e607[m
+Author: احمد الامين عيسى الشريف <69258909+2211849499@users.noreply.github.com>
+Date:   Wed Dec 25 18:46:00 2024 +0200
+
+    Create design
+
+[33mcommit f995e45f8671ccdc11a791b8cdbe45aa177c92ef[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Sun Dec 15 01:55:46 2024 +0200
+
+    edit
+
+[33mcommit e259996260c7aade0b2ed34892e4db87c2d3ec13[m
+Author: aisha-mansour <aishamasnour002@gmail.com>
+Date:   Sun Dec 15 01:26:51 2024 +0200
+
+    تعديل
+
+[33mcommit 85b9840d423bf352e29785adf9a03f5ef8897c2b[m
+Author: aisha-mansour <aishamasnour002@gmail.com>
+Date:   Sun Dec 15 01:16:16 2024 +0200
+
+    تعديل تنسيق الوثيقة
+
+[33mcommit 82d1133953d02865683d5fe826cf5fcc1dd8e71b[m
+Author: Emad455 <arabtyemad@gmail.com>
+Date:   Sat Dec 14 22:48:03 2024 +0200
+
+    الوظائف الغير وظيفية
+
+[33mcommit 329f0d5768da94b2e4a76a1b4a9a5c8e92ad4a8b[m
+Author: Emad455 <arabtyemad@gmail.com>
+Date:   Sat Dec 14 21:59:45 2024 +0200
+
+    وظيفة التقييم والمراجعات
+
+[33mcommit acf5d788eac747ff1c4816a91bc8b3c97e213a0f[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Sat Dec 14 18:29:54 2024 +0200
+
+    test
+
+[33mcommit 914b866cdd7f50c9d5998c2afc7cb402454d76d7[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Sat Dec 14 17:19:39 2024 +0200
+
+    اسلوب الكتابه
+
+[33mcommit f9b1db3413f2241af7836ff3094668d89961a282[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Sat Dec 14 16:15:33 2024 +0200
+
+    add name and Business Rules
+
+[33mcommit d33a772a95c74cfd17ff9b3c0c310d6fd3b098cc[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Sat Dec 14 02:21:34 2024 +0200
+
+    Add Software Interfaces and Communications Interfaces
+
+[33mcommit 27ba86fc1a4809884a85b02be2c29f47c4cf466f[m
+Author: 2181806626 <Amola0011@gmail.com>
+Date:   Sat Dec 14 01:58:48 2024 +0200
+
+    وظيفة ادارة الفعاليات
+
+[33mcommit c561d40d89bdece528ea0037697deaba2e893dd4[m
+Author: 2181806626 <Amola0011@gmail.com>
+Date:   Sat Dec 14 01:56:05 2024 +0200
+
+    واجهات الكيان المادي
+
+[33mcommit 7c1f05c1a7fed0290910040ba055140844a01d7e[m
+Author: 2181806626 <Amola0011@gmail.com>
+Date:   Sat Dec 14 01:49:45 2024 +0200
+
+    الوصف العام
+
+[33mcommit 0b83e62d87d92a932938f706e62ced54bd7d1c57[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Sat Dec 14 01:21:32 2024 +0200
+
+    Add Application and Acceptance
+
+[33mcommit 0db76978e0819ac32ffcff17fce1d83adb971e2a[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Sat Dec 14 00:16:27 2024 +0200
+
+    نطاق المنتج
+
+[33mcommit 7623c5dc4b87d89407ee8c365a4ae81ef17a5717[m
+Author: احمد الامين عيسى الشريف <69258909+2211849499@users.noreply.github.com>
+Date:   Sat Dec 14 00:03:59 2024 +0200
+
+    Delete SDD/test sharef
+    
+    test
+
+[33mcommit ed780f95c3c646f2729694bbcea23bdf2a8b5521[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Fri Dec 13 19:41:50 2024 +0200
+
+    add Intended Audience and Reading Suggestions
+
+[33mcommit b941e2bc01ff5239f1db0ea716ca321017550d53[m
+Author: aisha-mansour <aishamansour002@gmail.com>
+Date:   Fri Dec 13 18:32:41 2024 +0200
+
+    وظيفة ادارة المنظمات
+
+[33mcommit 78ac26e61edda337996bc8b918e00c42f0357b86[m
+Author: aisha-mansour <aishamansour002@gmail.com>
+Date:   Fri Dec 13 18:30:15 2024 +0200
+
+    واجهات الاستخدام
+
+[33mcommit 089fa30a1a7563b7d2e3dc005136bb8853aa2d48[m
+Author: aisha-mansour <aishamansour002@gmail.com>
+Date:   Fri Dec 13 18:27:46 2024 +0200
+
+    الفرضيات والاعتمادية
+
+[33mcommit c31c6f4f76558cbc4802b0dddeaf2d379e236126[m
+Author: aisha-mansour <aishamansour002@gmail.com>
+Date:   Fri Dec 13 18:23:35 2024 +0200
+
+    اضافة وثائق المستخدم
+
+[33mcommit ee078974ca27f9c048253075910079cbe6070e42[m
+Author: aisha-mansour <aishamansour002@gmail.com>
+Date:   Fri Dec 13 18:12:17 2024 +0200
+
+    اضافة قيود التصميم والتنفيذ
+
+[33mcommit 234aa14625ff33c2bbe17054865021648c47612c[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Fri Dec 13 15:50:44 2024 +0200
+
+    do
+
+[33mcommit d246b221101dfbfd54ee7a162e8dc9fc7acd2f71[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Fri Dec 13 15:42:17 2024 +0200
+
+    undo
+
+[33mcommit 8874eecd1e7e6283c808434270e1d15243264013[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Fri Dec 13 15:24:31 2024 +0200
+
+    boould
+
+[33mcommit f31c25ee57af39a28c96b1e7c64a492e08392b3c[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Fri Dec 13 15:13:17 2024 +0200
+
+    اضافه وظيفه ادارة المتطوعين
+
+[33mcommit 21c7e51c160a2c52f683fd6241a8ed5a5f4f89a6[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Fri Dec 13 14:11:13 2024 +0200
+
+    add account management function
+
+[33mcommit 30fe985394bbd2745ee7d970856ef0b531ed51cd[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Fri Dec 13 01:35:04 2024 +0200
+
+    add functional titles
+
+[33mcommit f05390057c973f50a4acb11838ceade90ae76dbe[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Thu Dec 12 23:28:59 2024 +0200
+
+    الغرض من الوثيقه
+
+[33mcommit dce3ac92379ade6c9cadea175967bca98f5d7f66[m
+Merge: 925e77d 387b5bd
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Thu Dec 12 23:19:39 2024 +0200
+
+    الغاء
+
+[33mcommit 925e77db31879d40130082131d7f89cf90551f82[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Thu Dec 12 22:33:45 2024 +0200
+
+    not
+
+[33mcommit edc0a3da20c22b382a957d80363365227a8144a5[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Thu Dec 12 22:32:34 2024 +0200
+
+    add1
+
+[33mcommit 387b5bdbbdc889183a493a6bb7aa451133b116e2[m
+Author: Hasan Abouminyar <among.00.12@gmail.com>
+Date:   Thu Dec 12 20:56:51 2024 +0200
+
+    SRS add references
+
+[33mcommit 04e9501b53b68c26cfa69c7aab0262c2cbaf0542[m
+Author: ahmed <sharefahmed005@gmail.com>
+Date:   Thu Dec 12 19:29:54 2024 +0200
+
+    test
+
+[33mcommit 9f496ee7daabfbb80b2a18fbf97d3ee1eeccdd47[m
+Author: Abdusalam Nwesri <a.nwesri@uot.edu.ly>
+Date:   Wed Dec 4 03:34:33 2024 +0200
+
+    SRS added by Nwesri
+
+[33mcommit 0199f2f11d1cf49e62b4afb5b44c7a98728bc939[m
+Author: عبدالسلام النويصري <a.nwesri@uot.edu.ly>
+Date:   Wed Nov 13 16:07:48 2024 +0200
+
+    Initial commit
