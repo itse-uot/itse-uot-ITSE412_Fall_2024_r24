@@ -17,8 +17,8 @@
     
     <li class="nav-item">
       <a class="nav-link " href="request.php">
+      <i class="bi bi-arrow-right-square"></i>
         <span>الطلبات المرسلة </span>
-        <i class="bi bi-arrow-right-square"></i>
       </a>
     </li>
     
