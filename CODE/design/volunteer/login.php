@@ -1,30 +1,31 @@
 <!DOCTYPE html>
+<html lang="ar">
 
 <?php
-  include "head.php";
+  include "head.php"; // تضمين الرأس
 ?>
 
 <body>
-<!-- الصفحة الرئيسية -->
-<main>
+  <!-- الصفحة الرئيسية -->
+  <main>
     <div class="container">
-
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <!-- الشعار -->
-              <div class="d-flex justify-content-center py-4">
-                <a href="index.php" class="logo d-flex align-items-center w-auto">
-                  <img src="assets/img/logo.png" alt="شعار الموقع">
-                  <span class="d-none d-lg-block">منصة التطوع</span>
+              <div class="mb-3 text-center">
+                <a href="index.php" class="logo d-flex align-items-center justify-content-center">
+                  <!-- الأيقونة -->
+                  <i class="bx bxs-circle fs-3 text-primary me-2"></i> <!-- الأيقونة -->
+                  <span class="fs-4 fw-bold text-dark">Tatawoe</span> <!-- النص -->
                 </a>
-              </div><!-- نهاية الشعار -->
+              </div>
+              <!-- نهاية الشعار -->
 
               <!-- البطاقة -->
               <div class="card mb-3">
-
                 <div class="card-body">
 
                   <!-- عنوان القسم -->
@@ -84,17 +85,14 @@
             </div>
           </div>
         </div>
-
       </section>
-
     </div>
-
   </main>
 
   <?php
- include "footer.php";
- include "tail.php";
- ?>
+    include "footer.php"; // تضمين التذييل
+    include "tail.php";   // تضمين نهاية الصفحة
+  ?>
 
 </body>
 

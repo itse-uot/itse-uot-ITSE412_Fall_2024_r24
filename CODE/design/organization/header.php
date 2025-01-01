@@ -1,31 +1,31 @@
 <header id="header" class="header fixed-top d-flex align-items-center" dir="rtl">
 
   <div class="d-flex align-items-center justify-content-between">
+    <!-- الشعار -->
     <a href="index.html" class="logo d-flex align-items-center">
-      <img src="assets/img/logo.png" alt="شعار">
-      <span class="d-none d-lg-block">NiceAdmin</span>
+      <i class="bx bxs-circle fs-3 text-primary me-2"></i> <!-- الأيقونة -->
+      <span class="d-none d-lg-block fs-4 fw-bold text-dark">Tatawoe</span> <!-- النص -->
     </a>
-    <i class="bi bi-list toggle-sidebar-btn"></i>
+    <!-- زر القائمة -->
+    <i class="bi bi-list toggle-sidebar-btn fs-3 text-dark"></i>
   </div><!-- Logo -->
 
+
+
   <div class="search-bar">
-    <form class="search-form d-flex align-items-center" method="POST" action="#">
-      <input type="text" name="query" placeholder="بحث" title="أدخل كلمة البحث">
-      <button type="submit" title="بحث"><i class="bi bi-search"></i></button>
+    <form class="search-form d-flex align-items-center" method="POST" action="search.php">
+      <input type="text" name="query" placeholder="بحث" title="أدخل كلمة البحث" class="form-control me-2">
+      <button type="submit" title="بحث" class="btn btn-primary">
+        <i class="bi bi-search"></i>
+      </button>
     </form>
-  </div><!-- شريط البحث -->
+  </div>
+  <!-- شريط البحث -->
+
+  <!-- شريط البحث -->
   <!-- Example single danger button -->
   <!-- زر القائمة المنسدلة -->
-  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    تحديد
-  </button>
 
-  <!-- القائمة المنسدلة -->
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">الفاعاليات</a>
-    <a class="dropdown-item" href="#">المتطوعين</a>
-    <a class="dropdown-item" href="#">المنظمات</a>
-  </div>
 
 
   <nav class="header-nav ms-auto">
@@ -40,22 +40,23 @@
 
       <li class="nav-item dropdown pe-3">
 
-        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="assets/img/profile-img.jpg" alt="الملف الشخصي" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle ps-2">كيفن أندرسون</span>
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <img src="assets/img/prof.jpeg" alt="الملف الشخصي" class="rounded-circle">
+          <span class="d-none d-md-block dropdown-toggle ps-2">منظمة الامل الخيريه</span>
         </a><!-- أيقونة الملف الشخصي -->
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="left: auto; right: 0;">
           <li class="dropdown-header">
-            <h6>منظمه الامن الخيريه</h6>
-            <span>منظمه</span>
+            <h6>كيفن أندرسون</h6>
+            <span>مصمم ويب</span>
           </li>
           <li>
             <hr class="dropdown-divider">
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="volunteer_profile.php">
+            <a class="dropdown-item d-flex align-items-center" href="organization_profile.php">
               <i class="bi bi-person"></i>
               <span>ملفي الشخصي</span>
             </a>
@@ -73,14 +74,6 @@
           <li>
             <hr class="dropdown-divider">
           </li>
-
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="login.php">
-              <i class="bi bi-box-arrow-right"></i>
-              <span>تسجيل الخروج</span>
-            </a>
-          </li>
-
         </ul><!-- قائمة الملف الشخصي -->
       </li><!-- الملف الشخصي -->
 

@@ -25,7 +25,7 @@
       <img src="assets/img/profile-img.jpg" alt="Volunteer Profile Picture" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
       <div>
         <h5 class="card-title mb-0">
-          <a href="volunteer_profileView-for-other.php" class="text-decoration-none text-dark">اسم المتطوع</a>
+          <a href="volunteer_profileView-for-other.php" class="text-decoration-none text-dark">كيفن اندرسون</a>
         </h5>
         <p class="mb-0 text-muted">البريد الإلكتروني: volunteer@example.com</p>
       </div>
@@ -42,10 +42,10 @@
             <img src="assets/img/prof.jpeg" alt="Organization Logo" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
               <div>
                 <h5 class="card-title mb-0">
-                  <a href="organization_profileView-for-other.php" class="text-decoration-none text-dark">اسم المنظمة</a>
+                  <a href="organization_profileView-for-other.php" class="text-decoration-none text-dark">منظمة الأمل الخيرية</a>
                 </h5>
-                <p class="mb-0 text-muted">المجال: التعليم</p>
-                <p class="mb-0 text-muted">الموقع: طرابلس، ليبيا</p>
+                <p class="mb-0 text-muted">المجال: الرعاية الصحية</p>
+                <p class="mb-0 text-muted">الموقع: شارع الأمل، طرابلس، ليبيا</p>
               </div>
             </div>
          </div>
