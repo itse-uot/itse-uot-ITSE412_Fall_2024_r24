@@ -48,8 +48,8 @@
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="left: auto; right: 0;">
           <li class="dropdown-header">
-            <h6>كيفن أندرسون</h6>
-            <span>مصمم ويب</span>
+            <h6>منظمه الامن الخيريه</h6>
+            <span>منظمه</span>
           </li>
           <li>
             <hr class="dropdown-divider">
