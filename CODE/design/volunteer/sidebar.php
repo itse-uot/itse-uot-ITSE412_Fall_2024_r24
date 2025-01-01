@@ -14,36 +14,14 @@
         <span>ادارة الحساب</span>
       </a>
     </li>
-    <!-- <li class="nav-item">
-      <a class="nav-link " href="volunteer.php">
-        <i class="bi bi-person-lines-fill"></i>
-        <span> ادارة المتطوعين</span>
-      </a> -->
-    <!-- </li>
-    <li class="nav-item">
-      <a class="nav-link " href="organization.php">
-        <i class="bi bi-grid"></i>
-        <span>ادارة المنظمات</span>
-      </a>
-    </li> -->
-    <!-- <li class="nav-item">
-      <a class="nav-link " href="event.php">
-        <i class="bi bi-grid"></i>
-        <span> ادارة الفاعاليات</span>
-      </a>
-    </li> -->
+    
     <li class="nav-item">
       <a class="nav-link " href="request.php">
         <span>الطلبات المرسلة </span>
         <i class="bi bi-arrow-right-square"></i>
       </a>
     </li>
-    <!-- <li class="nav-item">
-      <a class="nav-link " href="evaluation.php">
-        <i class="bi bi-grid"></i>
-        <span>وظيفة التقييم</span>
-      </a>
-    </li> -->
+    
   </ul>
 
 </aside><!-- End Sidebar-->
