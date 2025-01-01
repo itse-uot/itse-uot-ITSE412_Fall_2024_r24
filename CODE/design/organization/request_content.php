@@ -8,35 +8,49 @@
       <!-- Bordered Tabs -->
       <ul class="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#bordered-home" type="button" role="tab" aria-controls="home" aria-selected="true">الطلبات المقدمة</button>
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#bordered-home"
+            type="button" role="tab" aria-controls="home" aria-selected="true">الطلبات المقدمة</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#bordered-profile" type="button" role="tab" aria-controls="profile" aria-selected="false" tabindex="-1">الطلبات المقبولة</button>
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#bordered-profile"
+            type="button" role="tab" aria-controls="profile" aria-selected="false" tabindex="-1">الطلبات
+            المقبولة</button>
         </li>
       </ul>
 
       <div class="tab-content pt-2" id="borderedTabContent">
         <div class="tab-pane fade active show" id="bordered-home" role="tabpanel" aria-labelledby="home-tab">
 
-          <!-- طلب الصداقة -->
-          <div class="card w-100">
-            <div class="card-body d-flex align-items-center justify-content-between" style="width: 100%;">
-              <!-- الصورة والنص -->
-              <div class="d-flex align-items-center" style="gap: 50px; width: 100%;">
-                <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+          <!-- طلب التطوع -->
+
+          <div class="card w-100 mb-3 py-2">
+            <div class="card-body d-flex justify-content-between align-items-center">
+              <!-- معلومات المستخدم -->
+              <div class="d-flex align-items-center gap-3">
+                <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle"
+                  style="width: 50px; height: 50px; object-fit: cover;">
                 <div>
                   <h5 class="card-title mb-0">المستخدم</h5>
-                  <p class="mb-0">user@gmail.com</p>
+                  <small style="color: #6c757d;">user@gmail.com</small> <!-- لون النص الرمادي -->
                 </div>
               </div>
 
-              <!-- الأزرار -->
-              <div style="flex: 0 0 auto; display: flex; gap: 10px;">
-                <button type="button" class="btn btn-primary">قبول</button>
-                <button type="button" class="btn btn-danger">رفض</button>
+              <!-- معلومات الفعالية -->
+              <div class="text-end">
+                <small class="d-block" style="font-size: 14px; color: #495057;"><strong>فعالية:</strong> اليوم
+                  المفتوح</small>
+                <small class="d-block" style="font-size: 14px; color: #6c757d;"><strong>الموقع:</strong> المدينة
+                  الجامعية</small>
+              </div>
+
+              <!-- أزرار التحكم -->
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-sm btn-primary">قبول</button>
+                <button type="button" class="btn btn-sm btn-danger">رفض</button>
               </div>
             </div>
           </div>
+
         </div>
 
         <!-- الطلبات المقبولة -->
@@ -47,10 +61,13 @@
               <p>يوم مفتوح للمشاركة في أنشطة اجتماعية وتعليمية متنوعة</p>
 
               <ul class="nav-item">
-                <a class="nav-link" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#" aria-expanded="true">
-                  <i class="bi bi-layout-text-window-reverse"></i><span> عرض </span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#"
+                  aria-expanded="true">
+                  <i class="bi bi-layout-text-window-reverse"></i><span> عرض </span><i
+                    class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <li id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav" style="list-style-type: none;">
+                <li id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav"
+                  style="list-style-type: none;">
                   <div class="card">
                     <div class="card-body">
                       <h5 class="card-title">المتطوعين</h5>
@@ -98,10 +115,13 @@
               <p>يوم تطوعي لزراعة الأشجار وتشجيع الحفاظ على البيئة.</p>
 
               <ul class="nav-item">
-                <a class="nav-link" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#" aria-expanded="true">
-                  <i class="bi bi-layout-text-window-reverse"></i><span> عرض </span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#"
+                  aria-expanded="true">
+                  <i class="bi bi-layout-text-window-reverse"></i><span> عرض </span><i
+                    class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <li id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav" style="list-style-type: none;">
+                <li id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav"
+                  style="list-style-type: none;">
                   <div class="card">
                     <div class="card-body">
                       <h5 class="card-title">المتطوعين</h5>
