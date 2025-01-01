@@ -10,7 +10,7 @@
         <div class="card">
           <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <h2>الاسم</h2>
+            <h2>كيفن اندرسون</h2>
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@
                 <h5 class="card-title">تفاصيل الملف الشخصي</h5>
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">الاسم الكامل</div>
-                  <div class="col-lg-9 col-md-8">احمد الشريف</div>
+                  <div class="col-lg-9 col-md-8">كيفن اندرسون</div>
                 </div>
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">رقم الهاتف</div>
@@ -61,7 +61,7 @@
                   <div class="row mb-3">
                     <label for="fullName" class="col-md-4 col-lg-3 col-form-label">الاسم الكامل</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="fullName" type="text" class="form-control" id="fullName" value="احمد الشريف">
+                      <input name="fullName" type="text" class="form-control" id="fullName" value="كيفن اندرسون">
                     </div>
                   </div>
                   <div class="row mb-3">

@@ -42,8 +42,8 @@
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"
           aria-expanded="false">
-          <img src="assets/img/profile-img.jpg" alt="الملف الشخصي" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle ps-2">كيفن أندرسون</span>
+          <img src="assets/img/prof.jpeg" alt="الملف الشخصي" class="rounded-circle">
+          <span class="d-none d-md-block dropdown-toggle ps-2">منظمة الامل الخيريه</span>
         </a><!-- أيقونة الملف الشخصي -->
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="left: auto; right: 0;">
@@ -74,14 +74,6 @@
           <li>
             <hr class="dropdown-divider">
           </li>
-
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="login.php">
-              <i class="bi bi-box-arrow-right"></i>
-              <span>تسجيل الخروج</span>
-            </a>
-          </li>
-
         </ul><!-- قائمة الملف الشخصي -->
       </li><!-- الملف الشخصي -->
 

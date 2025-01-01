@@ -41,7 +41,7 @@
       </div>
 
       <!-- العمود الجانبي للملف الشخصي -->
-      <div class="col-md-3 order-md-2">
+      <!-- <div class="col-md-3 order-md-2">
         <div class="card mb-4">
           <div class="card-body text-center">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle mb-3" style="width: 80px; height: 80px;">
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Modal لإضافة التقييم -->
   <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">

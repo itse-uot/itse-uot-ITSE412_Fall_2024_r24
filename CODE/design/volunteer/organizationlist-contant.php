@@ -25,10 +25,10 @@
           <div class="card-body d-flex align-items-center justify-content-between" style="width: 100%;">
            <!-- الصورة والنص -->
             <div class="d-flex align-items-center" style="gap: 20px; width: 100%;">
-            <img src="assets/img/profile-img.jpg" alt="Organization Logo" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+            <img src="assets/img/prof.jpeg" alt="Organization Logo" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
               <div>
                 <h5 class="card-title mb-0">
-                  <a href="../organization/dashboard.php" class="text-decoration-none text-dark">اسم المنظمة</a>
+                  <a href="../organization/dashboard.php" class="text-decoration-none text-dark">منظمه الامن الخيريه</a>
                 </h5>
                 <p class="mb-0 text-muted">المجال: التعليم</p>
                 <p class="mb-0 text-muted">الموقع: طرابلس، ليبيا</p>
