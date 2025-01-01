@@ -5,7 +5,7 @@
   <li class="nav-item">
       <a class="nav-link " href="dashboard.php">
         <i class="bi bi-grid"></i>
-        <span>dash</span>
+        <span>القائمه الرئيسية</span>
       </a>
 
     
