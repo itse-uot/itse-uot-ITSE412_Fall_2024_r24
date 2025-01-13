@@ -9,5 +9,11 @@
     <!-- Licensing information: https://bootstrapmade.com/license/ -->
     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
   
+      <div class="credits">
+                <!-- إضافة حقوق منصة التطوع -->
+                جميع الحقوق محفوظة © 2024 <a href="#">منصة التطوع</a>
+              </div>
+  
+  </div>
   </div>
 </footer><!-- End Footer -->
