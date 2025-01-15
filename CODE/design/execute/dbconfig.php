@@ -14,7 +14,7 @@ try {
     
     // تعيين وضع الخطأ ليكون استثناء (Exception) لتسهيل التعامل مع الأخطاء
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
+    $conn->exec("USE $dbname");
     // تعيين ترميز الأحرف إلى UTF-8 لضمان التعامل الصحيح مع اللغة العربية
     $conn->exec("SET NAMES 'utf8'");
     
