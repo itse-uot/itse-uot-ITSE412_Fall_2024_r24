@@ -1,5 +1,5 @@
 <?php
-include '../dbconfig.php'; // تضمين ملف الاتصال بقاعدة البيانات
+include 'dbconfig.php'; // تضمين ملف الاتصال بقاعدة البيانات
 
 // تحقق إذا تم إرسال الطلب
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

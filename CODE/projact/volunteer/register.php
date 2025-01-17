@@ -1,14 +1,14 @@
 <!DOCTYPE html>
+<html lang="ar">
 
 <?php
-include "head.php";
+include "head.php"; // تضمين الرأس
 ?>
 
 <body>
   <!-- الصفحة الرئيسية -->
   <main>
     <div class="container">
-
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
           <div class="row justify-content-center">
@@ -26,7 +26,6 @@ include "head.php";
 
               <!-- البطاقة -->
               <div class="card mb-3">
-
                 <div class="card-body">
 
                   <!-- عنوان القسم -->
@@ -35,28 +34,38 @@ include "head.php";
                     <p class="text-center small">يرجى إدخال البيانات لإنشاء حسابك</p>
                   </div>
 
-                  <!-- نموذج التسجيل -->
-                  <form class="row g-3 needs-validation" action="welcome.php" method="POST" novalidate="">
+                  <!-- رسالة الخطأ -->
+                  <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+                    <!-- سيتم عرض رسالة الخطأ هنا -->
+                  </div>
 
-                    <!-- حقل اسم المستخدم الأول -->
+                  <!-- رسالة النجاح -->
+                  <div id="successMessage" class="alert alert-success d-none" role="alert">
+                    <!-- سيتم عرض رسالة النجاح هنا -->
+                  </div>
+
+                  <!-- نموذج التسجيل -->
+                  <form id="registerForm" class="row g-3 needs-validation" novalidate="">
+
+                    <!-- حقل اسم المستخدم -->
                     <div class="col-12">
-                      <label for="yourFirstName" class="form-label">اسم المستخدم</label>
-                      <input type="text" name="first_name" class="form-control" id="yourFirstName" required="">
-                      <div class="invalid-feedback">يرجى إدخال اسم المستخدم الأول.</div>
+                      <label for="yourUsername" class="form-label">اسم المستخدم</label>
+                      <input type="text" name="username" class="form-control" id="yourUsername" required>
+                      <div class="invalid-feedback">يرجى إدخال اسم المستخدم.</div>
                     </div>
 
                     <!-- حقل البريد الإلكتروني -->
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">البريد الإلكتروني</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" required="">
+                      <input type="email" name="email" class="form-control" id="yourEmail" required>
                       <div class="invalid-feedback">يرجى إدخال بريد إلكتروني صحيح.</div>
                     </div>
 
                     <!-- حقل كلمة المرور -->
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">كلمة المرور</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required="">
-                      <div class="invalid-feedback">يرجى إدخال كلمة المرور!</div>
+                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <div class="invalid-feedback">كلمة المرور يجب أن تحتوي على 8 أحرف على الأقل وتحتوي على أرقام وحروف إنجليزية.</div>
                     </div>
 
                     <!-- زر إنشاء الحساب -->
@@ -82,18 +91,17 @@ include "head.php";
             </div>
           </div>
         </div>
-
       </section>
-
     </div>
-
   </main>
 
   <?php
-  include "footer.php";
-  include "tail.php";
+  include "footer.php"; // تضمين التذييل
+  include "tail.php";   // تضمين نهاية الصفحة
   ?>
 
+  <!-- تضمين ملف JavaScript -->
+  <script src="../assets/js/register.js"></script>
 </body>
 
 </html>

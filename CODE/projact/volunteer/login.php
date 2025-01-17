@@ -89,7 +89,7 @@ include "head.php"; // تضمين الرأس
   ?>
 
   <!-- تضمين ملف JavaScript -->
-  <script src="assets/js/login.js"></script>
+  <script src="../assets/js/login.js"></script>
 </body>
 
 </html>
