@@ -13,13 +13,13 @@
 
 
   <div class="search-bar">
-    <form class="search-form d-flex align-items-center" method="POST" action="search.php">
-      <input type="text" name="query" placeholder="بحث" title="أدخل كلمة البحث" class="form-control me-2">
-      <button type="submit" title="بحث" class="btn btn-primary">
-        <i class="bi bi-search"></i>
-      </button>
-    </form>
-  </div>
+  <form class="search-form d-flex align-items-center" id="searchForm" method="POST">
+    <input type="text" name="query" id="searchQuery" placeholder="بحث" title="أدخل كلمة البحث" class="form-control me-2">
+    <button type="button" title="بحث" class="btn btn-primary" id="searchButton">
+      <i class="bi bi-search"></i>
+    </button>
+  </form>
+</div>
   <!-- شريط البحث -->
 
   <!-- شريط البحث -->
@@ -48,7 +48,7 @@
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="left: auto; right: 0;">
           <li class="dropdown-header">
-            <h6>منظمه  الامن الخيريه</h6>
+            <h6>منظمه الامن الخيريه</h6>
             <span>منظمه</span>
           </li>
           <li>
