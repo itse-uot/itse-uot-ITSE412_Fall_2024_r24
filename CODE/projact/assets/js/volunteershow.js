@@ -5,7 +5,7 @@ $(document).ready(function () {
     function loadProfileData() {
         $.ajax({
             type: 'POST',
-            url: '../execute/get_volunteer_data.php',
+            url: '../../execute/get_volunteer_data.php',
             data: { action: 'get_data', volunteerId: volunteerId },
             dataType: 'json',
             success: function (response) {
