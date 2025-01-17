@@ -142,7 +142,7 @@
     </div>
   </div>
 </main>
-<script>
+<!-- <script>
 $(document).ready(function () {
     var volunteerId = 1; // رقم المتطوع
 
@@ -214,4 +214,4 @@ $(document).ready(function () {
         });
     });
 });
-</script>
+</script> -->
