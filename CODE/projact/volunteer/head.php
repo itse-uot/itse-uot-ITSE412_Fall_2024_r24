@@ -11,7 +11,7 @@
   
 
   <!-- Favicons -->
-  <link href="assets/img/d.png" rel="icon">
+  <link href="../assets/img/d.png" rel="icon">
   
 
   <!-- Google Fonts -->
