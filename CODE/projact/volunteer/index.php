@@ -11,7 +11,7 @@
 <?php
  include "header.php";
  include "sidebar.php";
- include "dashboard_content.php";
+ include "dashboard.php";
  include "footer.php";
  include "tail.php";
  ?>

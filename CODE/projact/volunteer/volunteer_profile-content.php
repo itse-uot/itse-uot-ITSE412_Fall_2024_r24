@@ -10,8 +10,8 @@
       <div class="col-xl-12">
         <div class="card">
           <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle profileImage" >
-            <h2 class="fullName"></h2> <!-- هنا سيتم عرض اسم المتطوع -->
+            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" class="profileImage">
+            <h2 class="fullName">تحميل البيانات...</h2> <!-- هنا سيتم عرض اسم المتطوع -->
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">المهارات</div>
-                  <div class="col-lg-9 col-md-8 skills"></div> <!-- هنا سيتم عرض المهارات -->
+                  <div class="col-lg-9 col-md-8 skills" "></div> <!-- هنا سيتم عرض المهارات -->
                 </div>
               </div>
               <div class="tab-pane fade profile-edit pt-3" id="profile-edit" role="tabpanel">
@@ -142,7 +142,7 @@
     </div>
   </div>
 </main>
-<!-- <script>
+<script>
 $(document).ready(function () {
     var volunteerId = 1; // رقم المتطوع
 
@@ -214,4 +214,4 @@ $(document).ready(function () {
         });
     });
 });
-</script> -->
+</script>
