@@ -1,8 +1,6 @@
-// evaluation.js
-
 $(document).ready(function () {
     const eventID = $('#eventID').val(); // الحصول على eventID من النموذج
-    let isSubmitting = false; // متغير لمنع إرسال التقييم أكثر من مرة
+    let isSubmitting = false; // متغير لمنع الإرسال المتكرر
 
     // جلب التقييمات السابقة عند فتح المودال
     $('#reviewModal').on('show.bs.modal', function () {
@@ -52,7 +50,7 @@ $(document).ready(function () {
         return stars;
     }
 
-    // التفاعل مع النجوم للتقييم
+    // التفاعل مع النجوم للتقييم في مودال الإضافة
     const stars = document.querySelectorAll('#ratingStars .bi-star');
     const ratingValueInput = document.getElementById('ratingValue');
     stars.forEach((star, index) => {
@@ -72,8 +70,9 @@ $(document).ready(function () {
 
     // معالجة إرسال التقييم
     $('#reviewForm').on('submit', function (e) {
-        e.preventDefault();
-        if (isSubmitting) return; // منع إرسال التقييم أكثر من مرة
+        e.preventDefault(); // منع الإرسال الافتراضي للنموذج
+
+        if (isSubmitting) return; // منع الإرسال المتكرر
 
         const eventID = $('#eventID').val();
         const volunteerID = $('#volunteerID').val();
@@ -145,6 +144,24 @@ $(document).ready(function () {
                 star.classList.remove('bi-star-fill');
                 star.classList.add('bi-star');
             }
+        });
+    });
+
+    // التفاعل مع النجوم في مودال التعديل
+    const editStars = document.querySelectorAll('#editRatingStars .bi-star');
+    const editRatingValueInput = document.getElementById('editRatingValue');
+    editStars.forEach((star, index) => {
+        star.addEventListener('click', () => {
+            editStars.forEach((s, i) => {
+                if (i <= index) {
+                    s.classList.remove('bi-star');
+                    s.classList.add('bi-star-fill');
+                } else {
+                    s.classList.remove('bi-star-fill');
+                    s.classList.add('bi-star');
+                }
+            });
+            editRatingValueInput.value = index + 1;
         });
     });
 
