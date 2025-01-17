@@ -1,3 +1,4 @@
+
 <main id="main" class="main">
 
   <div class="pagetitle">
@@ -9,8 +10,8 @@
       <div class="col-xl-12">
         <div class="card">
           <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <h2>كيفن اندرسون</h2>
+            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" class="profileImage">
+            <h2 class="fullName">تحميل البيانات...</h2> <!-- هنا سيتم عرض اسم المتطوع -->
           </div>
         </div>
       </div>
@@ -29,64 +30,64 @@
             </ul>
             <div class="tab-content pt-2">
               <div class="tab-pane fade profile-overview show active" id="profile-overview" role="tabpanel">
-                <h5 class="card-title">المهارات</h5>
-                <p class="small fst-italic">مهارات المتطوع</p>
                 <h5 class="card-title">تفاصيل الملف الشخصي</h5>
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">الاسم الكامل</div>
-                  <div class="col-lg-9 col-md-8">كيفن اندرسون</div>
+                  <div class="col-lg-9 col-md-8 fullName" ></div> <!-- هنا سيتم عرض الاسم -->
                 </div>
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">رقم الهاتف</div>
-                  <div class="col-lg-9 col-md-8">092-00000000</div>
+                  <div class="col-lg-9 col-md-8 contactNumber" ></div> <!-- هنا سيتم عرض رقم الهاتف -->
                 </div>
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">البريد الالكتروني</div>
-                  <div class="col-lg-9 col-md-8">k.anderson@gamil.com</div>
+                  <div class="col-lg-9 col-md-8 contactEmail" ></div> <!-- هنا سيتم عرض البريد -->
+                </div>
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">المهارات</div>
+                  <div class="col-lg-9 col-md-8 skills" "></div> <!-- هنا سيتم عرض المهارات -->
                 </div>
               </div>
               <div class="tab-pane fade profile-edit pt-3" id="profile-edit" role="tabpanel">
-                <!-- Profile Edit Form -->
-                <form>
-                  <div class="row mb-3">
-                    <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">صورة الملف</label>
-                    <div class="col-md-8 col-lg-9">
-                      <img src="assets/img/profile-img.jpg" alt="Profile">
-                      <div class="pt-2">
-                        <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                        <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+              <form id="editProfileForm" enctype="multipart/form-data">
+                      <div class="row mb-3">
+                          <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">صورة الملف</label>
+                          <div class="col-md-8 col-lg-9">
+                              <img id="profileImagePreview" src="assets/img/default-profile.png" alt="Profile" class="img-fluid rounded-circle mb-2">
+                              <div class="pt-2">
+                                  <input type="file" class="form-control" name="profileImage" id="profileImage">
+                              </div>
+                          </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">الاسم الكامل</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="fullName" type="text" class="form-control" id="fullName" value="كيفن اندرسون">
-                    </div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="about" class="col-md-4 col-lg-3 col-form-label">المهارات</label>
-                    <div class="col-md-8 col-lg-9">
-                      <textarea name="about" class="form-control" id="about" style="height: 100px">مهارات المتطوع</textarea>
-                    </div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="Phone" class="col-md-4 col-lg-3 col-form-label">رقم الهاتف</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="phone" type="text" class="form-control" id="Phone" value="092-0000000">
-                    </div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">البريد الالكتروني</label>
-                    <div class="col-md-8 col-lg-9">
-                      <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
-                    </div>
-                  </div>
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-primary">حفظ التغيرات</button>
-                  </div>
-                </form><!-- End Profile Edit Form -->
-              </div>
+                      <div class="row mb-3">
+                          <label for="fullName2" class="col-md-4 col-lg-3 col-form-label">الاسم الكامل</label>
+                          <div class="col-md-8 col-lg-9">
+                              <input name="fullName2" type="text" class="form-control" id="fullName2">
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <label for="about" class="col-md-4 col-lg-3 col-form-label">المهارات</label>
+                          <div class="col-md-8 col-lg-9">
+                              <textarea name="about" class="form-control" id="about" style="height: 100px"></textarea>
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <label for="Phone" class="col-md-4 col-lg-3 col-form-label">رقم الهاتف</label>
+                          <div class="col-md-8 col-lg-9">
+                              <input name="phone" type="text" class="form-control" id="Phone">
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <label for="Email" class="col-md-4 col-lg-3 col-form-label">البريد الإلكتروني</label>
+                          <div class="col-md-8 col-lg-9">
+                              <input name="email" type="email" class="form-control" id="Email">
+                          </div>
+                      </div>
+                      <div class="text-center">
+                          <button type="submit" class="btn btn-primary">حفظ التغييرات</button>
+                      </div>
+                  </form>
+                </div>
             </div><!-- End Bordered Tabs -->
           </div>
         </div>
@@ -117,7 +118,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="col-12">
         <div class="card mb-4" style="max-width: 620px; margin: auto;"> <!-- ضبط العرض إلى 620px -->
           <!-- رأس البطاقة -->
@@ -141,3 +142,76 @@
     </div>
   </div>
 </main>
+<script>
+$(document).ready(function () {
+    var volunteerId = 1; // رقم المتطوع
+
+    // تحميل البيانات
+    function loadProfileData() {
+        $.ajax({
+            type: 'POST',
+            url: '../execute/get_volunteer_data.php',
+            data: { action: 'get_data', volunteerId: volunteerId },
+            dataType: 'json',
+            success: function (response) {
+                if (response.status === 'success') {
+                    var data = response.data;
+                    // تحديث البيانات في العرض
+                    // $('.fullNametitle').text(data.FullName); // عرض الاسم في الترويسة
+                    $('.fullName').text(data.FullName); // عرض الاسم في الحقل
+                    $('.skills').text(data.Skills); // عرض المهارات
+                    $('.contactNumber').text(data.ContactNumber); // عرض رقم الهاتف
+                    $('.contactEmail').text(data.ContactEmail); // عرض البريد
+
+                    // تحديث البيانات في حقول التعديل
+                    $('#fullName2').val(data.FullName); // وضع الاسم في حقل التعديل
+                    $('#about').val(data.Skills); // وضع المهارات في حقل التعديل
+                    $('#Phone').val(data.ContactNumber); // وضع رقم الهاتف في حقل التعديل
+                    $('#Email').val(data.ContactEmail); // وضع البريد في حقل التعديل
+
+                    // تعيين الصورة باستخدام Base64
+                    $('.profileImage').attr('src', 'data:image/png;base64,' + data.ProfilePicture);
+                    $('#profileImagePreview').attr('src', 'data:image/png;base64,' + data.ProfilePicture);
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function () {
+                alert('حدث خطأ أثناء تحميل البيانات.');
+            }
+        });
+    }
+
+    // استدعاء التحميل عند فتح الصفحة
+    loadProfileData();
+
+    // حفظ التغييرات
+    $('#editProfileForm').on('submit', function (e) {
+        e.preventDefault();
+
+        var formData = new FormData(this); // استخدام FormData لتضمين الصورة
+        formData.append('action', 'update_data');
+        formData.append('volunteerId', volunteerId);
+
+        $.ajax({
+            type: 'POST',
+            url: '../execute/update_volunteer_data.php',
+            data: formData,
+            processData: false, // لا تقم بمعالجة البيانات بشكل عادي
+            contentType: false, // لا تقم بتحديد نوع المحتوى (ليتم التعامل مع الـ FormData بشكل صحيح)
+            dataType: 'json',
+            success: function (response) {
+                if (response.status === 'success') {
+                    alert(response.message);
+                    loadProfileData(); // تحديث البيانات في الحقول
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function () {
+                alert('حدث خطأ أثناء حفظ التغييرات.');
+            }
+        });
+    });
+});
+</script>
