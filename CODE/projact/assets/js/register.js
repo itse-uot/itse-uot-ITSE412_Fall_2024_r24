@@ -40,7 +40,7 @@ if (typeof jQuery === 'undefined') {
           // إرسال البيانات عبر AJAX
           $.ajax({
               type: 'POST',
-              url: '../../execute/register.php', // ملف التنفيذي
+              url: '../execute/register.php', // ملف التنفيذي
               data: formData,
               dataType: 'json',
               success: function (response) {
