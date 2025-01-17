@@ -2,7 +2,7 @@
 <html lang="ar">
 
 <?php
-  include "head.php"; // تضمين الرأس
+include "head.php"; // تضمين الرأس
 ?>
 
 <body>
@@ -34,32 +34,26 @@
                     <p class="text-center small">يرجى إدخال اسم المستخدم وكلمة المرور لتسجيل الدخول</p>
                   </div>
 
+                  <!-- رسالة الخطأ -->
+                  <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+                    <!-- سيتم عرض رسالة الخطأ هنا -->
+                  </div>
+
                   <!-- نموذج تسجيل الدخول -->
-                  <form class="row g-3 needs-validation" action="dashboard.php" method="POST" novalidate="">
+                  <form id="loginForm" class="row g-3 needs-validation" novalidate="">
 
                     <!-- حقل اسم المستخدم -->
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">اسم المستخدم</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required="">
-                        <div class="invalid-feedback">يرجى إدخال اسم المستخدم.</div>
-                      </div>
+                      <input type="text" name="username" class="form-control" id="yourUsername" required>
+                      <div class="invalid-feedback">يرجى إدخال اسم المستخدم.</div>
                     </div>
 
                     <!-- حقل كلمة المرور -->
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">كلمة المرور</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required="">
+                      <input type="password" name="password" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">يرجى إدخال كلمة المرور!</div>
-                    </div>
-
-                    <!-- خيار تذكرني -->
-                    <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">تذكرني</label>
-                      </div>
                     </div>
 
                     <!-- زر تسجيل الدخول -->
@@ -90,10 +84,12 @@
   </main>
 
   <?php
-    include "footer.php"; // تضمين التذييل
-    include "tail.php";   // تضمين نهاية الصفحة
+  include "footer.php"; // تضمين التذييل
+  include "tail.php";   // تضمين نهاية الصفحة
   ?>
 
+  <!-- تضمين ملف JavaScript -->
+  <script src="assets/js/login.js"></script>
 </body>
 
 </html>
