@@ -19,7 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // تأكد من وجود البيانات
         if ($data) {
             // إعادة البيانات كـ JSON
-            echo json_encode([
+            echo json_encode(
+                [
                 'status' => 'success',
                 'data' => [
                     'FullName' => $data['FullName'],

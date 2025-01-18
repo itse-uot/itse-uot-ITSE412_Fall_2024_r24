@@ -11,15 +11,14 @@
   </div><!-- Logo -->
 
 
-
   <div class="search-bar">
-    <form class="search-form d-flex align-items-center" method="POST" action="search.php">
-      <input type="text" name="query" placeholder="بحث" title="أدخل كلمة البحث" class="form-control me-2">
-      <button type="submit" title="بحث" class="btn btn-primary">
-        <i class="bi bi-search"></i>
-      </button>
-    </form>
-  </div>
+  <form class="search-form d-flex align-items-center" id="searchForm" method="GET" action="search.php">
+    <input type="text" name="query" id="searchQuery" placeholder="بحث" title="أدخل كلمة البحث" class="form-control me-2">
+    <button type="submit" title="بحث" class="btn btn-primary" id="searchButton">
+      <i class="bi bi-search"></i>
+    </button>
+  </form>
+</div>
   <!-- شريط البحث -->
 
   <!-- شريط البحث -->
@@ -38,14 +37,13 @@
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"
           aria-expanded="false">
-          <img src="assets/img/profile-img.jpg" alt="الملف الشخصي" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle ps-2">كيفن أندرسون</span>
+          <img  alt="الملف الشخصي" class="rounded-circle profileImage">
+          <span class="d-none d-md-block dropdown-toggle ps-2 fullName"></span>
         </a><!-- أيقونة الملف الشخصي -->
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="left: auto; right: 0;">
           <li class="dropdown-header">
-            <h6>كيفن أندرسون</h6>
-            <span>مصمم ويب</span>
+            <h6 class="fullName"></h6>
           </li>
           <li>
             <hr class="dropdown-divider">
