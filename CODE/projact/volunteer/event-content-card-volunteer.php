@@ -1,51 +1,29 @@
-<div class="container">
-  <div class="row">
-    <!-- العمود الرئيسي للبطاقات -->
-    <div class="col-md-9 order-md-1">
-      <!-- البطاقة الأولى -->
-      <div class="card mb-4">
-        <div class="d-flex align-items-center p-3">
-          <img src="assets/img/prof.jpeg" alt="Organization Logo" class="rounded-circle me-3"
-            style="width: 50px; height: 50px;">
-          <div>
-            <h6 class="m-0">منظمة السلام الأخضر</h6>
-            <small class="text-muted">25 ديسمبر 2024</small>
-          </div>
-        </div>
-        <img src="assets/img/voluntee.jpeg" class="card-img-top" alt="Event Image">
-        <div class="card-body">
-          <h5 class="card-title">فعالية اليوم المفتوح</h5>
-          <p class="card-text mb-1"><strong>الوصف:</strong> يوم مفتوح للمشاركة في أنشطة اجتماعية وتعليمية متنوعة.</p>
-          <p class="card-text mb-1"><strong>الموقع:</strong> المدينة الجامعية</p>
-          <p class="card-text mb-1"><strong>التاريخ البداية:</strong> 25 ديسمبر 2024</p>
-          <p class="card-text mb-1"><strong>التاريخ النهاية:</strong> 30 ديسمبر 2024</p>
-          <p class="card-text mb-1"><strong>المهارات المطلوبة:</strong> التواصل، التنظيم، الإدارة</p>
-
-          <!-- عرض التقييم الإجمالي -->
-          <div class="mt-4">
-            <h6>التقييم الإجمالي:</h6>
-            <div class="d-flex align-items-center">
-              <span class="text-warning fs-5 me-2" id="averageRatingStars">
-                ★★★★☆
-              </span>
-              <strong id="averageRatingValue">(4.2)</strong>
-            </div>
-            <p class="text-muted" id="totalRatingsCount">عدد التقييمات: 5</p>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-center mt-3">
-            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#reviewModal">إضافة
-              تقييم</button>
-            <?php
-            include "evaluation_content.php";
-            ?>
-            
-            <button class="btn btn-outline-secondary btn-sm">تقديم طلب</button>
-          </div>
-        </div>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عرض الفعاليات للمتطوع</title>
+  <!-- تضمين Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- تضمين أيقونات Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <!-- العمود الرئيسي للبطاقات -->
+      <div class="col-md-9 order-md-1" id="eventsContainer">
+        <!-- سيتم تحميل البطاقات هنا باستخدام AJAX -->
       </div>
     </div>
-
-
   </div>
-</div>
+
+  <!-- تضمين مكتبة jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- تضمين مكتبة Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- تضمين ملف JavaScript الخاص بتحميل الفعاليات -->
+  <script src="../assets/js/loadVolunteerEvents.js"></script>
+</body>
+</html>
