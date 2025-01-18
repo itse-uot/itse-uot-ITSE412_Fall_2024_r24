@@ -61,11 +61,11 @@ $(document).ready(function () {
         case 'Pending':
             return `<button type="button" class="btn btn-sm btn-danger cancel-application" data-id="${applicationID}">إلغاء الطلب</button>`;
         case 'Accepted':
-            return '<button type="button" class="btn btn-sm btn-success">تم القبول</button>';
+            return '<span class="status-text accepted">تم القبول</span>';
         case 'Rejected':
-            return '<button type="button" class="btn btn-sm btn-danger">تم الرفض</button>';
+            return '<span class="status-text rejected">تم الرفض</span>';
         default:
-            return '<button type="button" class="btn btn-sm btn-secondary">غير معروف</button>';
+            return '<span class="status-text unknown">غير معروف</span>';
     }
 }
 
