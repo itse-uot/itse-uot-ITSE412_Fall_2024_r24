@@ -2,10 +2,8 @@
 
 <?php
  
- include "event-content-card-organization-other.php";
- include "event-content-card-organization-other.php";
- include "event-content-card-organization-other.php";
- 
+ include "event-content-card-organization.php";
+
  ?>
   
 </main>
