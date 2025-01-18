@@ -40,17 +40,18 @@
               عرض التقييمات
             </button>
             <!-- زر رمادي -->
-            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#editEventModal"
               style="width: 120px; height: 40px;">
               تعديل
             </button>
+            <!-- زر حذف -->
+            <button type="button" class="btn btn-danger btn-sm" style="width: 120px; height: 40px;">
+              حذف
+            </button>
           </div>
-
         </div>
       </div>
     </div>
-
-
   </div>
 </div>
 
@@ -95,56 +96,54 @@
   </div>
 </div>
 
-
-
-<!-- هنا فورم التعديل-->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal لتعديل الفعالية -->
+<div class="modal fade" id="editEventModal" tabindex="-1" aria-labelledby="editEventModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">فورم التسجيل</h5>
+        <h5 class="modal-title" id="editEventModalLabel">تعديل الفعالية</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <!-- Form for Event Management -->
-        <form>
+        <form id="editEventForm">
           <!-- Event Name -->
           <div class="row mb-3">
             <div class="col-sm-12">
-              <label for="eventName" class="form-label">اسم الفعالية</label>
-              <input type="text" class="form-control" id="eventName" placeholder="أدخل اسم الفعالية" required>
+              <label for="editEventName" class="form-label">اسم الفعالية</label>
+              <input type="text" class="form-control" id="editEventName" placeholder="أدخل اسم الفعالية" required>
             </div>
           </div>
 
           <!-- Event Start Date -->
           <div class="row mb-3">
             <div class="col-sm-12">
-              <label for="eventStartDate" class="form-label">تاريخ بداية الفعالية</label>
-              <input type="date" class="form-control" id="eventStartDate" required>
+              <label for="editEventStartDate" class="form-label">تاريخ بداية الفعالية</label>
+              <input type="date" class="form-control" id="editEventStartDate" required>
             </div>
           </div>
 
           <!-- Event End Date -->
           <div class="row mb-3">
             <div class="col-sm-12">
-              <label for="eventEndDate" class="form-label">تاريخ نهاية الفعالية</label>
-              <input type="date" class="form-control" id="eventEndDate" required>
+              <label for="editEventEndDate" class="form-label">تاريخ نهاية الفعالية</label>
+              <input type="date" class="form-control" id="editEventEndDate" required>
             </div>
           </div>
 
           <!-- Event Location -->
           <div class="row mb-3">
             <div class="col-sm-12">
-              <label for="eventLocation" class="form-label">موقع الفعالية</label>
-              <input type="text" class="form-control" id="eventLocation" placeholder="أدخل موقع الفعالية" required>
+              <label for="editEventLocation" class="form-label">موقع الفعالية</label>
+              <input type="text" class="form-control" id="editEventLocation" placeholder="أدخل موقع الفعالية" required>
             </div>
           </div>
 
           <!-- Required Skills -->
           <div class="row mb-3">
             <div class="col-sm-12">
-              <label for="eventSkills" class="form-label">المهارات المطلوبة</label>
-              <input type="text" class="form-control" id="eventSkills"
+              <label for="editEventSkills" class="form-label">المهارات المطلوبة</label>
+              <input type="text" class="form-control" id="editEventSkills"
                 placeholder="أدخل المهارات المطلوبة (مفصولة بفاصلة)" required>
             </div>
           </div>
@@ -152,24 +151,24 @@
           <!-- Event Description -->
           <div class="row mb-3">
             <div class="col-sm-12">
-              <label for="eventDescription" class="form-label">وصف الفعالية</label>
-              <textarea class="form-control" id="eventDescription" style="height: 100px" placeholder="أدخل وصف الفعالية"
-                required></textarea>
+              <label for="editEventDescription" class="form-label">وصف الفعالية</label>
+              <textarea class="form-control" id="editEventDescription" style="height: 100px"
+                placeholder="أدخل وصف الفعالية" required></textarea>
             </div>
           </div>
 
           <!-- Event Image -->
           <div class="row mb-3">
             <div class="col-sm-12">
-              <label for="eventImage" class="form-label">صورة وصفية</label>
-              <input class="form-control" type="file" id="eventImage" accept="image/*" required>
+              <label for="editEventImage" class="form-label">صورة وصفية</label>
+              <input class="form-control" type="file" id="editEventImage" accept="image/*">
             </div>
           </div>
 
           <!-- Submit Button -->
           <div class="row mb-3">
             <div class="col-sm-12">
-              <button type="submit" class="btn btn-primary">حفظ الفعالية</button>
+              <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
             </div>
           </div>
         </form>
@@ -178,5 +177,5 @@
   </div>
 </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- تضمين ملف JavaScript -->
+<script src="../assets/js/editEvent.js"></script>
