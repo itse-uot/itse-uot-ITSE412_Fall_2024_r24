@@ -8,9 +8,9 @@
         <span>القائمه الرئيسية</span>
       </a>
 
-    <li class="nav-item">
-      <a class="nav-link " href="user.php">
-        <i class="bi bi-person-circle"></i></i>
+      <li class="nav-item">
+      <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'user.php' ? 'active' : '' ?>" href="user.php">
+        <i class="bi bi-person-circle"></i>
         <span>ادارة الحساب</span>
       </a>
     </li>
