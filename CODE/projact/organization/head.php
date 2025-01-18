@@ -1,6 +1,6 @@
 <?php
 session_start(); // بدء الجلسة
-include '../excute/dbconfig.php'; // تضمين ملف الاتصال بقاعدة البيانات
+
 
 // التحقق من وجود جلسة المستخدم
 if (!isset($_SESSION['userID'])) {
