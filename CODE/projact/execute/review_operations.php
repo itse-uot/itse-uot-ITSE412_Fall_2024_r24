@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             // إضافة التقييم باستخدام UserID
-            $query = "INSERT INTO RatingsAndReviews (EventID, UserID, Rating, ReviewText) VALUES (:eventID, :userID, :rating, :reviewText)";
+            $query = "INSERT INTO RatingsAndReviews (EventID, VolunteerID, Rating, ReviewText,UserID) VALUES (:eventID, :userID, :rating, :reviewText,:userID)";
             try {
                 $stmt = $conn->prepare($query);
                 $stmt->execute([
