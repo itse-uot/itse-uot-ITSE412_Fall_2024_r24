@@ -45,8 +45,8 @@
               تعديل
             </button>
             <!-- زر حذف -->
-            <button type="button" class="btn btn-danger btn-sm" style="width: 120px; height: 40px;">
-              حذف
+            <button type="button" class="btn btn-danger btn-sm delete-event-btn" data-event-id="<?php echo $event['EventID']; ?>" style="width: 120px; height: 40px;">
+             حذف
             </button>
           </div>
         </div>
@@ -179,3 +179,4 @@
 
 <!-- تضمين ملف JavaScript -->
 <script src="../assets/js/editEvent.js"></script>
+<script src="../assets/js/deleteEvent.js"></script>
