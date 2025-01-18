@@ -1,49 +1,66 @@
-<main id="main" class="main">
-  <h1>واجهة الإشعارات</h1>
+<<?php
+// تضمين ملف قاعدة البيانات
+include '../execute/dbconfig.php';
 
-  <div class="notifications" style="max-width: 800px; margin: 0 auto; direction: rtl;">
-    <!-- إشعار -->
-    <div class="notification-item" style="display: flex; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
-      <i class="bi bi-exclamation-circle text-warning" style="font-size: 24px; margin-left: 10px;"></i>
-      <div>
-        <h4 style="margin: 0; font-size: 18px;">تحديث بيانات الحساب</h4>
-        <p style="margin: 0; font-size: 14px; color: #888;">قبل 30 د</p>
-      </div>
-    </div>
+// استعلام SQL لجلب الإشعارات الخاصة بالمستخدم
+$sql = "SELECT * FROM notifications WHERE UserID = ? ORDER BY CreatedAt DESC";
 
-    <!-- فاصل -->
-    <div class="notification-item" style="display: flex; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
-      <i class="bi bi-x-circle text-danger" style="font-size: 24px; margin-left: 10px;"></i>
-      <div>
-        <h4 style="margin: 0; font-size: 18px;">رفض الطلب</h4>
-        <p style="margin: 0; font-size: 14px;">لقد تم رفضك في الفاعلية</p>
-        <p style="margin: 0; font-size: 14px; color: #888;">قبل ساعة</p>
-      </div>
-    </div>
+// تجهيز الاستعلام باستخدام prepare()
+$stmt = $conn->prepare($sql);
 
-    <!-- إشعار آخر -->
-    <div class="notification-item" style="display: flex; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
-      <i class="bi bi-check-circle text-success" style="font-size: 24px; margin-left: 10px;"></i>
-      <div>
-        <h4 style="margin: 0; font-size: 18px;">قبول الطلب</h4>
-        <p style="margin: 0; font-size: 14px;">لقد تم قبولك في الفاعلية</p>
-        <p style="margin: 0; font-size: 14px; color: #888;">قبل ساعتان</p>
-      </div>
-    </div>
+// تحقق إذا كان الاستعلام قد تم تجهيزه بنجاح
+if (!$stmt) {
+    die("Failed to prepare statement: " . $conn->error);
+}
 
-    <!-- إشعار إضافي -->
-    <div class="notification-item" style="display: flex; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
-      <i class="bi bi-info-circle text-primary" style="font-size: 24px; margin-left: 10px;"></i>
-      <div>
-        <h4 style="margin: 0; font-size: 18px;">إشعارات أخرى</h4>
-        <p style="margin: 0; font-size: 14px;">تتضمن إشعارا</p>
-        <p style="margin: 0; font-size: 14px; color: #888;">قبل 4 ساعات</p>
-      </div>
-    </div>
+// تعريف متغير UserID وتمريره
+$userId = 1; // استبدل هذا الرقم بمعرّف المستخدم الفعلي
 
-    <!-- زر عرض المزيد -->
-    <div style="text-align: center; margin-top: 20px;">
-      <a href="notification.php" style="text-decoration: none; font-size: 16px; color: #007bff;">عرض جميع الإشعارات</a>
-    </div>
-  </div>
-</main>
+// ربط المعاملات مع الاستعلام
+if (!$stmt->bind_param("i", $userId)) {
+    die("Failed to bind parameters: " . $stmt->error);
+}
+
+// تنفيذ الاستعلام
+if (!$stmt->execute()) {
+    die("Failed to execute statement: " . $stmt->error);
+}
+
+// الحصول على النتائج
+$result = $stmt->get_result();
+
+// التحقق من النتائج وعرضها
+if ($result && $result->num_rows > 0): 
+    while ($row = $result->fetch_assoc()): 
+?>
+        <!-- عرض البيانات -->
+        <div class="notification-item" style="display: flex; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+            <i class="bi 
+                <?php
+                // تحديد الأيقونة حسب نوع الإشعار
+                switch ($row['NotificationType']) {
+                    case 'Request': echo 'bi-exclamation-circle text-warning'; break;
+                    case 'EventUpdate': echo 'bi-info-circle text-primary'; break;
+                    case 'AccountUpdate': echo 'bi-check-circle text-success'; break;
+                    case 'General': echo 'bi-bell text-secondary'; break;
+                    default: echo 'bi-bell'; break;
+                }
+                ?>" style="font-size: 24px; margin-left: 10px;"></i>
+            <div>
+                <h4 style="margin: 0; font-size: 18px;"><?php echo htmlspecialchars($row['Message']); ?></h4>
+                <p style="margin: 0; font-size: 14px; color: #888;"><?php echo htmlspecialchars($row['CreatedAt']); ?></p>
+            </div>
+        </div>
+<?php 
+    endwhile; 
+else: 
+?>
+    <!-- رسالة في حالة عدم وجود إشعارات -->
+    <p style="text-align: center; color: #666;">لا توجد إشعارات حالياً.</p>
+<?php 
+endif; 
+
+// إغلاق الاستعلام والاتصال
+$stmt->close();
+$conn->close();
+?>

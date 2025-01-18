@@ -1,3 +1,14 @@
+<?php
+session_start(); // بدء الجلسة
+include '../excute/dbconfig.php'; // تضمين ملف الاتصال بقاعدة البيانات
+
+// التحقق من وجود جلسة المستخدم
+if (!isset($_SESSION['userID'])) {
+    // إذا لم يكن المستخدم مسجل الدخول، يتم توجيهه إلى صفحة تسجيل الدخول
+    header('Location: ../volunteer/login.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 

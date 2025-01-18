@@ -26,7 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         if ($user) {
             // إذا تم العثور على المستخدم، إرجاع رسالة نجاح
-            $_SESSION['user'] = $user; // تخزين بيانات المستخدم في الجلسة
+            $_SESSION['userID'] = $user['UserID']; 
+            // $_SESSION['user'] = $user; 
+            // تخزين بيانات المستخدم في الجلسة
             echo json_encode(['status' => 'success', 'message' => 'تم تسجيل الدخول بنجاح']);
         } else {
             // إذا لم يتم العثور على المستخدم، إرجاع رسالة خطأ
