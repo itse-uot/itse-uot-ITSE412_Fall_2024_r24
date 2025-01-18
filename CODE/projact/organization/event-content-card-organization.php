@@ -185,3 +185,4 @@
 <!-- تضمين ملف JavaScript -->
 <script src="../assets/js/editEvent.js"></script>
 <script src="../assets/js/deleteEvent.js"></script>
+<script src="../assets/js/loadEvents.js"></script> 
