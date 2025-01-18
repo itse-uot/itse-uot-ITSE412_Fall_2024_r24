@@ -1,10 +1,11 @@
 <?php
+session_start();
 include 'dbconfig.php'; // تأكد من أن ملف الاتصال بقاعدة البيانات صحيح
 
 // تحقق إذا تم إرسال الطلب
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'update_data') {
     // استرجاع بيانات المتطوع
-    $volunteerId = $_SESSION['userID'];
+    $volunteerId = $_SESSION['user']['UserID'] ;
     $fullName = $_POST['fullName2'];
     $skills = $_POST['about'];
     $contactNumber = $_POST['phone'];
