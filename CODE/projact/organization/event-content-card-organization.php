@@ -11,6 +11,18 @@
             <h6 class="m-0">منظمة السلام الأخضر</h6>
             <small class="text-muted">25 ديسمبر 2024</small>
           </div>
+          <!-- زر القائمة المنسدلة -->
+          <div class="ms-auto">
+            <div class="dropdown">
+              <button class="btn btn-link text-muted" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-three-dots-vertical"></i> <!-- أيقونة ثلاث نقاط -->
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editEventModal">تعديل</a></li>
+                <li><a class="dropdown-item delete-event-btn" href="#" data-event-id="<?php echo $event['EventID']; ?>">حذف</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
         <img src="assets/img/voluntee.jpeg" class="card-img-top" alt="Event Image">
         <div class="card-body">
@@ -39,21 +51,14 @@
               style="width: 120px; height: 40px;">
               عرض التقييمات
             </button>
-            <!-- زر رمادي -->
-            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#editEventModal"
-              style="width: 120px; height: 40px;">
-              تعديل
-            </button>
-            <!-- زر حذف -->
-            <button type="button" class="btn btn-danger btn-sm delete-event-btn" data-event-id="<?php echo $event['EventID']; ?>" style="width: 120px; height: 40px;">
-             حذف
-            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
 
 <!-- Modal لعرض التقييمات فقط -->
 <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">

@@ -248,7 +248,7 @@
       </div>
 
       <!-- عرض الفعاليات -->
-      <?php include "event-content-card-organization-owner.php"; ?>
+      <?php include "event-content-card-organization.php"; ?>
     </div>
   </div>
 </main>
