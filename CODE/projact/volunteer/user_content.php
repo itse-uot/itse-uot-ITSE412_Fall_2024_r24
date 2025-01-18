@@ -1,37 +1,31 @@
 <main id="main" class="main">
-
-    <!-- Form Wrapper -->
     <div class="card bg-white p-4 rounded border shadow">
-        <h5 class="card-title text-center mb-4">أعدادات الحساب</h5>
+        <h5 class="card-title text-center mb-4">إعدادات الحساب</h5>
         <!-- Horizontal Form -->
-        <form id="updateForm">
+        <form id="userForm">
             <!-- الاسم -->
             <div class="mb-3">
                 <label for="inputText" class="form-label fw-bold">اسم المستخدم</label>
-                <input type="text" class="form-control" id="inputText" >
+                <input type="text" class="form-control" id="inputText" name="Username">
             </div>
-
             <!-- البريد الالكتروني -->
             <div class="mb-3">
                 <label for="inputEmail" class="form-label fw-bold">البريد الالكتروني</label>
-                <input type="email" class="form-control" id="inputEmail" >
+                <input type="email" class="form-control" id="inputEmail" name="Email">
             </div>
-
-            <!-- كلمه السر -->
+            <!-- كلمة السر -->
             <div class="mb-3">
-                <label for="inputPassword" class="form-label fw-bold">كلمه السر</label>
-                <input type="password" class="form-control" id="inputPassword" >
+                <label for="inputPassword" class="form-label fw-bold">كلمة السر</label>
+                <input type="password" class="form-control" id="inputPassword" name="Password">
             </div>
-
             <!-- الأزرار -->
             <div class="text-center">
-                <button type="submit" class="btn btn-outline-primary">حفظ</button>
-                <button type="button" class="btn btn-outline-danger px-4" data-bs-toggle="modal" data-bs-target="#basicModal">
+                <button type="button" id="saveChanges" class="btn btn-outline-primary">حفظ</button>
+                <button type="button" id="deleteAccount" class="btn btn-outline-danger px-4" data-bs-toggle="modal" data-bs-target="#basicModal">
                     حذف
                 </button>
             </div>
         </form>
-        <!-- End Horizontal Form -->
     </div>
 
     <!-- Modal -->
@@ -42,37 +36,30 @@
                     <h5 class="modal-title">رسالة تنبيه!</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    هل متأكد من انك تريد حذف حسابك!
-                </div>
+                <div class="modal-body">هل متأكد من أنك تريد حذف حسابك؟</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">تراجع</button>
-                    <button type="button" class="btn btn-danger" id="confirmDelete">تأكيد</button>
+                    <button type="button" id="confirmDelete" class="btn btn-danger">تأكيد</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Modal -->
 </main>
 <script>
 $(document).ready(function () {
-    // تحميل البيانات
+    // تحميل بيانات المستخدم
     function loadUserData() {
         $.ajax({
-            type: 'GET',
-            url: '../excute/get_user_data.php',
+            url: '../execute/loadUserData.php',
+            method: 'GET',
             dataType: 'json',
-            success: function (response) {
-                if (response.status === 'success') {
-                    $('#inputText').val(response.data.username);
-                    $('#inputEmail').val(response.data.email);
-                    $('#inputPassword').val(response.data.password); // في حال كان كلمة السر مشفرة، لا تظهرها
-                } else {
-                    alert(response.message);
-                }
+            success: function (data) {
+                $('#inputText').val(data.Username);
+                $('#inputEmail').val(data.Email);
+                $('#inputPassword').val(data.Password);
             },
             error: function () {
-                alert('حدث خطأ أثناء تحميل البيانات.');
+                alert('خطأ في تحميل البيانات.');
             }
         });
     }
@@ -81,51 +68,40 @@ $(document).ready(function () {
     loadUserData();
 
     // حفظ التعديلات
-    $('#updateForm').on('submit', function (e) {
-        e.preventDefault();
-        
-        var userData = {
-            username: $('#inputText').val(),
-            email: $('#inputEmail').val(),
-            password: $('#inputPassword').val(),
+    $('#saveChanges').click(function () {
+        const formData = {
+            Username: $('#inputText').val(),
+            Email: $('#inputEmail').val(),
+            Password: $('#inputPassword').val(),
         };
 
         $.ajax({
-            type: 'POST',
-            url: '../excute/update_user_data.php',
-            data: userData,
+            url: '../execute/updateUser.php',
+            method: 'POST',
+            data: formData,
             dataType: 'json',
             success: function (response) {
-                if (response.status === 'success') {
-                    alert(response.message);
-                    loadUserData(); // تحديث البيانات في الحقول
-                } else {
-                    alert(response.message);
-                }
+                alert(response.message);
+                loadUserData(); // إعادة تحميل البيانات بعد التحديث
             },
             error: function () {
-                alert('حدث خطأ أثناء حفظ التغييرات.');
+                alert('خطأ أثناء تحديث البيانات.');
             }
         });
     });
 
     // حذف الحساب
-    $('#confirmDelete').on('click', function () {
+    $('#confirmDelete').click(function () {
         $.ajax({
-            type: 'POST',
-            url: '../excute/delete_user.php',
+            url: '../execute/deleteUser.php',
+            method: 'POST',
             dataType: 'json',
             success: function (response) {
-                if (response.status === 'success') {
-                    alert(response.message);
-                    // بعد الحذف، يمكن توجيه المستخدم إلى صفحة تسجيل الدخول أو الصفحة الرئيسية
-                    window.location.href = 'login.php'; // مثال
-                } else {
-                    alert(response.message);
-                }
+                alert(response.message);
+                window.location.href = 'logout.php'; // نقل المستخدم لصفحة تسجيل الخروج أو الصفحة الرئيسية
             },
             error: function () {
-                alert('حدث خطأ أثناء الحذف.');
+                alert('خطأ أثناء حذف الحساب.');
             }
         });
     });
