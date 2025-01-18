@@ -37,7 +37,7 @@ $(document).ready(function () {
 
                                       <!-- حالة الطلب -->
                                       <div class="d-flex gap-2">
-                                          ${getStatusButton(application.ApplicationsStatus, application.ApplicationID)}
+                                          ${getStatusButton(application.ApplicationStatus, application.ApplicationID)}
                                       </div>
                                   </div>
                               </div>
@@ -61,13 +61,13 @@ $(document).ready(function () {
         case 'Pending':
             return `<button type="button" class="btn btn-sm btn-danger cancel-application" data-id="${applicationID}">إلغاء الطلب</button>`;
         case 'Accepted':
-            return '<span class="status-text accepted">تم القبول</span>';
+            return '<span class="text-secondary">تم القبول</span>';
         case 'Rejected':
-            return '<span class="status-text rejected">تم الرفض</span>';
+            return '<span class="text-secondary">تم الرفض</span>';
         default:
-            return '<span class="status-text unknown">غير معروف</span>';
+            return '<span class="text-secondary">غير معروف</span>';
     }
-}
+  }
 
   // جلب الطلبات عند تحميل الصفحة
   fetchApplications();

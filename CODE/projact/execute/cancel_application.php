@@ -11,13 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $applicationID = $_POST['applicationID'];
 
     // التحقق من أن الطلب في حالة Pending
-    $query = "SELECT ApplicationsStatus FROM Applications WHERE ApplicationID = :applicationID AND VolunteerID = :userID";
+    $query = "SELECT ApplicationStatus FROM Applications WHERE ApplicationID = :applicationID AND VolunteerID = :userID";
     try {
         $stmt = $conn->prepare($query);
         $stmt->execute(['applicationID' => $applicationID, 'userID' => $_SESSION['userID']]);
         $application = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($application && $application['ApplicationsStatus'] === 'Pending') {
+        if ($application && $application['ApplicationStatus'] === 'Pending') {
             // حذف الطلب
             $deleteQuery = "DELETE FROM Applications WHERE ApplicationID = :applicationID";
             $stmt = $conn->prepare($deleteQuery);
