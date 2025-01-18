@@ -1,5 +1,14 @@
 <?php
+session_start(); // بدء الجلسة
 include 'dbconfig.php'; // تضمين ملف الاتصال بقاعدة البيانات
+
+// التحقق من أن المستخدم مسجل الدخول
+if (!isset($_SESSION['UserID'])) {
+    echo json_encode(['status' => 'error', 'message' => 'يجب تسجيل الدخول أولاً.']);
+    exit;
+}
+
+$userID = $_SESSION['UserID']; // الحصول على معرف المستخدم من الجلسة
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // تحديد نوع العملية (إضافة، تعديل، حذف)
@@ -9,21 +18,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'add':
             // إضافة تقييم جديد
             $eventID = $_POST['eventID'];
-            $volunteerID = $_POST['volunteerID'];
             $rating = $_POST['rating'];
             $reviewText = $_POST['reviewText'];
 
-            if (empty($eventID) || empty($volunteerID) || empty($rating) || empty($reviewText)) {
+            if (empty($eventID) || empty($rating) || empty($reviewText)) {
                 echo json_encode(['status' => 'error', 'message' => 'يرجى ملء جميع الحقول المطلوبة.']);
                 exit;
             }
 
-            $query = "INSERT INTO RatingsAndReviews (EventID, VolunteerID, Rating, ReviewText) VALUES (:eventID, :volunteerID, :rating, :reviewText)";
+            // إضافة التقييم باستخدام UserID
+            $query = "INSERT INTO RatingsAndReviews (EventID, UserID, Rating, ReviewText) VALUES (:eventID, :userID, :rating, :reviewText)";
             try {
                 $stmt = $conn->prepare($query);
                 $stmt->execute([
                     'eventID' => $eventID,
-                    'volunteerID' => $volunteerID,
+                    'userID' => $userID, // استخدام UserID من الجلسة
                     'rating' => $rating,
                     'reviewText' => $reviewText
                 ]);
@@ -44,15 +53,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 exit;
             }
 
-            $query = "UPDATE RatingsAndReviews SET Rating = :rating, ReviewText = :reviewText WHERE ReviewID = :reviewID";
+            // التحقق من أن المستخدم هو صاحب التقييم
+            $query = "SELECT UserID FROM RatingsAndReviews WHERE ReviewID = :reviewID";
             try {
                 $stmt = $conn->prepare($query);
-                $stmt->execute([
-                    'rating' => $rating,
-                    'reviewText' => $reviewText,
-                    'reviewID' => $reviewID
-                ]);
-                echo json_encode(['status' => 'success', 'message' => 'تم تعديل التقييم بنجاح!']);
+                $stmt->execute(['reviewID' => $reviewID]);
+                $review = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if ($review && $review['UserID'] == $userID) {
+                    // إذا كان المستخدم هو صاحب التقييم، يتم التعديل
+                    $query = "UPDATE RatingsAndReviews SET Rating = :rating, ReviewText = :reviewText WHERE ReviewID = :reviewID";
+                    $stmt = $conn->prepare($query);
+                    $stmt->execute([
+                        'rating' => $rating,
+                        'reviewText' => $reviewText,
+                        'reviewID' => $reviewID
+                    ]);
+                    echo json_encode(['status' => 'success', 'message' => 'تم تعديل التقييم بنجاح!']);
+                } else {
+                    // إذا لم يكن المستخدم هو صاحب التقييم
+                    echo json_encode(['status' => 'error', 'message' => 'غير مسموح لك بتعديل هذا التقييم.']);
+                }
             } catch (Exception $e) {
                 echo json_encode(['status' => 'error', 'message' => 'حدث خطأ: ' . $e->getMessage()]);
             }
@@ -67,11 +88,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 exit;
             }
 
-            $query = "DELETE FROM RatingsAndReviews WHERE ReviewID = :reviewID";
+            // التحقق من أن المستخدم هو صاحب التقييم
+            $query = "SELECT UserID FROM RatingsAndReviews WHERE ReviewID = :reviewID";
             try {
                 $stmt = $conn->prepare($query);
                 $stmt->execute(['reviewID' => $reviewID]);
-                echo json_encode(['status' => 'success', 'message' => 'تم حذف التقييم بنجاح!']);
+                $review = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if ($review && $review['UserID'] == $userID) {
+                    // إذا كان المستخدم هو صاحب التقييم، يتم الحذف
+                    $query = "DELETE FROM RatingsAndReviews WHERE ReviewID = :reviewID";
+                    $stmt = $conn->prepare($query);
+                    $stmt->execute(['reviewID' => $reviewID]);
+                    echo json_encode(['status' => 'success', 'message' => 'تم حذف التقييم بنجاح!']);
+                } else {
+                    // إذا لم يكن المستخدم هو صاحب التقييم
+                    echo json_encode(['status' => 'error', 'message' => 'غير مسموح لك بحذف هذا التقييم.']);
+                }
             } catch (Exception $e) {
                 echo json_encode(['status' => 'error', 'message' => 'حدث خطأ: ' . $e->getMessage()]);
             }
