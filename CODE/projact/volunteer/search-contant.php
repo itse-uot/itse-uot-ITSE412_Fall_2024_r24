@@ -1,5 +1,5 @@
 <?php
-include('dbconfig.php'); // الاتصال بقاعدة البيانات
+include('../execute/dbconfig.php'); // الاتصال بقاعدة البيانات
 
 // التحقق من استلام كلمة البحث عبر GET أو POST
 $query = isset($_GET['query']) ? $_GET['query'] : ''; // استخدام GET بدلاً من POST
