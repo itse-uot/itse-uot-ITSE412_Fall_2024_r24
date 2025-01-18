@@ -27,7 +27,7 @@ $(document).ready(function () {
           success: function (response) {
               if (response.status === 'success') {
                   // إذا كان تسجيل الدخول ناجحًا، توجيه المستخدم إلى الصفحة الرئيسية
-                  window.location.href = 'dashboard.php';
+                  window.location.href = '../volunteer/dashboard.php';
               } else {
                   // إذا فشل تسجيل الدخول، عرض رسالة الخطأ
                   $('#errorMessage').removeClass('d-none').text(response.message);
