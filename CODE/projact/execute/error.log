@@ -1,0 +1,39 @@
+[19-Jan-2025 03:54:30 Europe/Berlin] PHP Warning:  Undefined array key "userID" in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 14
+[19-Jan-2025 02:54:36 UTC] PHP Notice:  Undefined index: user in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 14
+[19-Jan-2025 02:54:36 UTC] PHP Stack trace:
+[19-Jan-2025 02:54:36 UTC] PHP   1. {main}() C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php:0
+[19-Jan-2025 02:54:36 UTC] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 14
+[19-Jan-2025 02:54:36 UTC] PHP Stack trace:
+[19-Jan-2025 02:54:36 UTC] PHP   1. {main}() C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php:0
+[19-Jan-2025 02:54:36 UTC] PHP Notice:  Undefined index: REQUEST_METHOD in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 16
+[19-Jan-2025 02:54:36 UTC] PHP Stack trace:
+[19-Jan-2025 02:54:36 UTC] PHP   1. {main}() C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php:0
+[19-Jan-2025 02:54:39 UTC] PHP Notice:  Undefined index: user in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 14
+[19-Jan-2025 02:54:39 UTC] PHP Stack trace:
+[19-Jan-2025 02:54:39 UTC] PHP   1. {main}() C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php:0
+[19-Jan-2025 02:54:39 UTC] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 14
+[19-Jan-2025 02:54:39 UTC] PHP Stack trace:
+[19-Jan-2025 02:54:39 UTC] PHP   1. {main}() C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php:0
+[19-Jan-2025 02:54:39 UTC] PHP Notice:  Undefined index: REQUEST_METHOD in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 16
+[19-Jan-2025 02:54:39 UTC] PHP Stack trace:
+[19-Jan-2025 02:54:39 UTC] PHP   1. {main}() C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php:0
+[19-Jan-2025 02:57:50 UTC] PHP Notice:  Undefined index: user in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 15
+[19-Jan-2025 02:57:50 UTC] PHP Stack trace:
+[19-Jan-2025 02:57:50 UTC] PHP   1. {main}() C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php:0
+[19-Jan-2025 02:57:50 UTC] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 15
+[19-Jan-2025 02:57:50 UTC] PHP Stack trace:
+[19-Jan-2025 02:57:50 UTC] PHP   1. {main}() C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php:0
+[19-Jan-2025 02:57:50 UTC] PHP Notice:  Undefined index: REQUEST_METHOD in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 18
+[19-Jan-2025 02:57:50 UTC] PHP Stack trace:
+[19-Jan-2025 02:57:50 UTC] PHP   1. {main}() C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php:0
+[19-Jan-2025 03:01:42 UTC] PHP Notice:  Undefined index: user in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 15
+[19-Jan-2025 03:01:42 UTC] PHP Stack trace:
+[19-Jan-2025 03:01:43 UTC] PHP   1. {main}() C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php:0
+[19-Jan-2025 03:01:43 UTC] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 15
+[19-Jan-2025 03:01:43 UTC] PHP Stack trace:
+[19-Jan-2025 03:01:43 UTC] PHP   1. {main}() C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php:0
+[19-Jan-2025 03:01:43 UTC] PHP Notice:  Undefined index: REQUEST_METHOD in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 18
+[19-Jan-2025 03:01:43 UTC] PHP Stack trace:
+[19-Jan-2025 03:01:43 UTC] PHP   1. {main}() C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php:0
+[19-Jan-2025 04:07:11 Europe/Berlin] PHP Warning:  Undefined array key "field" in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 22
+[19-Jan-2025 04:07:43 Europe/Berlin] PHP Warning:  Undefined array key "field" in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 22
