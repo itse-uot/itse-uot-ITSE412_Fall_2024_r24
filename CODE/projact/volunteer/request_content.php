@@ -1,5 +1,4 @@
 <main id="main" class="main">
-    <div class="container mt-5">
         <h1 class="text-center mb-4">الطلبات المرسلة</h1>
         <div id="applicationsContainer" class="row">
             <!-- سيتم ملء هذا القسم عبر AJAX -->
