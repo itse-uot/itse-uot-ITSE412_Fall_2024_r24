@@ -37,3 +37,5 @@
 [19-Jan-2025 03:01:43 UTC] PHP   1. {main}() C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php:0
 [19-Jan-2025 04:07:11 Europe/Berlin] PHP Warning:  Undefined array key "field" in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 22
 [19-Jan-2025 04:07:43 Europe/Berlin] PHP Warning:  Undefined array key "field" in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 22
+[19-Jan-2025 05:00:15 Europe/Berlin] PHP Warning:  Undefined array key "field" in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 22
+[19-Jan-2025 05:00:18 Europe/Berlin] PHP Warning:  Undefined array key "field" in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 22
