@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 if (isset($_GET['orgID'])) {
   $orgID = $_GET['orgID']; // الحصول على orgID من الرابط
   $_SESSION['org'] = $orgID; // تخزين orgID في الجلسة
