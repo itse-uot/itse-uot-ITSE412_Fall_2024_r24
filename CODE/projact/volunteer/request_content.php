@@ -6,7 +6,7 @@
                 <div class="alert alert-info text-center">جارٍ تحميل الطلبات...</div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    
-    <script src="../assets/js/request_content.js"></script>
+<script src="../assets/js/request_content.js"></script>

@@ -5,10 +5,10 @@ include 'dbconfig.php'; // تضمين ملف الاتصال بقاعدة الب�
 // تحقق إذا تم إرسال الطلب
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // تحقق من أن المستخدم مسجل الدخول
-    if (!isset($_SESSION['user'])) {
-        echo json_encode(['status' => 'error', 'message' => 'يجب تسجيل الدخول أولاً.']);
-        exit;
-    }
+    // if (!isset($_SESSION['user'])) {
+    //     echo json_encode(['status' => 'error', 'message' => 'يجب تسجيل الدخول أولاً.']);
+    //     exit;
+    // }
 
     // استرجاع البيانات من النموذج
     $eventName = $_POST['eventName'];

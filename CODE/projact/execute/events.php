@@ -1,12 +1,14 @@
 <?php
-session_start();
 include 'dbconfig.php'; // تضمين ملف الاتصال بقاعدة البيانات
 
-// استعلام لاسترجاع جميع الفعاليات
-$query = "SELECT * FROM events"; // استرجاع جميع الفعاليات
+// قيمة ثابتة لـ UserID
+$userID = 2; // يمكن تغيير هذه القيمة حسب الحاجة
+
+// استعلام لاسترجاع الفعاليات الخاصة بالمنظمة
+$query = "SELECT * FROM events WHERE UserID = :userID"; // استرجاع الفعاليات الخاصة بالمنظمة
 try {
     $stmt = $conn->prepare($query);
-    $stmt->execute(); // تنفيذ الاستعلام
+    $stmt->execute(['userID' => $userID]); // تنفيذ الاستعلام مع UserID
     $events = $stmt->fetchAll(PDO::FETCH_ASSOC); // استرجاع جميع الفعاليات
 
     // إرجاع البيانات كـ JSON
