@@ -248,10 +248,20 @@
       </div>
 
       <!-- عرض الفعاليات -->
-      <?php include "event-content-card-organization.php"; ?>
+      <div class="container">
+        <div class="row">
+          <!-- العمود الرئيسي للبطاقات -->
+          <div class="col-md-9 order-md-1" id="eventsContainer">
+            <!-- سيتم عرض الفعاليات هنا -->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>
 
 <!-- تضمين ملف JavaScript -->
 <script src="../assets/js/event.js"></script>
+<script src="../assets/js/editEvent.js"></script>
+<script src="../assets/js/deleteEvent.js"></script>
+<script src="../assets/js/loadEvents.js"></script>
