@@ -2,13 +2,13 @@
 session_start(); // بدء الجلسة
 
 
-// التحقق من وجود جلسة المستخدم
+//التحقق من وجود جلسة المستخدم
 // if (!isset($_SESSION['userID'])) {
 //     // إذا لم يكن المستخدم مسجل الدخول، يتم توجيهه إلى صفحة تسجيل الدخول
 //     header('Location: login.php');
 //     exit;
 // }
-// ?>
+?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 

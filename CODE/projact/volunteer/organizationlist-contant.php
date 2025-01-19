@@ -1,7 +1,7 @@
+
+
 <main id="main" class="main">
-
   <h1>إدارة المنظمات</h1>
-
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">المنظمات</h5>
@@ -9,85 +9,44 @@
       <!-- Bordered Tabs -->
       <ul class="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#bordered-home"
-            type="button" role="tab" aria-controls="home" aria-selected="true">منظماتي</button>
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#bordered-home" type="button" role="tab" aria-controls="home" aria-selected="true">منظماتي</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#bordered-profile"
-            type="button" role="tab" aria-controls="profile" aria-selected="false" tabindex="-1">إنشاء</button>
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#bordered-profile" type="button" role="tab" aria-controls="profile" aria-selected="false" tabindex="-1">إنشاء</button>
         </li>
       </ul>
 
       <div class="tab-content pt-2" id="borderedTabContent">
+        <!-- Tab 1: عرض المنظمات -->
         <div class="tab-pane fade active show" id="bordered-home" role="tabpanel" aria-labelledby="home-tab">
-
-          <!-- بيانات النمظمة-->
-          <!-- تفاصيل المنظمة -->
-          <!-- بيانات المنظمة -->
-<div class="card w-100">
-  <div class="card-body d-flex align-items-center justify-content-between" style="width: 100%;">
-    <!-- الصورة والنص -->
-    <div class="d-flex align-items-center" style="gap: 20px; width: 100%;">
-      <img src="assets/img/prof.jpeg" alt="Organization Logo" class="rounded-circle"
-        style="width: 50px; height: 50px; object-fit: cover;">
-      <div>
-        <h5 class="card-title mb-0">
-          <a href="../organization/dashboard.php" class="text-decoration-none text-dark">منظمة الأمن الخيرية</a>
-        </h5>
-        <p class="mb-0 text-muted">المجال: التعليم</p>
-        <p class="mb-0 text-muted">الموقع: طرابلس، ليبيا</p>
-      </div>
-    </div>
-    <!-- زر الحذف -->
-    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">حذف</button>
-  </div>
-</div>
-
-<!-- نافذة التأكيد -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel">تأكيد الحذف</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        هل أنت متأكد أنك تريد حذف هذه المنظمة؟ هذا الإجراء لا يمكن التراجع عنه.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
-        <button type="button" class="btn btn-danger">تأكيد الحذف</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
+          <div id="organizationsContainer" class="row">
+            <!-- سيتم ملء هذا القسم عبر AJAX -->
+            <div class="col-12">
+              <div class="alert alert-info text-center">جارٍ تحميل المنظمات...</div>
+            </div>
+          </div>
         </div>
 
-        <!--  انشاء منظمة -->
+        <!-- Tab 2: إنشاء منظمة -->
         <div class="tab-pane fade" id="bordered-profile" role="tabpanel" aria-labelledby="profile-tab">
-
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">إنشاء منظمة</h5>
 
               <!-- Vertical Form -->
-              <form class="row g-3">
+              <form class="row g-3" id="createOrganizationForm" enctype="multipart/form-data">
                 <div class="col-12">
-                  <label for="inputNanme4" class="form-label">اسم المنظمة (Organization Name)</label>
-                  <input type="text" class="form-control" id="inputNanme4">
+                  <label for="organizationName" class="form-label">اسم المنظمة</label>
+                  <input type="text" class="form-control" id="organizationName" name="organizationName" required>
                 </div>
                 <div class="mb-3">
-                  <label for="inputDescription" class="form-label">وصف المنظمة (Organization Description)</label>
-                  <textarea class="form-control" id="inputDescription" style="height: 100px"></textarea>
+                  <label for="description" class="form-label">وصف المنظمة</label>
+                  <textarea class="form-control" id="description" name="description" style="height: 100px" required></textarea>
                 </div>
-                <!-- قائمة اختبار المجال -->
                 <div class="mb-3">
-                  <label class="form-label">المجال (Field)</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected="" disabled>اختر المجال</option>
+                  <label for="field" class="form-label">المجال</label>
+                  <select class="form-select" id="field" name="field" required>
+                  <option selected="" disabled>اختر المجال</option>
                     <option value="education">التعليم</option>
                     <option value="health">الصحة</option>
                     <option value="environment">البيئة</option>
@@ -123,47 +82,34 @@
                     <option value="other">غير ذالك</option>
                   </select>
                 </div>
-                <!-- انتهاء قائمة اختبار المجال -->
-
                 <div class="col-12">
-                  <label for="inputAddress5" class="form-label">الموقع (Location)</label>
-                  <input type="text" class="form-control" id="inputAddres5s" placeholder="الموقع">
+                  <label for="location" class="form-label">الموقع</label>
+                  <input type="text" class="form-control" id="location" name="location" required>
                 </div>
-
                 <div class="col-12">
-                  <label for="inputEmail4" class="form-label">البريد الإلكتروني للتواصل (Contact Email)</label>
-                  <input type="email" class="form-control" id="inputEmail4">
+                  <label for="contactEmail" class="form-label">البريد الإلكتروني للتواصل</label>
+                  <input type="email" class="form-control" id="contactEmail" name="contactEmail" required>
                 </div>
-
                 <div class="mb-3">
-                  <label for="inputPhone" class="form-label">رقم الهاتف للتواصل (Phone Number)</label>
-                  <input type="tel" id="inputPhone" class="form-control" required pattern="^(092|093|091|094)[0-9]{7}$"
-                    oninvalid="this.setCustomValidity('الرجاء إدخال رقم هاتف صحيح يبدأ بـ 092, 093, 091, أو 094 ويليه 7 أرقام.')"
-                    oninput="this.setCustomValidity('')">
-                  <div class="invalid-feedback">الرجاء إدخال رقم هاتف صحيح يبدأ بـ 092, 093, 091, أو 094 ويليه 7 أرقام.
-                  </div>
+                  <label for="phoneNumber" class="form-label">رقم الهاتف للتواصل</label>
+                  <input type="tel" id="phoneNumber" class="form-control" name="phoneNumber" required pattern="^(092|093|091|094)[0-9]{7}$" oninvalid="this.setCustomValidity('الرجاء إدخال رقم هاتف صحيح يبدأ بـ 092, 093, 091, أو 094 ويليه 7 أرقام.')" oninput="this.setCustomValidity('')">
+                  <div class="invalid-feedback">الرجاء إدخال رقم هاتف صحيح يبدأ بـ 092, 093, 091, أو 094 ويليه 7 أرقام.</div>
                 </div>
-
-
-
                 <div class="mb-3">
-                  <label for="formFile" class="form-label">الصورة التعريفية (Profile Picture)</label>
-                  <input class="form-control" type="file" id="formFile">
+                  <label for="profilePicture" class="form-label">الصورة التعريفية</label>
+                  <input class="form-control" type="file" id="profilePicture" name="profilePicture" required>
                 </div>
-
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">تأكيد</button>
                   <button type="reset" class="btn btn-secondary">أفراغ</button>
                 </div>
-              </form><!-- Vertical Form -->
-
+              </form>
             </div>
           </div>
-
         </div>
       </div>
-      <!-- End Bordered Tabs -->
     </div>
   </div>
-
 </main>
+
+<script src="../assets/js/organizations_content.js"></script>
