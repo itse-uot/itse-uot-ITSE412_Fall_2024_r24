@@ -12,7 +12,7 @@ ini_set('error_log', __DIR__ . '/error.log');
 include 'dbconfig.php';
 
 
-$userID = $_SESSION['user']['UserID'];
+$userID = 20;
 
 // التحقق من أن الطريقة المستخدمة هي POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

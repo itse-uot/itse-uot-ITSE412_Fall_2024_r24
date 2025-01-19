@@ -20,30 +20,28 @@
             </div>
             <!-- الأزرار -->
             <div class="text-center">
-                <button type="button" id="saveChanges" class="btn btn-outline-primary">حفظ</button>
-                <button type="button" id="deleteAccount" class="btn btn-outline-danger px-4" data-bs-toggle="modal" data-bs-target="#basicModal">
-                    حذف
-                </button>
-            </div>
-        </form>
-    </div>
+    <button type="button" id="saveChanges" class="btn btn-outline-primary">حفظ</button>
+    <button type="button" id="deleteAccount" class="btn btn-outline-danger px-4" data-bs-toggle="modal" data-bs-target="#basicModal">
+        حذف
+    </button>
+</div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">رسالة تنبيه!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">هل متأكد من أنك تريد حذف حسابك؟</div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">تراجع</button>
-                    <button type="button" id="confirmDelete" class="btn btn-danger">تأكيد</button>
-                </div>
+<!-- Modal -->
+<div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">رسالة تنبيه!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">هل متأكد من أنك تريد حذف حسابك؟</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">تراجع</button>
+                <button type="button" id="confirmDelete" class="btn btn-danger">تأكيد</button>
             </div>
         </div>
     </div>
+</div>
 </main>
 <script>
 $(document).ready(function () {
@@ -91,19 +89,30 @@ $(document).ready(function () {
     });
 
     // حذف الحساب
+
+});
+
+$(document).ready(function () {
+    // عند الضغط على زر تأكيد الحذف
     $('#confirmDelete').click(function () {
         $.ajax({
-            url: '../execute/deleteUser.php',
-            method: 'POST',
+            type: 'POST',
+            url: '../execute/deleteUser.php', // ملف الحذف
+            data: { action: 'delete_account' }, // إرسال الإجراء
             dataType: 'json',
             success: function (response) {
-                alert(response.message);
-                window.location.href = 'logout.php'; // نقل المستخدم لصفحة تسجيل الخروج أو الصفحة الرئيسية
+                if (response.status === 'success') {
+                    alert(response.message); // عرض رسالة النجاح
+                    window.location.href = 'login.php'; // تحويل المستخدم إلى صفحة تسجيل الدخول
+                } else {
+                    alert(response.message); // عرض رسالة الخطأ
+                }
             },
             error: function () {
-                alert('خطأ أثناء حذف الحساب.');
+                alert('حدث خطأ أثناء محاولة حذف الحساب.');
             }
         });
     });
 });
+
 </script>

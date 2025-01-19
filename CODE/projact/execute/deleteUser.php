@@ -1,17 +1,25 @@
 <?php
-require_once 'dbconfig.php';
-
 session_start();
-$userID = 6; // تأكد من أن UserID موجودة في الجلسة
+include 'dbconfig.php';
 
-try {
-    $query = "DELETE FROM users WHERE UserID = :userID";
-    $stmt = $conn->prepare($query);
-    $stmt->execute([':userID' => $userID]);
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'delete_account') {
+    try {
+        // الحصول على معرف المستخدم من الجلسة
+        $userId = $_SESSION['user']['UserID'];
 
-    echo json_encode(["message" => "تم حذف الحساب بنجاح."]);
-} catch (PDOException $e) {
-    http_response_code(500);
-    echo json_encode(["message" => "حدث خطأ أثناء حذف الحساب: " . $e->getMessage()]);
+        // حذف المستخدم من قاعدة البيانات
+        $stmt = $conn->prepare("DELETE FROM users WHERE UserID = :userId");
+        $stmt->bindParam(':userId', $userId);
+        $stmt->execute();
+
+        // إنهاء الجلسة بعد الحذف
+        session_destroy();
+
+        // رسالة نجاح
+        echo json_encode(['status' => 'success', 'message' => 'تم حذف الحساب بنجاح.']);
+    } catch (Exception $e) {
+        echo json_encode(['status' => 'error', 'message' => 'حدث خطأ أثناء حذف الحساب: ' . $e->getMessage()]);
+    }
 }
 ?>
+
