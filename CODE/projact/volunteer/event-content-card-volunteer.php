@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 include 'dbconfig.php'; // تضمين ملف الاتصال بقاعدة البيانات
 
@@ -36,7 +35,7 @@ try {
     <!-- العمود الرئيسي للبطاقات -->
     <div class="col-md-9 order-md-1">
       <?php foreach ($events as $event): ?>
-      <!-- البطاقة الأولى -->
+      <!-- البطاقة الخاصة بالفعالية -->
       <div class="card mb-4">
         <div class="d-flex align-items-center p-3">
           <img src="assets/img/prof.jpeg" alt="Organization Logo" class="rounded-circle me-3"
@@ -46,7 +45,13 @@ try {
             <small class="text-muted"><?= htmlspecialchars($event['StartDate']) ?></small>
           </div>
         </div>
-        <img src="<?= htmlspecialchars($event['Image']) ?>" class="card-img-top" alt="Event Image">
+
+        <!-- عرض صورة الفعالية -->
+        <?php 
+        $imagePath = !empty($event['Image']) ? htmlspecialchars($event['Image']) : 'assets/img/default-event.jpg'; 
+        ?>
+        <img src="<?= $imagePath ?>" class="card-img-top" alt="Event Image">
+
         <div class="card-body">
           <h5 class="card-title"><?= htmlspecialchars($event['EventName']) ?></h5>
           <p class="card-text mb-1"><strong>الوصف:</strong> <?= htmlspecialchars($event['Description']) ?></p>
@@ -73,47 +78,71 @@ try {
             <p class="text-muted" id="totalRatingsCount">عدد التقييمات: <?= htmlspecialchars($event['TotalRatings']) ?></p>
           </div>
 
+          <!-- أزرار الإجراءات -->
           <div class="d-flex justify-content-between align-items-center mt-3">
-            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#reviewModal">إضافة تقييم</button>
-            <?php
-            include "evaluation_content.php";
-            ?>
-            <button class="btn btn-outline-secondary btn-sm">تقديم طلب</button>
+            <button 
+              class="btn btn-primary btn-sm" 
+              data-bs-toggle="modal" 
+              data-bs-target="#reviewModal" 
+              data-event-id="<?= $event['EventID'] ?>">
+              إضافة تقييم
+            </button>
+            <button 
+              class="btn btn-outline-secondary btn-sm" 
+              data-event-id="<?= $event['EventID'] ?>">
+              تقديم طلب
+            </button>
           </div>
+
+          <!-- تضمين ملف التقييم -->
+          <?php include "evaluation_content.php"; ?>
         </div>
-=======
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>عرض الفعاليات للمتطوع</title>
-  <!-- تضمين Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- تضمين أيقونات Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
-</head>
-<body>
-  <div class="container">
-    <div class="row">
-      <!-- العمود الرئيسي للبطاقات -->
-      <div class="col-md-9 order-md-1" id="eventsContainer">
-        <!-- سيتم تحميل البطاقات هنا باستخدام AJAX -->
->>>>>>> 8ef197f05d24f1472adb4211dba761bf782379ed
       </div>
       <?php endforeach; ?>
     </div>
   </div>
-<<<<<<< HEAD
 </div>
-=======
 
-  <!-- تضمين مكتبة jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!-- تضمين مكتبة Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- تضمين ملف JavaScript الخاص بتحميل الفعاليات -->
-  <script src="../assets/js/loadVolunteerEvents.js"></script>
-</body>
-</html>
->>>>>>> 8ef197f05d24f1472adb4211dba761bf782379ed
+<!-- Modal لإضافة التقييم -->
+<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reviewModalLabel">إضافة تقييم</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- عرض التقييمات السابقة -->
+                <div class="mb-4">
+                    <h6>التقييمات السابقة:</h6>
+                    <div id="previousReviews">
+                        <!-- سيتم عرض التقييمات السابقة هنا -->
+                    </div>
+                </div>
+                <!-- نموذج التقييم -->
+                <form id="reviewForm">
+                    <input type="hidden" id="eventID" name="eventID"> <!-- يتم تعيين القيمة ديناميكيًا -->
+                    <div class="mb-3">
+                        <label for="ratingStars" class="form-label">التقييم:</label>
+                        <div id="ratingStars" class="d-flex gap-2">
+                            <i class="bi bi-star fs-4" data-value="1"></i>
+                            <i class="bi bi-star fs-4" data-value="2"></i>
+                            <i class="bi bi-star fs-4" data-value="3"></i>
+                            <i class="bi bi-star fs-4" data-value="4"></i>
+                            <i class="bi bi-star fs-4" data-value="5"></i>
+                        </div>
+                        <input type="hidden" id="ratingValue" name="ratingValue" value="0">
+                    </div>
+                    <div class="mb-3">
+                        <label for="reviewDescription" class="form-label">الوصف:</label>
+                        <textarea id="reviewDescription" class="form-control" rows="3" placeholder="اكتب تعليقك هنا..." required></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">إرسال</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
