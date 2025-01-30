@@ -39,3 +39,4 @@
 [19-Jan-2025 04:07:43 Europe/Berlin] PHP Warning:  Undefined array key "field" in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 22
 [19-Jan-2025 05:00:15 Europe/Berlin] PHP Warning:  Undefined array key "field" in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 22
 [19-Jan-2025 05:00:18 Europe/Berlin] PHP Warning:  Undefined array key "field" in C:\xampp\htdocs\itse-uot-ITSE412_Fall_2024_r24\CODE\projact\execute\create_organization.php on line 22
+[28-Jan-2025 17:30:46 Europe/Berlin] Error deleting organization: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`tatawoe`.`applications`, CONSTRAINT `applications_ibfk_1` FOREIGN KEY (`EventID`) REFERENCES `events` (`EventID`) ON UPDATE CASCADE)
