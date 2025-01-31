@@ -2,7 +2,7 @@
 require_once 'dbconfig.php';
 
 session_start();
-$userID = 6; // تأكد من وجود UserID في الجلسة
+$userID = $_SESSION['user']['UserID'] ; // تأكد من وجود UserID في الجلسة
 
 $username = $_POST['Username'];
 $email = $_POST['Email'];

@@ -2,7 +2,7 @@
 require_once 'dbconfig.php';
 
 session_start();
-$userID = 3; // تأكد من أن UserID موجودة في الجلسة
+$userID = $_SESSION['user']['UserID']  ; // تأكد من أن UserID موجودة في الجلسة
 
 try {
     $query = "SELECT UserID, Username, Email, Password, CreatedAt, UpdatedAt FROM users WHERE UserID = :userID";
