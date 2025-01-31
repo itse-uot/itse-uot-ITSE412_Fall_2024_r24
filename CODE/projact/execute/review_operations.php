@@ -1,6 +1,8 @@
 <?php
 session_start(); // بدء الجلسة
-include 'dbconfig.php'; // تضمين ملف الاتصال بقاعدة البيانات
+
+// تضمين ملف الاتصال بقاعدة البيانات
+include 'dbconfig.php';
 
 // التحقق من أن المستخدم مسجل الدخول
 if (!isset($_SESSION['UserID'])) {
@@ -17,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     switch ($action) {
         case 'add':
             // إضافة تقييم جديد
-            $eventID = $_POST['eventID'];
-            $rating = $_POST['rating'];
-            $reviewText = $_POST['reviewText'];
+            $eventID = filter_var($_POST['eventID'], FILTER_SANITIZE_NUMBER_INT);
+            $rating = filter_var($_POST['rating'], FILTER_SANITIZE_NUMBER_INT);
+            $reviewText = htmlspecialchars($_POST['reviewText'], ENT_QUOTES, 'UTF-8');
 
             if (empty($eventID) || empty($rating) || empty($reviewText)) {
                 echo json_encode(['status' => 'error', 'message' => 'يرجى ملء جميع الحقول المطلوبة.']);
@@ -27,12 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             // إضافة التقييم باستخدام UserID
-            $query = "INSERT INTO RatingsAndReviews (EventID, VolunteerID, Rating, ReviewText,UserID) VALUES (:eventID, :userID, :rating, :reviewText,:userID)";
+            $query = "INSERT INTO RatingsAndReviews (EventID, VolunteerID, Rating, ReviewText, UserID) 
+                      VALUES (:eventID, :userID, :rating, :reviewText, :userID)";
             try {
                 $stmt = $conn->prepare($query);
                 $stmt->execute([
                     'eventID' => $eventID,
-                    'userID' => $userID, // استخدام UserID من الجلسة
+                    'userID' => $userID,
                     'rating' => $rating,
                     'reviewText' => $reviewText
                 ]);
@@ -44,9 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         case 'update':
             // تعديل تقييم موجود
-            $reviewID = $_POST['reviewID'];
-            $rating = $_POST['rating'];
-            $reviewText = $_POST['reviewText'];
+            $reviewID = filter_var($_POST['reviewID'], FILTER_SANITIZE_NUMBER_INT);
+            $rating = filter_var($_POST['rating'], FILTER_SANITIZE_NUMBER_INT);
+            $reviewText = htmlspecialchars($_POST['reviewText'], ENT_QUOTES, 'UTF-8');
 
             if (empty($reviewID) || empty($rating) || empty($reviewText)) {
                 echo json_encode(['status' => 'error', 'message' => 'يرجى ملء جميع الحقول المطلوبة.']);
@@ -81,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         case 'delete':
             // حذف تقييم
-            $reviewID = $_POST['reviewID'];
+            $reviewID = filter_var($_POST['reviewID'], FILTER_SANITIZE_NUMBER_INT);
 
             if (empty($reviewID)) {
                 echo json_encode(['status' => 'error', 'message' => 'لم يتم تحديد التقييم المطلوب حذفه.']);
@@ -116,9 +119,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // جلب التقييمات السابقة
-    $eventID = $_GET['eventID'];
-    $query = "SELECT * FROM RatingsAndReviews WHERE EventID = :eventID";
-    
+    $eventID = filter_var($_GET['eventID'], FILTER_SANITIZE_NUMBER_INT);
+    $query = "SELECT * FROM RatingsAndReviews WHERE EventID = :eventID ORDER BY CreatedAt DESC";
+
     try {
         $stmt = $conn->prepare($query);
         $stmt->execute(['eventID' => $eventID]);
