@@ -16,13 +16,13 @@ $(document).ready(function () {
                     $('.fullName').text(data.FullName); // عرض الاسم في الحقل
                     $('.skills').text(data.Skills); // عرض المهارات
                     $('.contactNumber').text(data.ContactNumber); // عرض رقم الهاتف
-                    $('.contactEmail').text(data.ContactEmail); // عرض البريد
+                    $('.contactEmail').text(data.Email); // عرض البريد
 
                     // تحديث البيانات في حقول التعديل
                     $('#fullName2').val(data.FullName); // وضع الاسم في حقل التعديل
                     $('#about').val(data.Skills); // وضع المهارات في حقل التعديل
                     $('#Phone').val(data.ContactNumber); // وضع رقم الهاتف في حقل التعديل
-                    $('#Email').val(data.ContactEmail); // وضع البريد في حقل التعديل
+                    $('#Email').val(data.Email); // وضع البريد في حقل التعديل
 
                     // تعيين الصورة باستخدام Base64
                     $('.profileImage').attr('src', 'data:image/png;base64,' + data.ProfilePicture);
@@ -46,7 +46,6 @@ $(document).ready(function () {
 
         var formData = new FormData(this); // استخدام FormData لتضمين الصورة
         formData.append('action', 'update_data');
-        formData.append('volunteerId', volunteerId);
 
         $.ajax({
             type: 'POST',

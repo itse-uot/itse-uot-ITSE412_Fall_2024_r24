@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'status' => 'success',
                 'data' => [
                     'FullName' => $data['FullName'],
-                    'ContactEmail' => $data['Email'],
+                    'Email' => $data['Email'],
                     'Skills' => $data['Skills'],
                     'ContactNumber' => $data['ContactNumber'],
                     'ProfilePicture' => base64_encode($data['ProfilePicture']), // تحويل الصورة إلى Base64
