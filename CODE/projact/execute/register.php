@@ -55,14 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         // تحميل صورة الملف الشخصي إذا تم تحميلها
-        $profilePicturePath = null;
+        $profilePictureBlob = null;
         if ($profilePicture['error'] === UPLOAD_ERR_OK) {
-            $uploadDir = '../uploads/';
-            if (!is_dir($uploadDir)) {
-                mkdir($uploadDir, 0755, true);
-            }
-            $profilePicturePath = $uploadDir . basename($profilePicture['name']);
-            move_uploaded_file($profilePicture['tmp_name'], $profilePicturePath);
+            // قراءة محتوى الصورة كـ BLOB
+            $profilePictureBlob = file_get_contents($profilePicture['tmp_name']);
         }
 
         // إضافة المستخدم الجديد إلى جدول users
@@ -72,10 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute([
             'username' => $username,
             'email' => $email,
-            'password' => $password, // كلمة المرور غير مشفرة
+            'password' => $password, // كلمة المرور غير مشفرة (كما هو مطلوب)
             'fullName' => $fullName,
             'skills' => $skills,
-            'profilePicture' => $profilePicturePath,
+            'profilePicture' => $profilePictureBlob, // تخزين الصورة كـ BLOB
             'contactNumber' => $contactNumber
         ]);
 
