@@ -103,7 +103,7 @@
                 </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">تأكيد</button>
-                  <button type="reset" class="btn btn-secondary">أفراغ</button>
+
                 </div>
               </form>
             </div>
