@@ -6,14 +6,14 @@ include 'dbconfig.php'; // تأكد من أن ملف الاتصال بقاعدة
 // تحقق إذا تم إرسال الطلب
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // استرجاع بيانات المتطوع
-    $volunteerId = isset($_POST['volunteerId']) ? $_POST['volunteerId'] : $_SESSION['user']['UserID'];  // افترضنا أن الـ ID يتم إرساله في الطلب
-
+    $UserId = isset($_POST['userid']) ? $_POST['userid'] : $_SESSION['user']['UserID'];  // افترضنا أن الـ ID يتم إرساله في الطلب
+    // $UserId =  $_SESSION['user']['UserID'];
     // استعلام لاسترجاع بيانات المتطوع
-    $query = "SELECT FullName, ContactEmail, Skills, ContactNumber, ProfilePicture FROM Volunteers WHERE VolunteerID = :volunteerId";
+    $query = "SELECT FullName, Email, Skills, ContactNumber, ProfilePicture FROM users WHERE UserID = :UserId";
     
     try {
         $stmt = $conn->prepare($query);
-        $stmt->execute(['volunteerId' => $volunteerId]);
+        $stmt->execute(['UserId' => $UserId]);
         
         // استرجاع البيانات كـ مصفوفة
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'status' => 'success',
                 'data' => [
                     'FullName' => $data['FullName'],
-                    'ContactEmail' => $data['ContactEmail'],
+                    'ContactEmail' => $data['Email'],
                     'Skills' => $data['Skills'],
                     'ContactNumber' => $data['ContactNumber'],
                     'ProfilePicture' => base64_encode($data['ProfilePicture']), // تحويل الصورة إلى Base64

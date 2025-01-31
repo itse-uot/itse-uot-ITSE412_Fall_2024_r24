@@ -13,13 +13,13 @@
 
 
   <div class="search-bar">
-    <form class="search-form d-flex align-items-center" method="POST" action="search.php">
-      <input type="text" name="query" placeholder="بحث" title="أدخل كلمة البحث" class="form-control me-2">
-      <button type="submit" title="بحث" class="btn btn-primary">
-        <i class="bi bi-search"></i>
-      </button>
-    </form>
-  </div>
+  <form class="search-form d-flex align-items-center" id="searchForm" method="GET" action="search.php">
+    <input type="text" name="query" id="searchQuery" placeholder="بحث" title="أدخل كلمة البحث" class="form-control me-2">
+    <button type="submit" title="بحث" class="btn btn-primary" id="searchButton">
+      <i class="bi bi-search"></i>
+    </button>
+  </form>
+</div>
   <!-- شريط البحث -->
 
   <!-- شريط البحث -->

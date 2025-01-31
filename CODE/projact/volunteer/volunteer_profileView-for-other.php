@@ -76,14 +76,14 @@ $(document).ready(function () {
   // const urlParams = new URLSearchParams(window.location.search);
   //   const volunteerId = urlParams.get('id');
   const urlParams = new URLSearchParams(window.location.search);
-    const volunteerId = urlParams.get('id');
+    const userid = urlParams.get('id');
 
     // تحميل البيانات
     function loadProfileData() {
         $.ajax({
             type: 'POST',
             url: '../execute/get_volunteer_data.php',
-            data: { action: 'get_data', volunteerId},
+            data: { action: 'get_data', userid},
             dataType: 'json',
             success: function (response) {
                 if (response.status === 'success') {
@@ -93,7 +93,7 @@ $(document).ready(function () {
                     $('.fullName2').text(data.FullName); // عرض الاسم في الحقل
                     $('.skills').text(data.Skills); // عرض المهارات
                     $('.contactNumber').text(data.ContactNumber); // عرض رقم الهاتف
-                    $('.contactEmail').text(data.ContactEmail); // عرض البريد
+                    $('.contactEmail').text(data.Email); // عرض البريد
 
                     // تحديث البيانات في حقول التع
                 } else {
