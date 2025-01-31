@@ -12,12 +12,15 @@ $userID = $_SESSION['user']['UserID']; // الحصول على ID المستخد�
 
 // استعلام لجلب الفعاليات التي اشترك فيها المتطوع
 $query = "
-    SELECT e.EventName, e.Description AS eventDescription, e.StartDate AS eventDate, 
-           e.Image AS eventImage
-    FROM applications a
-    JOIN events e ON a.EventID = e.EventID
-    JOIN volunteers v ON a.VolunteerID = v.VolunteerID
-    WHERE v.UserID = :userID AND a.ApplicationStatus = 'Accepted'
+   SELECT 
+    e.EventName, 
+    e.Description AS eventDescription, 
+    e.StartDate AS eventDate, 
+    e.Image AS eventImage
+FROM applications a
+JOIN events e ON a.EventID = e.EventID
+JOIN users u ON a.UserID = u.UserID
+WHERE u.UserID = :userID AND a.ApplicationStatus = 'Accepted';
 ";
 
 try {
