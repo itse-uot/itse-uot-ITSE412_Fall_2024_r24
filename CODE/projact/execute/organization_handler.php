@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'fetch':
             // جلب المنظمات
             $query = "SELECT OrganizationID, OrganizationName, Field, Location, OrganizationPicture 
-                      FROM Organizations 
+                      FROM organizations 
                       WHERE UserID = :userID";
             try {
                 $stmt = $conn->prepare($query);
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $profilePicture = file_get_contents($_FILES['profilePicture']['tmp_name']);
             }
 
-            $query = "INSERT INTO Organizations 
+            $query = "INSERT INTO organizations 
                       (OrganizationName, Description, Field, Location, ContactEmail, PhoneNumber, OrganizationPicture, UserID) 
                       VALUES 
                       (:organizationName, :description, :field, :location, :contactEmail, :phoneNumber, :profilePicture, :userID)";
@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
 
-            $query = "DELETE FROM Organizations WHERE OrganizationID = :organizationID AND UserID = :userID";
+            $query = "DELETE FROM organizations WHERE OrganizationID = :organizationID AND UserID = :userID";
 
             try {
                 $stmt = $conn->prepare($query);
