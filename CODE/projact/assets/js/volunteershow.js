@@ -1,12 +1,12 @@
 $(document).ready(function () {
-    var volunteerId = 1; // رقم المتطوع
+  // رقم المتطوع
 
     // تحميل البيانات
     function loadProfileData() {
         $.ajax({
             type: 'POST',
             url: '../execute/get_volunteer_data.php',
-            data: { action: 'get_data', volunteerId: volunteerId },
+            data: { action: 'get_data'},
             dataType: 'json',
             success: function (response) {
                 if (response.status === 'success') {
@@ -32,7 +32,7 @@ $(document).ready(function () {
                 }
             },
             error: function () {
-                alert('حدث خطأ أثناء تحميل البيانات.');
+               // alert('حدث خطأ أثناء تحميل البيانات.');
             }
         });
     }

@@ -6,7 +6,7 @@ include 'dbconfig.php'; // تأكد من أن ملف الاتصال بقاعدة
 // تحقق إذا تم إرسال الطلب
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // استرجاع بيانات المتطوع
-    $volunteerId = $_SESSION['user']['UserID'] ;  // افترضنا أن الـ ID يتم إرساله في الطلب
+    $volunteerId = isset($_POST['volunteerId']) ? $_POST['volunteerId'] : $_SESSION['user']['UserID'];  // افترضنا أن الـ ID يتم إرساله في الطلب
 
     // استعلام لاسترجاع بيانات المتطوع
     $query = "SELECT FullName, ContactEmail, Skills, ContactNumber, ProfilePicture FROM Volunteers WHERE VolunteerID = :volunteerId";

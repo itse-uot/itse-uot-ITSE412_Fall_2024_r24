@@ -54,7 +54,7 @@ if ($query !== '') {
                       <img src="<?= isset($volunteer['ProfilePicture']) ? $volunteer['ProfilePicture'] : 'default-profile.png'; ?>" alt="Volunteer Profile Picture" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
                       <div>
                         <h5 class="card-title mb-0">
-                          <a href="volunteer_profileView-for-other.php?id=<?= isset($volunteer['id']) ? $volunteer['id'] : ''; ?>" class="text-decoration-none text-dark"><?= isset($volunteer['FullName']) ? $volunteer['FullName'] : 'غير متوفر'; ?></a>
+                          <a href="volunteer_profileView-for-other.php?id=<?= isset($volunteer['VolunteerID']) ? $volunteer['VolunteerID'] : ''; ?>" class="text-decoration-none text-dark"><?= isset($volunteer['FullName']) ? $volunteer['FullName'] : 'غير متوفر'; ?></a>
                         </h5>
                         <p class="mb-0 text-muted">البريد الإلكتروني: <?= isset($volunteer['ContactEmail']) ? $volunteer['ContactEmail'] : 'غير متوفر'; ?></p>
                       </div>

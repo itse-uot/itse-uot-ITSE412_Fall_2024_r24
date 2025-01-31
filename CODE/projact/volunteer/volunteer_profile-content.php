@@ -100,12 +100,6 @@
     </div>
   </div>
 </main>
-
-<!-- تضمين jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- تضمين ملف JavaScript -->
-<script src="../assets/js/getEvents_volunteerProfile.js"></script>
 <!-- <script>
 $(document).ready(function () {
     var volunteerId = 1; // رقم المتطوع
