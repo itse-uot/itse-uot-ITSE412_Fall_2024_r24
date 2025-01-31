@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute([
             'username' => $username,
             'email' => $email,
-            'password' => password_hash($password, PASSWORD_BCRYPT) // تشفير كلمة المرور
+            'password' => $password // كلمة المرور غير مشفرة
         ]);
 
         // الحصول على الـ UserID للمستخدم الجديد
@@ -90,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'skills' => $skills,
             'profilePicture' => $profilePicturePath,
             'contactNumber' => $contactNumber
+            
         ]);
 
         echo json_encode(['status' => 'success', 'message' => 'تم إنشاء الحساب بنجاح. سيتم توجيهك إلى صفحة تسجيل الدخول.']);
