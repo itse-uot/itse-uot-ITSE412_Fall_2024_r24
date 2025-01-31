@@ -47,3 +47,8 @@
 [31-Jan-2025 22:00:12 Europe/Berlin] Error adding organization: SQLSTATE[08S01]: Communication link failure: 1153 Got a packet bigger than 'max_allowed_packet' bytes
 [31-Jan-2025 22:00:21 Europe/Berlin] Error adding organization: SQLSTATE[HY000]: General error: 2006 MySQL server has gone away
 [31-Jan-2025 22:38:22 Europe/Berlin] Error adding organization: SQLSTATE[HY000]: General error: 2006 MySQL server has gone away
+[31-Jan-2025 22:44:57 Europe/Berlin] Error adding organization: SQLSTATE[08S01]: Communication link failure: 1153 Got a packet bigger than 'max_allowed_packet' bytes
+[31-Jan-2025 22:48:06 Europe/Berlin] Error adding organization: SQLSTATE[08S01]: Communication link failure: 1153 Got a packet bigger than 'max_allowed_packet' bytes
+[31-Jan-2025 22:48:24 Europe/Berlin] Error adding organization: SQLSTATE[08S01]: Communication link failure: 1153 Got a packet bigger than 'max_allowed_packet' bytes
+[31-Jan-2025 22:48:32 Europe/Berlin] Error adding organization: SQLSTATE[HY000]: General error: 2006 MySQL server has gone away
+[31-Jan-2025 22:59:14 Europe/Berlin] Error adding organization: SQLSTATE[HY000]: General error: 2006 MySQL server has gone away

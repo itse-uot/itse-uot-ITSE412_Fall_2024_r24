@@ -2,19 +2,19 @@
 session_start();
 include 'dbconfig.php'; // ملف الاتصال بقاعدة البيانات
 
-if (!isset($_SESSION['userID'])) {
-    echo json_encode(['status' => 'error', 'message' => 'غير مصرح بالوصول']);
-    exit;
-}
+// if (!isset($_SESSION['userID'])) {
+//     echo json_encode(['status' => 'error', 'message' => 'غير مصرح بالوصول']);
+//     exit;
+// }
 
-$userID = $_SESSION['userID'];
+$userID = $_SESSION ['user']['UserID'];
 
 // استعلام لجلب الطلبات المرسلة
 $query = "SELECT a.ApplicationID, a.ApplicationStatus, e.EventName, e.Location, o.OrganizationName, o.ContactEmail 
-          FROM Applications a
-          JOIN Events e ON a.EventID = e.EventID
-          JOIN Organizations o ON e.OrganizationID = o.OrganizationID
-          WHERE a.VolunteerID = :userID";
+          FROM applications a
+          JOIN events e ON a.EventID = e.EventID
+          JOIN organizations o ON e.OrganizationID = o.OrganizationID
+          WHERE a.UserID = :userID";
 
 try {
     $stmt = $conn->prepare($query);
