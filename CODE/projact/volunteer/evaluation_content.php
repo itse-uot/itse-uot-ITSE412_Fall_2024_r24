@@ -16,8 +16,8 @@
                 </div>
                 <!-- نموذج التقييم -->
                 <form id="reviewForm">
-                    <input type="hidden" id="eventID" name="eventID" value="1"> <!-- قيمة eventID يجب أن تأتي من البيانات الفعلية -->
-                    <input type="hidden" id="volunteerID" name="volunteerID" value="1"> <!-- قيمة volunteerID يجب أن تأتي من البيانات الفعلية -->
+                    <input type="hidden" id="eventID" name="eventID" value="<?php echo $eventID; ?>">
+                    <input type="hidden" id="volunteerID" name="volunteerID" value="<?php echo $volunteerID; ?>">
                     <div class="mb-3">
                         <label for="ratingStars" class="form-label">التقييم:</label>
                         <div id="ratingStars" class="d-flex gap-2">

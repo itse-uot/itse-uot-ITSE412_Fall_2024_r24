@@ -12,15 +12,14 @@ $(document).ready(function () {
   
         // التحقق من المدخلات
         if (!formData.get('username') || !formData.get('email') || !formData.get('password') || 
-            !formData.get('fullName') || !formData.get('skills') || !formData.get('contactNumber') || 
-            !formData.get('contactEmail')) {
+            !formData.get('fullName') || !formData.get('skills') || !formData.get('contactNumber')) {
             $('#errorMessage').removeClass('d-none').text('يرجى ملء جميع الحقول المطلوبة.');
             return;
         }
   
         // التحقق من صحة البريد الإلكتروني
         var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(formData.get('email')) || !emailPattern.test(formData.get('contactEmail'))) {
+        if (!emailPattern.test(formData.get('email'))) {
             $('#errorMessage').removeClass('d-none').text('البريد الإلكتروني غير صحيح.');
             return;
         }
@@ -61,4 +60,4 @@ $(document).ready(function () {
             }
         });
     });
-  });
+});

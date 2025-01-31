@@ -105,12 +105,7 @@
                       <div class="invalid-feedback">يرجى إدخال رقم هاتف صحيح.</div>
                     </div>
 
-                    <div class="col-12">
-                      <label for="contactEmail" class="form-label">البريد الإلكتروني للتواصل</label>
-                      <input type="email" name="contactEmail" class="form-control" id="contactEmail" required>
-                      <div class="invalid-feedback">يرجى إدخال بريد إلكتروني صحيح.</div>
-                    </div>
-
+                    
                     <div class="col-12">
                       <label for="profileImage" class="form-label">صورة الملف الشخصي</label>
                       <input type="file" name="profileImage" class="form-control" id="profileImage" accept="image/*">

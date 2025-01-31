@@ -11,17 +11,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fullName = $_POST['fullName'];
     $skills = $_POST['skills'];
     $contactNumber = $_POST['contactNumber'];
-    $contactEmail = $_POST['contactEmail'];
     $profilePicture = $_FILES['profileImage'];
 
     // التحقق من أن الحقول مطلوبة
-    if (empty($username) || empty($email) || empty($password) || empty($fullName) || empty($skills) || empty($contactNumber) || empty($contactEmail)) {
+    if (empty($username) || empty($email) || empty($password) || empty($fullName) || empty($skills) || empty($contactNumber)) {
         echo json_encode(['status' => 'error', 'message' => 'يرجى ملء جميع الحقول المطلوبة.']);
         exit;
     }
 
     // التحقق من صحة البريد الإلكتروني
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL) || !filter_var($contactEmail, FILTER_VALIDATE_EMAIL)) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo json_encode(['status' => 'error', 'message' => 'البريد الإلكتروني غير صحيح.']);
         exit;
     }
@@ -33,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // التحقق من أن اسم المستخدم غير موجود من قبل
-    $query = "SELECT * FROM Users WHERE Username = :username";
+    $query = "SELECT * FROM users WHERE Username = :username";
     try {
         $stmt = $conn->prepare($query);
         $stmt->execute(['username' => $username]);
@@ -45,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         // التحقق من أن البريد الإلكتروني غير موجود من قبل
-        $query = "SELECT * FROM Users WHERE Email = :email";
+        $query = "SELECT * FROM users WHERE Email = :email";
         $stmt = $conn->prepare($query);
         $stmt->execute(['email' => $email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -54,19 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo json_encode(['status' => 'error', 'message' => 'البريد الإلكتروني موجود مسبقًا.']);
             exit;
         }
-
-        // إضافة المستخدم الجديد إلى جدول Users
-        $query = "INSERT INTO Users (Username, Email, Password, CreatedAt, UpdatedAt) 
-                  VALUES (:username, :email, :password, NOW(), NOW())";
-        $stmt = $conn->prepare($query);
-        $stmt->execute([
-            'username' => $username,
-            'email' => $email,
-            'password' => password_hash($password, PASSWORD_BCRYPT) // تشفير كلمة المرور
-        ]);
-
-        // الحصول على الـ UserID للمستخدم الجديد
-        $userID = $conn->lastInsertId();
 
         // تحميل صورة الملف الشخصي إذا تم تحميلها
         $profilePicturePath = null;
@@ -79,14 +65,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             move_uploaded_file($profilePicture['tmp_name'], $profilePicturePath);
         }
 
-        // إضافة البيانات إلى جدول Volunteers
-        $query = "INSERT INTO Volunteers (UserID, FullName, ContactEmail, Skills, ProfilePicture, ContactNumber, CreatedAt, UpdatedAt) 
-                  VALUES (:userID, :fullName, :contactEmail, :skills, :profilePicture, :contactNumber, NOW(), NOW())";
+        // إضافة المستخدم الجديد إلى جدول users
+        $query = "INSERT INTO users (Username, Email, Password, FullName, Skills, ProfilePicture, ContactNumber, CreatedAt, UpdatedAt) 
+                  VALUES (:username, :email, :password, :fullName, :skills, :profilePicture, :contactNumber, NOW(), NOW())";
         $stmt = $conn->prepare($query);
         $stmt->execute([
-            'userID' => $userID,
+            'username' => $username,
+            'email' => $email,
+            'password' => $password, // كلمة المرور غير مشفرة
             'fullName' => $fullName,
-            'contactEmail' => $contactEmail,
             'skills' => $skills,
             'profilePicture' => $profilePicturePath,
             'contactNumber' => $contactNumber
