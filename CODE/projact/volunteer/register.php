@@ -30,6 +30,8 @@
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <!-- Cropper CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -107,9 +109,13 @@
 
                     
                     <div class="col-12">
-                      <label for="profileImage" class="form-label">صورة الملف الشخصي</label>
-                      <input type="file" name="profileImage" class="form-control" id="profileImage" accept="image/*">
-                    </div>
+    <label for="profileImage" class="form-label">صورة الملف الشخصي</label>
+    <input type="file" name="profileImage" class="form-control" id="profileImage" accept="image/*" style="display: none;">
+    <button type="button" class="btn btn-secondary w-100" id="uploadButton">اختر صورة</button>
+    <div class="mt-3">
+        <img id="imagePreview" src="#" alt="الصورة المختارة" style="max-width: 100%; display: none;">
+    </div>
+</div>
 
                     <!-- زر إنشاء الحساب -->
                     <div class="col-12">
@@ -141,6 +147,10 @@
 
   <!-- تضمين ملف JavaScript -->
   <script src="../assets/js/register.js"></script>
+ 
+
+<!-- Cropper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
 </body>
 
 </html>
