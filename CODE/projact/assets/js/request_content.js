@@ -74,26 +74,30 @@ $(document).ready(function () {
 
   // إضافة حدث للنقر على زر الإلغاء
   $(document).on('click', '.cancel-application', function () {
-      const applicationID = $(this).data('id');
-      if (confirm('هل أنت متأكد من إلغاء هذا الطلب؟')) {
-          $.ajax({
-              url: '../execute/cancel_application.php',
-              method: 'POST',
-              data: { applicationID: applicationID },
-              dataType: 'json',
-              success: function (response) {
-                  if (response.status === 'success') {
-                      // إزالة الطلب من الواجهة
-                      $(`#application-${applicationID}`).remove();
-                      alert('تم إلغاء الطلب بنجاح.');
-                  } else {
-                      alert('حدث خطأ أثناء إلغاء الطلب: ' + response.message);
-                  }
-              },
-              error: function () {
-                  alert('حدث خطأ أثناء الاتصال بالخادم.');
-              }
-          });
-      }
-  });
+    const applicationID = $(this).data('id'); // الحصول على معرف الطلب من الزر
+
+    // تأكيد من المستخدم قبل الإلغاء
+    if (confirm('هل أنت متأكد من إلغاء هذا الطلب؟')) {
+        $.ajax({
+            url: '../execute/cancel_application.php', // رابط الملف الذي يعالج الإلغاء
+            method: 'POST',
+            data: { applicationID: applicationID }, // إرسال معرف الطلب
+            dataType: 'json',
+            success: function (response) {
+                if (response.status === 'success') {
+                    // إزالة الطلب من الواجهة
+                    $(`#application-${applicationID}`).remove();
+                    alert('تم إلغاء الطلب بنجاح.');
+                } else {
+                    // عرض رسالة الخطأ إذا فشلت العملية
+                    alert('حدث خطأ أثناء إلغاء الطلب: ' + response.message);
+                }
+            },
+            error: function () {
+                // عرض رسالة خطأ في حالة فشل الاتصال بالخادم
+                alert('حدث خطأ أثناء الاتصال بالخادم.');
+            }
+        });
+    }
+});
 });

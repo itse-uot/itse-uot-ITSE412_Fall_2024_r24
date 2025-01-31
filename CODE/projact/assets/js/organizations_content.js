@@ -1,4 +1,67 @@
 $(document).ready(function () {
+    let cropper;
+    let resizedFile; // لتخزين الصورة المصغرة
+
+    // دالة لجلب الطلبات المرسلة
+    function fetchApplications() {
+        $.ajax({
+            url: 'applications_handler.php',
+            method: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                if (response.status === 'success') {
+                    if (response.data.length === 0) {
+                        $('#applicationsContainer').html('<div class="alert alert-info">لا توجد طلبات مرسلة.</div>');
+                    } else {
+                        let html = '';
+                        response.data.forEach(function (application) {
+                            html += `
+                                <div class="card w-100 mb-3 py-2" id="application-${application.ApplicationID}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${application.EventName}</h5>
+                                        <p class="card-text">الموقع: ${application.Location}</p>
+                                        <p class="card-text">الحالة: ${application.ApplicationStatus}</p>
+                                        <button class="btn btn-outline-danger cancel-application" data-id="${application.ApplicationID}">إلغاء الطلب</button>
+                                    </div>
+                                </div>`;
+                        });
+                        $('#applicationsContainer').html(html);
+                    }
+                } else {
+                    $('#applicationsContainer').html('<div class="alert alert-danger">' + response.message + '</div>');
+                }
+            },
+            error: function () {
+                $('#applicationsContainer').html('<div class="alert alert-danger">حدث خطأ أثناء جلب البيانات.</div>');
+            }
+        });
+    }
+
+    // جلب الطلبات عند تحميل الصفحة
+    fetchApplications();
+
+    // إلغاء الطلب
+    $(document).on('click', '.cancel-application', function () {
+        const applicationID = $(this).data('id');
+        if (confirm('هل أنت متأكد من إلغاء هذا الطلب؟')) {
+            $.ajax({
+                url: 'applications_handler.php',
+                method: 'POST',
+                data: { applicationID: applicationID },
+                dataType: 'json',
+                success: function (response) {
+                    alert(response.message);
+                    if (response.status === 'success') {
+                        fetchApplications(); // إعادة جلب الطلبات بعد الإلغاء
+                    }
+                },
+                error: function () {
+                    alert('حدث خطأ أثناء الاتصال بالخادم.');
+                }
+            });
+        }
+    });
+
     // دالة لجلب المنظمات
     function fetchOrganizations() {
         $.ajax({
@@ -44,59 +107,9 @@ $(document).ready(function () {
             }
         });
     }
-  
+
     // جلب المنظمات عند تحميل الصفحة
     fetchOrganizations();
-  
-    // إضافة منظمة جديدة
-    $('#createOrganizationForm').on('submit', function (e) {
-        e.preventDefault();
-        var formData = new FormData(this);
-        formData.append('action', 'add');
-  
-        $.ajax({
-            url: '../execute/organization_handler.php',
-            method: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            dataType: 'json',
-            success: function (response) {
-                alert(response.message);
-                if (response.status === 'success') {
-                    fetchOrganizations();
-                }
-            },
-            error: function () {
-                alert('حدث خطأ أثناء الاتصال بالخادم.');
-            }
-        });
-    });
-  
-    // حذف منظمة
-    $(document).on('click', '.delete-organization', function () {
-        const organizationID = $(this).data('id');
-        if (confirm('هل أنت متأكد من حذف هذه المنظمة؟')) {
-            $.ajax({
-                url: '../execute/organization_handler.php',
-                method: 'POST',
-                data: { action: 'delete', organizationID: organizationID },
-                dataType: 'json',
-                success: function (response) {
-                    alert(response.message);
-                    if (response.status === 'success') {
-                        $(`#organization-${organizationID}`).remove();
-                    }
-                },
-                error: function () {
-                    alert('حدث خطأ أثناء الاتصال بالخادم.');
-                }
-            });
-        }
-    });
-  });
-  $(document).ready(function () {
-    let cropper;
 
     // عند النقر على زر "اختر صورة"
     $('#uploadButton').on('click', function () {
@@ -126,61 +139,65 @@ $(document).ready(function () {
                     scalable: false,
                     zoomable: false,
                 });
+
+                // قص الصورة وتحويلها إلى Blob
+                const canvas = cropper.getCroppedCanvas({
+                    width: 800, // الحد الأقصى للعرض
+                    height: 800, // الحد الأقصى للارتفاع
+                });
+
+                canvas.toBlob(function (blob) {
+                    resizedFile = new File([blob], file.name, { type: 'image/jpeg' });
+                }, 'image/jpeg', 0.8); // 0.8 هي جودة الصورة (80%)
             };
             reader.readAsDataURL(file);
         }
     });
 
-    // عند إرسال النموذج
+    // إضافة منظمة جديدة
     $('#createOrganizationForm').on('submit', function (e) {
         e.preventDefault();
+        const formData = new FormData(this);
 
-        // قص الصورة وتحويلها إلى BLOB
-        if (cropper) {
-            const canvas = cropper.getCroppedCanvas({
-                width: 200,
-                height: 200,
-            });
+        // استبدال الصورة الأصلية بالصورة المصغرة
+        if (resizedFile) {
+            formData.set('profilePicture', resizedFile);
+        }
 
-            canvas.toBlob(function (blob) {
-                const formData = new FormData($('#createOrganizationForm')[0]);
+        formData.append('action', 'add');
 
-                // استبدال الصورة الأصلية بالصورة المقطوعة
-                formData.set('profilePicture', blob, 'profile.jpg');
+        $.ajax({
+            url: '../execute/organization_handler.php',
+            method: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success: function (response) {
+                alert(response.message);
+                if (response.status === 'success') {
+                    fetchOrganizations();
+                }
+            },
+            error: function () {
+                alert('حدث خطأ أثناء الاتصال بالخادم.');
+            }
+        });
+    });
 
-                // إرسال البيانات عبر AJAX
-                $.ajax({
-                    url: '../execute/organization_handler.php',
-                    method: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    dataType: 'json',
-                    success: function (response) {
-                        alert(response.message);
-                        if (response.status === 'success') {
-                            fetchOrganizations();
-                        }
-                    },
-                    error: function () {
-                        alert('حدث خطأ أثناء الاتصال بالخادم.');
-                    }
-                });
-            }, 'image/jpeg');
-        } else {
-            // إذا لم يتم قص الصورة، إرسال النموذج بشكل عادي
-            const formData = new FormData($('#createOrganizationForm')[0]);
+    // حذف منظمة
+    $(document).on('click', '.delete-organization', function () {
+        const organizationID = $(this).data('id');
+        if (confirm('هل أنت متأكد من حذف هذه المنظمة؟')) {
             $.ajax({
                 url: '../execute/organization_handler.php',
                 method: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
+                data: { action: 'delete', organizationID: organizationID },
                 dataType: 'json',
                 success: function (response) {
                     alert(response.message);
                     if (response.status === 'success') {
-                        fetchOrganizations();
+                        $(`#organization-${organizationID}`).remove();
                     }
                 },
                 error: function () {
