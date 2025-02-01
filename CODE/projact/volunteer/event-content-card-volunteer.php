@@ -98,26 +98,23 @@ $(document).ready(function() {
         var eventID = $(this).data('event-id'); // الحصول على ID الحدث
         var userID = <?php echo $_SESSION['user']['UserID']; ?>; // الحصول على UserID من الجلسة
 
-        // إرسال طلب AJAX
-        $.ajax({
-            url: '../execute/submit_application.php', // ملف PHP الذي سيتعامل مع الطلب
-            method: 'POST',
-            data: {
-                eventID: eventID,
-                userID: userID
-            },
-            success: function(response) {
-                // استجابة ناجحة
-                if (response.success) {
-                    alert("تم تقديم الطلب بنجاح!");
+        // عرض رسالة تأكيد
+        if (confirm("هل أنت متأكد أنك تريد تقديم طلب لهذا الحدث؟")) {
+            // إرسال طلب AJAX
+            $.ajax({
+                url: '../execute/submit_application.php', // ملف PHP الذي سيتعامل مع الطلب
+                method: 'POST',
+                data: {
+                    eventID: eventID,
+                    userID: userID
+                },
+               
+                error: function() {
+                    alert("حدث خطأ أثناء محاولة تقديم الطلب."); // رسالة خطأ عامة
                 }
-            },
-            error: function() {
-                // لا يظهر أي شيء في حالة حدوث خطأ
-            }
-        });
+            });
+        }
     });
 });
-
 
 </script>
