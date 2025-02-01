@@ -12,6 +12,7 @@ $query = "
         e.EndDate, 
         e.RequiredSkills, 
         e.Image, 
+        e.OrganizationID, 
         o.OrganizationName, 
         COALESCE(AVG(r.Rating), 0) AS AverageRating, 
         COUNT(r.ReviewID) AS TotalRatings 
@@ -39,13 +40,30 @@ try {
         <!-- البطاقة الخاصة بالفعالية -->
         <div class="col-md-4 mb-4">
           <div class="card h-100">
-            <div class="d-flex align-items-center p-3">
-              <img src="assets/img/prof.jpeg" alt="Organization Logo" class="rounded-circle me-3"
-                style="width: 50px; height: 50px;">
-              <div>
-                <h6 class="m-0"><?= htmlspecialchars($event['OrganizationName']) ?></h6>
-                <small class="text-muted"><?= htmlspecialchars($event['StartDate']) ?></small>
+            <!-- الجزء العلوي من البطاقة -->
+            <div class="d-flex align-items-center justify-content-between p-3">
+              <!-- الجزء الأيسر: صورة المنظمة واسمها -->
+              <div class="d-flex align-items-center">
+                <img src="assets/img/prof.jpeg" alt="Organization Logo" class="rounded-circle me-3"
+                  style="width: 50px; height: 50px;">
+                <div>
+                  <h6 class="m-0"><?= htmlspecialchars($event['OrganizationName']) ?></h6>
+                  <small class="text-muted"><?= htmlspecialchars($event['StartDate']) ?></small>
+                </div>
               </div>
+
+              <!-- زر الخيارات على اليمين -->
+              <?php if (isset($_SESSION['org']) && $_SESSION['org'] == $event['OrganizationID']): ?>
+              <div class="dropdown">
+                  <button class="btn btn-link text-dark p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-three-dots-vertical"></i> <!-- أيقونة ثلاث نقاط عمودية -->
+                  </button>
+                  <ul class="dropdown-menu">
+                      <li><a class="dropdown-item edit-event" href="#" data-event-id="<?= $event['EventID'] ?>">تعديل</a></li>
+                      <li><a class="dropdown-item delete-event" href="#" data-event-id="<?= $event['EventID'] ?>">حذف</a></li>
+                  </ul>
+              </div>
+              <?php endif; ?>
             </div>
 
             <!-- عرض صورة الفعالية -->
@@ -172,3 +190,4 @@ try {
     </div>
   </div>
 </div>
+
