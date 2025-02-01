@@ -62,11 +62,12 @@ $pendingRequestsQuery = "SELECT applications.ApplicationID, applications.Applica
 
 $acceptedRequestsQuery = "SELECT applications.ApplicationID, applications.ApplicationStatus, 
                                   users.FullName, users.Email, users.ContactNumber, users.ProfilePicture,
-                                  events.EventName, events.Location, applications.CreatedAt 
+                                  events.EventID, events.EventName, events.Location, applications.CreatedAt 
                            FROM applications 
                            INNER JOIN users ON applications.UserID = users.UserID 
                            INNER JOIN events ON applications.EventID = events.EventID 
-                           WHERE applications.ApplicationStatus = 'Accepted' AND events.OrganizationID = :orgID";
+                           WHERE applications.ApplicationStatus = 'Accepted' AND events.OrganizationID = :orgID 
+                           ORDER BY events.EventID";
 
 try {
     $stmt = $conn->prepare($pendingRequestsQuery);
@@ -75,7 +76,18 @@ try {
 
     $stmt = $conn->prepare($acceptedRequestsQuery);
     $stmt->execute([':orgID' => $orgID]);
-    $acceptedRequests = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $acceptedRequests = [];
+    foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $request) {
+        $eventID = $request['EventID'];
+        if (!isset($acceptedRequests[$eventID])) {
+            $acceptedRequests[$eventID] = [
+                'EventName' => $request['EventName'],
+                'Location' => $request['Location'],
+                'Applications' => []
+            ];
+        }
+        $acceptedRequests[$eventID]['Applications'][] = $request;
+    }
 } catch (PDOException $e) {
     die("خطأ في جلب البيانات: " . $e->getMessage());
 }
@@ -129,11 +141,11 @@ try {
                     <?php if (empty($acceptedRequests)): ?>
                         <div class="alert alert-info">لا توجد طلبات مقبولة.</div>
                     <?php else: ?>
-                        <?php foreach ($acceptedRequests as $request): ?>
+                        <?php foreach ($acceptedRequests as $eventID => $event): ?>
                             <div class="card w-100 mb-3 py-2">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?= $request['EventName'] ?></h5>
-                                    <p><?= $request['Location'] ?></p>
+                                    <h5 class="card-title"><?= $event['EventName'] ?></h5>
+                                    <p><?= $event['Location'] ?></p>
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -144,12 +156,14 @@ try {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><?= $request['FullName'] ?></td>
-                                                <td><?= $request['ContactNumber'] ?></td>
-                                                <td><?= $request['Email'] ?></td>
-                                                <td><?= $request['CreatedAt'] ?></td>
-                                            </tr>
+                                            <?php foreach ($event['Applications'] as $request): ?>
+                                                <tr>
+                                                    <td><?= $request['FullName'] ?></td>
+                                                    <td><?= $request['ContactNumber'] ?></td>
+                                                    <td><?= $request['Email'] ?></td>
+                                                    <td><?= $request['CreatedAt'] ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
