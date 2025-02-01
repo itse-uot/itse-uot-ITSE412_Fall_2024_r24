@@ -14,10 +14,11 @@
                         <!-- سيتم عرض التقييمات السابقة هنا -->
                     </div>
                 </div>
+                
                 <!-- نموذج التقييم -->
                 <form id="reviewForm">
-                    <input type="hidden" id="eventID" name="eventID" value="<?php echo $eventID; ?>">
-                    <input type="hidden" id="volunteerID" name="volunteerID" value="<?php echo $volunteerID; ?>">
+                    <input type="hidden" id="eventID" name="eventID" value="<?php  $eventID = $event['EventID']; echo $eventID; ?>">
+                    
                     <div class="mb-3">
                         <label for="ratingStars" class="form-label">التقييم:</label>
                         <div id="ratingStars" class="d-flex gap-2">
