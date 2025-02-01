@@ -2,6 +2,11 @@
 session_start();
 include 'dbconfig.php';
 
+// التحقق من وجود الجلسة ووجود معرف المستخدم
+if (!isset($_SESSION['user']) || !isset($_SESSION['user']['UserID'])) {
+    echo json_encode(['status' => 'error', 'message' => 'المستخدم غير مسجل الدخول.']);
+    exit;
+}
 
 $userID = $_SESSION['user']['UserID'];
 
