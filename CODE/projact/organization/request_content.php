@@ -1,10 +1,10 @@
 <?php
+session_start(); // تأكد من بدء الجلسة
 include '../execute/dbconfig.php';
-
 
 // التحقق من الجلسة ومعرف المنظمة
 if (!isset($_SESSION['org'])) {
-    die("خطأ: لم يتم العثور على بيانات المنظمة.");
+    die(json_encode(['status' => 'error', 'message' => 'خطأ: لم يتم العثور على بيانات المنظمة.']));
 }
 
 $orgID = $_SESSION['org'];
@@ -19,6 +19,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     }
 
     try {
+        // التحقق من أن الطلب ينتمي إلى المنظمة
+        $checkQuery = "SELECT events.OrganizationID 
+                       FROM applications 
+                       INNER JOIN events ON applications.EventID = events.EventID 
+                       WHERE applications.ApplicationID = :applicationID";
+        $stmt = $conn->prepare($checkQuery);
+        $stmt->execute(['applicationID' => $applicationID]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$result || $result['OrganizationID'] != $orgID) {
+            echo json_encode(['status' => 'error', 'message' => 'غير مصرح لك بتنفيذ هذا الإجراء.']);
+            exit;
+        }
+
+        // تنفيذ الإجراء (قبول أو رفض)
         if ($action === 'accept') {
             $stmt = $conn->prepare("UPDATE applications SET ApplicationStatus = 'Accepted' WHERE ApplicationID = :applicationID");
             $stmt->execute(['applicationID' => $applicationID]);
@@ -31,25 +46,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             echo json_encode(['status' => 'error', 'message' => 'الإجراء غير معروف.']);
         }
     } catch (PDOException $e) {
-        echo json_encode(['status' => 'error', 'message' => 'حدث خطأ أثناء معالجة الطلب.']);
+        echo json_encode(['status' => 'error', 'message' => 'حدث خطأ أثناء معالجة الطلب: ' . $e->getMessage()]);
     }
     exit;
 }
 
 // جلب الطلبات من قاعدة البيانات
 $pendingRequestsQuery = "SELECT applications.ApplicationID, applications.ApplicationStatus, 
-                                volunteers.FullName, volunteers.ContactEmail, volunteers.ContactNumber, volunteers.ProfilePicture,
+                                users.FullName, users.Email, users.ContactNumber, users.ProfilePicture,
                                 events.EventName, events.Location, applications.CreatedAt 
                          FROM applications 
-                         INNER JOIN volunteers ON applications.VolunteerID = volunteers.VolunteerID 
+                         INNER JOIN users ON applications.UserID = users.UserID 
                          INNER JOIN events ON applications.EventID = events.EventID 
                          WHERE applications.ApplicationStatus = 'Pending' AND events.OrganizationID = :orgID";
 
 $acceptedRequestsQuery = "SELECT applications.ApplicationID, applications.ApplicationStatus, 
-                                  volunteers.FullName, volunteers.ContactEmail, volunteers.ContactNumber, volunteers.ProfilePicture,
+                                  users.FullName, users.Email, users.ContactNumber, users.ProfilePicture,
                                   events.EventName, events.Location, applications.CreatedAt 
                            FROM applications 
-                           INNER JOIN volunteers ON applications.VolunteerID = volunteers.VolunteerID 
+                           INNER JOIN users ON applications.UserID = users.UserID 
                            INNER JOIN events ON applications.EventID = events.EventID 
                            WHERE applications.ApplicationStatus = 'Accepted' AND events.OrganizationID = :orgID";
 
@@ -94,7 +109,7 @@ try {
                                             alt="Profile" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
                                         <div>
                                             <h5 class="card-title mb-0"><?= $request['FullName'] ?></h5>
-                                            <small><?= $request['ContactEmail'] ?></small>
+                                            <small><?= $request['Email'] ?></small>
                                         </div>
                                     </div>
                                     <div class="text-end">
@@ -132,7 +147,7 @@ try {
                                             <tr>
                                                 <td><?= $request['FullName'] ?></td>
                                                 <td><?= $request['ContactNumber'] ?></td>
-                                                <td><?= $request['ContactEmail'] ?></td>
+                                                <td><?= $request['Email'] ?></td>
                                                 <td><?= $request['CreatedAt'] ?></td>
                                             </tr>
                                         </tbody>
@@ -160,13 +175,16 @@ document.addEventListener('click', function(e) {
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                alert(data.message);
+                // إعادة تحميل الصفحة تلقائيًا بعد النجاح
                 location.reload();
             } else {
+                // عرض رسالة الخطأ فقط إذا كانت العملية فشلت
                 alert(data.message);
             }
         })
-        .catch(error => alert('حدث خطأ أثناء المعالجة.'));
+        .catch(error => {
+            console.error('حدث خطأ أثناء المعالجة:', error);
+        });
     }
 });
 </script>
