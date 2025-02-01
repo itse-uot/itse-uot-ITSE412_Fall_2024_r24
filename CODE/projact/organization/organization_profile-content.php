@@ -3,149 +3,111 @@
     <h1>الملف الشخصي للمنظمة</h1>
   </div><!-- End Page Title -->
 
+
   <section class="section profile">
     <div class="row">
-      <div class="col-xl-4">
+      <div class="col-xl-12">
         <div class="card">
           <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-            <img src="assets/img/prof.jpeg" alt="Organization Logo" class="rounded-circle">
-            <h2>منظمة الأمل الخيرية</h2> <!-- اسم المنظمة -->
+            <img src="assets/img/default-organization.png" alt="Profile" class="rounded-circle profileImage">
+            <h2 class="organizationName"></h2> <!-- هنا سيتم عرض اسم المنظمة -->
           </div>
         </div>
       </div>
 
-      <div class="col-xl-8">
+      <div class="col-xl-12">
         <div class="card">
           <div class="card-body pt-3">
+            <!-- Bordered Tabs -->
             <ul class="nav nav-tabs nav-tabs-bordered" role="tablist">
-              <li class="nav-item">
-                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview"
-                  aria-selected="true">معلومات</button>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview" aria-selected="true" role="tab">معلومات</button>
               </li>
-              <li class="nav-item">
-                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit" aria-selected="false">تعديل
-                  البيانات</button>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit" aria-selected="false" role="tab">تعديل البيانات</button>
               </li>
             </ul>
             <div class="tab-content pt-2">
-              <!-- عرض البيانات -->
-              <div class="tab-pane fade show active" id="profile-overview">
-                <h5 class="card-title">تفاصيل المنظمة</h5>
-
+              <div class="tab-pane fade profile-overview show active" id="profile-overview" role="tabpanel">
+                <h5 class="card-title">تفاصيل الملف الشخصي</h5>
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">اسم المنظمة</div>
-                  <div class="col-lg-9 col-md-8">منظمة الأمل الخيرية</div>
+                  <div class="col-lg-9 col-md-8 organizationName"></div> <!-- هنا سيتم عرض الاسم -->
                 </div>
-
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">البريد الإلكتروني</div>
-                  <div class="col-lg-9 col-md-8">info@alamal.org</div>
+                  <div class="col-lg-9 col-md-8 contactEmail"></div> <!-- هنا سيتم عرض البريد -->
                 </div>
-
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">رقم الهاتف</div>
-                  <div class="col-lg-9 col-md-8">092-12345678</div>
+                  <div class="col-lg-9 col-md-8 phoneNumber"></div> <!-- هنا سيتم عرض رقم الهاتف -->
                 </div>
-
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">المجال</div>
-                  <div class="col-lg-9 col-md-8">الرعاية الصحية</div>
+                  <div class="col-lg-9 col-md-8 field"></div> <!-- هنا سيتم عرض المجال -->
                 </div>
-
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">الموقع</div>
-                  <div class="col-lg-9 col-md-8">شارع الأمل، طرابلس، ليبيا</div>
+                  <div class="col-lg-9 col-md-8 location"></div> <!-- هنا سيتم عرض الموقع -->
                 </div>
-
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">الوصف</div>
-                  <div class="col-lg-9 col-md-8">منظمة خيرية تعمل على تقديم الرعاية الصحية للأسر المحتاجة في ليبيا.
-                  </div>
+                  <div class="col-lg-9 col-md-8 description"></div> <!-- هنا سيتم عرض الوصف -->
                 </div>
               </div>
-
-              <!-- تعديل البيانات -->
-              <div class="tab-pane fade" id="profile-edit">
-                <h5 class="card-title">تعديل بيانات المنظمة</h5>
-                <form class="row g-3">
-                  <div class="col-12">
-                    <label for="inputNanme4" class="form-label">اسم المنظمة (Organization Name)</label>
-                    <input type="text" class="form-control" id="inputNanme4" placeholder="منظمة الأمل الخيرية">
+              <div class="tab-pane fade profile-edit pt-3" id="profile-edit" role="tabpanel">
+                <form id="editOrganizationForm" enctype="multipart/form-data">
+                  <div class="row mb-3">
+                    <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">صورة الملف</label>
+                    <div class="col-md-8 col-lg-9">
+                      <img id="profileImagePreview" src="assets/img/default-organization.png" alt="Profile" class="img-fluid rounded-circle mb-2">
+                      <div class="pt-2">
+                        <input type="file" class="form-control" name="profileImage" id="profileImage">
+                      </div>
+                    </div>
                   </div>
-                  <div class="mb-3">
-                    <label for="inputDescription" class="form-label">وصف المنظمة (Organization Description)</label>
-                    <textarea class="form-control" id="inputDescription" style="height: 100px"
-                      placeholder="جمعية خيرية تعمل على دعم المجتمعات المحتاجة وتعزيز التنمية المستدامة."></textarea>
+                  <div class="row mb-3">
+                    <label for="organizationName" class="col-md-4 col-lg-3 col-form-label">اسم المنظمة</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="organizationName" type="text" class="form-control" id="organizationName">
+                    </div>
                   </div>
-                  <!-- قائمة اختبار المجال -->
-                  <div class="mb-3">
-                    <label class="form-label">المجال (Field)</label>
-                    <select class="form-select" aria-label="Default select example">
-                      <option disabled>اختر المجال</option>
-                      <option value="education">التعليم</option>
-                      <option value="health">الصحة</option>
-                      <option value="environment">البيئة</option>
-                      <option value="social_services">الخدمات الاجتماعية</option>
-                      <option value="technology">التكنولوجيا</option>
-                      <option value="art_culture">الفن والثقافة</option>
-                      <option value="sports">الرياضة</option>
-                      <option value="human_rights">حقوق الإنسان</option>
-                      <option value="disaster_relief">الإغاثة في حالات الكوارث</option>
-                      <option value="animal_welfare">رعاية الحيوان</option>
-                      <option value="community_development" selected>تنمية المجتمع</option>
-                      <option value="youth">الشباب</option>
-                      <option value="elderly_care">رعاية المسنين</option>
-                      <option value="mental_health">الصحة النفسية</option>
-                      <option value="housing">الإسكان</option>
-                      <option value="advocacy">الدعوة والتوعية</option>
-                      <option value="refugee_support">دعم اللاجئين</option>
-                      <option value="entrepreneurship">ريادة الأعمال</option>
-                      <option value="food_security">الأمن الغذائي</option>
-                      <option value="education_technology">تكنولوجيا التعليم</option>
-                      <option value="water_sanitation">المياه والصرف الصحي</option>
-                      <option value="peacebuilding">بناء السلام</option>
-                      <option value="research_innovation">البحث والابتكار</option>
-                      <option value="employment">التوظيف</option>
-                      <option value="women_empowerment">تمكين المرأة</option>
-                      <option value="children_rights">حقوق الأطفال</option>
-                      <option value="disabilities_support">دعم ذوي الإعاقة</option>
-                      <option value="cultural_heritage">التراث الثقافي</option>
-                      <option value="energy">الطاقة</option>
-                      <option value="transportation">النقل</option>
-                      <option value="public_policy">السياسات العامة</option>
-                      <option value="volunteering">التطوع العام</option>
-                      <option value="other">غير ذلك</option>
-                    </select>
+                  <div class="row mb-3">
+                    <label for="description" class="col-md-4 col-lg-3 col-form-label">الوصف</label>
+                    <div class="col-md-8 col-lg-9">
+                      <textarea name="description" class="form-control" id="description" style="height: 100px"></textarea>
+                    </div>
                   </div>
-                  <!-- انتهاء قائمة اختبار المجال -->
-                  <div class="col-12">
-                    <label for="inputAddress5" class="form-label">الموقع (Location)</label>
-                    <input type="text" class="form-control" id="inputAddress5" placeholder="طرابلس، ليبيا">
+                  <div class="row mb-3">
+                    <label for="field" class="col-md-4 col-lg-3 col-form-label">المجال</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="field" type="text" class="form-control" id="field">
+                    </div>
                   </div>
-                  <div class="col-12">
-                    <label for="inputEmail4" class="form-label">البريد الإلكتروني للتواصل (Contact Email)</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="info@hopecharity.org">
+                  <div class="row mb-3">
+                    <label for="location" class="col-md-4 col-lg-3 col-form-label">الموقع</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="location" type="text" class="form-control" id="location">
+                    </div>
                   </div>
-                  <div class="mb-3">
-                    <label for="inputPhone" class="form-label">رقم الهاتف للتواصل (Phone Number)</label>
-                    <input type="tel" id="inputPhone" class="form-control" required
-                      pattern="^(092|093|091|094)[0-9]{7}$" placeholder="0911234567"
-                      oninvalid="this.setCustomValidity('الرجاء إدخال رقم هاتف صحيح يبدأ بـ 092, 093, 091، أو 094 ويليه 7 أرقام.')"
-                      oninput="this.setCustomValidity('')">
-                    <div class="invalid-feedback">الرجاء إدخال رقم هاتف صحيح يبدأ بـ 092, 093, 091، أو 094 ويليه 7
-                      أرقام.</div>
+                  <div class="row mb-3">
+                    <label for="contactEmail" class="col-md-4 col-lg-3 col-form-label">البريد الإلكتروني</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="contactEmail" type="email" class="form-control" id="contactEmail">
+                    </div>
                   </div>
-                  <div class="mb-3">
-                    <label for="formFile" class="form-label">الصورة التعريفية (Profile Picture)</label>
-                    <input class="form-control" type="file" id="formFile">
+                  <div class="row mb-3">
+                    <label for="phoneNumber" class="col-md-4 col-lg-3 col-form-label">رقم الهاتف</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="phoneNumber" type="text" class="form-control" id="phoneNumber">
+                    </div>
                   </div>
                   <div class="text-center">
-                    <button type="submit" class="btn btn-primary">تأكيد</button>
-                    <button type="reset" class="btn btn-secondary">إفراغ</button>
+                    <button type="submit" class="btn btn-primary">حفظ التغييرات</button>
                   </div>
                 </form>
               </div>
-            </div>
+            </div><!-- End Bordered Tabs -->
           </div>
         </div>
       </div>
@@ -265,3 +227,4 @@
 <script src="../assets/js/editEvent.js"></script>
 <script src="../assets/js/deleteEvent.js"></script>
 <script src="../assets/js/loadEvents.js"></script>
+

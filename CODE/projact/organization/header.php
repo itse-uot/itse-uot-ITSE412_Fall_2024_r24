@@ -43,13 +43,13 @@
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"
           aria-expanded="false">
           <img src="assets/img/prof.jpeg" alt="الملف الشخصي" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle ps-2">منظمة الامل الخيريه</span>
+          <span class="d-none d-md-block dropdown-toggle ps-2 organizationName" ></span>
         </a><!-- أيقونة الملف الشخصي -->
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="left: auto; right: 0;">
           <li class="dropdown-header">
-            <h6>منظمه  الامن الخيريه</h6>
-            <span>منظمه</span>
+            <h6 class="organizationName"></h6>
+  
           </li>
           <li>
             <hr class="dropdown-divider">
