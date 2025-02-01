@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['eventID'])) {
             'eventID' => $eventID,
             'volunteerID' => $userID
         ]);
+        
 
         echo json_encode(['status' => 'success', 'message' => 'تم تقديم طلب المشاركة بنجاح!']);
     } catch (PDOException $e) {
