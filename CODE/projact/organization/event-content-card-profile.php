@@ -13,7 +13,8 @@ $query = "
         e.RequiredSkills, 
         e.Image, 
         e.OrganizationID, 
-        o.OrganizationName, 
+        o.OrganizationName,
+        o.OrganizationPicture,  -- إضافة صورة المنظمة 
         COALESCE(AVG(r.Rating), 0) AS AverageRating, 
         COUNT(r.ReviewID) AS TotalRatings 
     FROM events e
@@ -47,8 +48,18 @@ try {
                             <div class="d-flex align-items-center justify-content-between p-3">
                                 <!-- الجزء الأيسر: صورة المنظمة واسمها -->
                                 <div class="d-flex align-items-center">
-                                    <img src="assets/img/prof.jpeg" alt="Organization Logo" class="rounded-circle me-3"
-                                        style="width: 50px; height: 50px;">
+                                    <?php
+                                    // معالجة صورة المنظمة
+                                    $orgImageData = !empty($event['OrganizationPicture']) ? $event['OrganizationPicture'] : null;
+                                    if ($orgImageData) {
+                                        // تحويل BLOB إلى Base64
+                                        $orgImagePath = 'data:image/jpeg;base64,' . base64_encode($orgImageData);
+                                    } else {
+                                        // استخدام صورة افتراضية إذا لم تكن هناك صورة
+                                        $orgImagePath = 'assets/img/default-org.jpg';
+                                    }
+                                    ?>
+                                    <img src="<?= $orgImagePath ?>" alt="Organization Logo" class="rounded-circle me-3" style="width: 50px; height: 50px;">
                                     <div>
                                         <h6 class="m-0"><?= htmlspecialchars($event['OrganizationName']) ?></h6>
                                         <small class="text-muted"><?= htmlspecialchars($event['StartDate']) ?></small>
@@ -78,27 +89,22 @@ try {
                             </div>
 
                             <!-- عرض صورة الفعالية -->
-                            <!--voluntee  عرض صورة الفعالية -->
                             <?php
                             $imageData = !empty($event['Image']) ? $event['Image'] : null;
-
                             if ($imageData) {
-                                // اكتشاف نوع الصورة من البيانات
                                 $imageInfo = getimagesizefromstring($imageData);
                                 if ($imageInfo) {
-                                    // إذا تم التعرف على نوع الصورة، تحويلها إلى Base64 مع النوع المناسب
                                     $imagePath = 'data:' . $imageInfo['mime'] . ';base64,' . base64_encode($imageData);
                                 } else {
-                                    // إذا لم يتم التعرف على نوع الصورة، استخدام الصورة الافتراضية
                                     $imagePath = 'assets/img/default-event.jpg';
                                 }
                             } else {
-                                // استخدام الصورة الافتراضية إذا لم تكن هناك صورة
                                 $imagePath = 'assets/img/voluntee.jpeg';
                             }
                             ?>
                             <img src="<?= $imagePath ?>" class="card-img-top" alt="Event Image" style="height: 200px; object-fit: cover;">
 
+                            <!-- باقي محتوى البطاقة -->
                             <div class="card-body">
                                 <h5 class="card-title"><?= htmlspecialchars($event['EventName']) ?></h5>
                                 <p class="card-text mb-1"><strong>الوصف:</strong> <?= htmlspecialchars($event['Description']) ?></p>
@@ -113,7 +119,6 @@ try {
                                     <div class="d-flex align-items-center">
                                         <span class="text-warning fs-5 me-2" id="averageRatingStars">
                                             <?php
-                                            // تحويل التقييم إلى نجوم
                                             $rating = round($event['AverageRating']);
                                             for ($i = 1; $i <= 5; $i++) {
                                                 echo $i <= $rating ? '★' : '☆';
@@ -127,10 +132,7 @@ try {
 
                                 <!-- زر عرض التقييمات -->
                                 <div class="d-flex justify-content-between align-items-center mt-3">
-                                    <button
-                                        class="btn btn-outline-primary btn-sm"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#reviewModal<?= $event['EventID'] ?>">
+                                    <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#reviewModal<?= $event['EventID'] ?>">
                                         <i class="bi bi-chat-left-text"></i> عرض التقييمات
                                     </button>
                                 </div>
@@ -150,24 +152,23 @@ try {
                                     <!-- عرض التقييمات السابقة -->
                                     <div id="previousReviews">
                                         <?php
-                                        // استعلام لجلب التقييمات من قاعدة البيانات
                                         $eventID = $event['EventID'];
                                         $query = "
-                                SELECT 
-                                    r.Rating, 
-                                    r.ReviewText, 
-                                    u.FullName, 
-                                    r.CreatedAt 
-                                FROM ratingsandreviews r
-                                LEFT JOIN users u ON r.UserID = u.UserID
-                                WHERE r.EventID = :eventID
-                                ORDER BY r.CreatedAt DESC
-                            ";
+                            SELECT 
+                                r.Rating, 
+                                r.ReviewText, 
+                                u.FullName, 
+                                r.CreatedAt 
+                            FROM ratingsandreviews r
+                            LEFT JOIN users u ON r.UserID = u.UserID
+                            WHERE r.EventID = :eventID
+                            ORDER BY r.CreatedAt DESC
+                        ";
                                         try {
                                             $stmt = $conn->prepare($query);
                                             $stmt->bindParam(':eventID', $eventID, PDO::PARAM_INT);
                                             $stmt->execute();
-                                            $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC); // استرجاع البيانات
+                                            $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         } catch (PDOException $e) {
                                             die("خطأ في جلب البيانات: " . $e->getMessage());
                                         }
@@ -198,7 +199,7 @@ try {
                                             <p class="card-text">' . htmlspecialchars($review['ReviewText']) . '</p>
                                         </div>
                                     </div>
-                                    ';
+                                ';
                                             }
                                         } else {
                                             echo '<p class="text-muted text-center">لا توجد تقييمات حتى الآن.</p>';
