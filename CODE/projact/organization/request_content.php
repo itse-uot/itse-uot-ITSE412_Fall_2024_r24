@@ -1,6 +1,8 @@
 <?php
-session_start(); // تأكد من بدء الجلسة
-include '../execute/dbconfig.php';
+
+
+session_start(); // بدء الجلسة
+include '../execute/dbconfig.php'; // تضمين ملف اتصال قاعدة البيانات
 
 // التحقق من الجلسة ومعرف المنظمة
 if (!isset($_SESSION['org'])) {
@@ -9,6 +11,7 @@ if (!isset($_SESSION['org'])) {
 
 $orgID = $_SESSION['org'];
 
+// معالجة طلبات POST (قبول أو رفض الطلبات)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     $action = $_POST['action'];
     $applicationID = $_POST['applicationID'] ?? null;
@@ -175,30 +178,39 @@ try {
         </div>
     </div>
 </main>
-<script>
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('accept-btn') || e.target.classList.contains('reject-btn')) {
-        const applicationID = e.target.getAttribute('data-id');
-        const action = e.target.classList.contains('accept-btn') ? 'accept' : 'reject';
 
-        fetch('', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `action=${action}&applicationID=${applicationID}`
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                // إعادة تحميل الصفحة تلقائيًا بعد النجاح
-                location.reload();
-            } else {
-                // عرض رسالة الخطأ فقط إذا كانت العملية فشلت
-                alert(data.message);
-            }
-        })
-        .catch(error => {
-            console.error('حدث خطأ أثناء المعالجة:', error);
+<script>
+    $(document).ready(function() {
+        // استماع للنقر على أزرار القبول أو الرفض
+        $(document).on('click', '.accept-btn, .reject-btn', function(e) {
+            e.preventDefault(); // منع السلوك الافتراضي
+
+            const applicationID = $(this).data('id'); // الحصول على رقم الطلب
+            const action = $(this).hasClass('accept-btn') ? 'accept' : 'reject'; // تحديد الإجراء
+
+            // إرسال الطلب باستخدام Ajax
+            $.ajax({
+                type: 'POST',
+                url: 'request_content.php', // نفس الملف
+                data: {
+                    action: action,
+                    applicationID: applicationID
+                },
+                dataType: 'json',
+                success: function(response) {
+                    console.log(response); // لعرض الاستجابة في الكونسول
+                    if (response.status === 'success') {
+                        location.reload();
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('حدث خطأ أثناء المعالجة:', error);
+                    alert('حدث خطأ أثناء معالجة الطلب.');
+                }
+            });
+            location.reload();
         });
-    }
-});
+    });
 </script>
