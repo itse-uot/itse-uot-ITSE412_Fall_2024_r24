@@ -76,9 +76,24 @@ try {
                 <?php endif; ?>
               </div>
 
-              <!-- عرض صورة الفعالية -->
+              <!--voluntee  عرض صورة الفعالية -->
               <?php
-              $imagePath = !empty($event['Image']) ? htmlspecialchars($event['Image']) : 'assets/img/default-event.jpg';
+              $imageData = !empty($event['Image']) ? $event['Image'] : null;
+
+              if ($imageData) {
+                // اكتشاف نوع الصورة من البيانات
+                $imageInfo = getimagesizefromstring($imageData);
+                if ($imageInfo) {
+                  // إذا تم التعرف على نوع الصورة، تحويلها إلى Base64 مع النوع المناسب
+                  $imagePath = 'data:' . $imageInfo['mime'] . ';base64,' . base64_encode($imageData);
+                } else {
+                  // إذا لم يتم التعرف على نوع الصورة، استخدام الصورة الافتراضية
+                  $imagePath = 'assets/img/default-event.jpg';
+                }
+              } else {
+                // استخدام الصورة الافتراضية إذا لم تكن هناك صورة
+                $imagePath = 'assets/img/voluntee.jpeg';
+              }
               ?>
               <img src="<?= $imagePath ?>" class="card-img-top" alt="Event Image" style="height: 200px; object-fit: cover;">
 
