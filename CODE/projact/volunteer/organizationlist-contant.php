@@ -1,3 +1,5 @@
+
+
 <main id="main" class="main">
   <h1>إدارة المنظمات</h1>
   <div class="card">
@@ -44,7 +46,7 @@
                 <div class="mb-3">
                   <label for="field" class="form-label">المجال</label>
                   <select class="form-select" id="field" name="field" required>
-                    <option selected="" disabled>اختر المجال</option>
+                  <option selected="" disabled>اختر المجال</option>
                     <option value="education">التعليم</option>
                     <option value="health">الصحة</option>
                     <option value="environment">البيئة</option>
@@ -95,15 +97,11 @@
                 </div>
                 <div class="mb-3">
                   <label for="profilePicture" class="form-label">الصورة التعريفية</label>
-                  <input class="form-control" type="file" id="profilePicture" name="profilePicture" style="display: none;">
-                  <button type="button" class="btn btn-secondary w-100" id="uploadButton">اختر صورة</button>
-                  <div class="mt-3">
-                    <img id="imagePreview" src="#" alt="الصورة المختارة" style="max-width: 100%; display: none;">
-                  </div>
+                  <input class="form-control" type="file" id="profilePicture" name="profilePicture" required>
                 </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">تأكيد</button>
-
+                  <button type="reset" class="btn btn-secondary">أفراغ</button>
                 </div>
               </form>
             </div>

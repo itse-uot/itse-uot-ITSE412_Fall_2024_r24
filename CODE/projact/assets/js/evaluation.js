@@ -1,6 +1,7 @@
 $(document).ready(function () {
-    const eventID = $('#eventID').val(); // الحصول على eventID من النموذج
-    let isSubmitting = false; // متغير لمنع الإرسال المتكرر
+    const eventID = $('#eventID').val();
+    userID =1; // تعيين userID من الجلسة
+    let isSubmitting = false;
 
     // جلب التقييمات السابقة عند فتح المودال
     $('#reviewModal').on('show.bs.modal', function () {
@@ -50,57 +51,72 @@ $(document).ready(function () {
         return stars;
     }
 
+    // التفاعل مع النجوم للتقييم في مودال الإضافة
+    const stars = document.querySelectorAll('#ratingStars .bi-star');
+    const ratingValueInput = document.getElementById('ratingValue');
+
+    if (stars.length && ratingValueInput) {
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                stars.forEach((s, i) => {
+                    if (i <= index) {
+                        s.classList.remove('bi-star');
+                        s.classList.add('bi-star-fill');
+                    } else {
+                        s.classList.remove('bi-star-fill');
+                        s.classList.add('bi-star');
+                    }
+                });
+                ratingValueInput.value = index + 1;
+            });
+        });
+    } else {
+        console.error('عناصر النجوم غير موجودة في الصفحة.');
+    }
+
     // معالجة إرسال التقييم
     $('#reviewForm').on('submit', function (e) {
-        e.preventDefault(); // منع الإرسال الافتراضي للنموذج
+        e.preventDefault();
 
-        if (isSubmitting) return; // منع الإرسال المتكرر
+        if (isSubmitting) return;
 
         const eventID = $('#eventID').val();
-        const volunteerID = $('#volunteerID').val();
         const rating = parseInt($('#ratingValue').val());
         const description = $('#reviewDescription').val();
 
-        if (rating < 1 || rating > 5) {
-            alert('يرجى اختيار تقييم بين 1 و 5.');
-            return;
-        }
+        if (rating > 0 && description.trim() !== "") {
+            isSubmitting = true;
 
-        if (description.trim() === "") {
-            alert('يرجى إضافة وصف.');
-            return;
-        }
-
-        isSubmitting = true; // تعيين حالة الإرسال إلى true
-
-        // إرسال البيانات عبر Ajax
-        $.ajax({
-            type: 'POST',
-            url: '../execute/review_operations.php',
-            data: {
-                action: 'add',
-                eventID: eventID,
-                volunteerID: volunteerID,
-                rating: rating,
-                reviewText: description
-            },
-            dataType: 'json',
-            success: function (response) {
-                if (response.status === 'success') {
-                    alert('تم إرسال التقييم بنجاح!');
-                    $('#reviewForm')[0].reset(); // إعادة تعيين النموذج
-                    $('#reviewModal').modal('hide'); // إغلاق المودال بعد الإرسال
-                    loadPreviousReviews(); // إعادة تحميل التقييمات
-                } else {
-                    alert('حدث خطأ: ' + response.message);
+            $.ajax({
+                type: 'POST',
+                url: '../execute/review_operations.php',
+                data: {
+                    action: 'add',
+                    eventID: eventID,
+                    userID: userID,
+                    rating: rating,
+                    reviewText: description
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status === 'success') {
+                        alert('تم إرسال التقييم بنجاح!');
+                        $('#reviewForm')[0].reset();
+                        $('#reviewModal').modal('hide');
+                        loadPreviousReviews();
+                    } else {
+                        alert('حدث خطأ: ' + response.message);
+                    }
+                    isSubmitting = false;
+                },
+                error: function () {
+                    alert('حدث خطأ أثناء إرسال التقييم. يرجى المحاولة مرة أخرى.');
+                    isSubmitting = false;
                 }
-                isSubmitting = false; // إعادة تعيين حالة الإرسال إلى false
-            },
-            error: function () {
-                alert('حدث خطأ أثناء إرسال التقييم. يرجى المحاولة مرة أخرى.');
-                isSubmitting = false; // إعادة تعيين حالة الإرسال إلى false
-            }
-        });
+            });
+        } else {
+            alert('يرجى اختيار عدد النجوم وإضافة وصف.');
+        }
     });
 
     // تفعيل أزرار الحذف والتعديل
@@ -116,13 +132,11 @@ $(document).ready(function () {
         const rating = $(this).data('rating');
         const reviewText = $(this).data('text');
 
-        // عرض بانل التعديل مع النجوم والنص الموجود مسبقًا
         $('#editReviewModal').modal('show');
         $('#editReviewModal #editRatingValue').val(rating);
         $('#editReviewModal #editReviewDescription').val(reviewText);
         $('#editReviewModal #editReviewID').val(reviewID);
 
-        // تعبئة النجوم بناءً على التقييم الموجود
         const editStars = document.querySelectorAll('#editRatingStars .bi-star');
         editStars.forEach((star, index) => {
             if (index < rating) {
@@ -142,39 +156,34 @@ $(document).ready(function () {
         const rating = parseInt($('#editRatingValue').val());
         const description = $('#editReviewDescription').val();
 
-        if (rating < 1 || rating > 5) {
-            alert('يرجى اختيار تقييم بين 1 و 5.');
-            return;
-        }
-
-        if (description.trim() === "") {
-            alert('يرجى إضافة وصف.');
-            return;
-        }
-
-        $.ajax({
-            type: 'POST',
-            url: '../execute/review_operations.php',
-            data: {
-                action: 'update',
-                reviewID: reviewID,
-                rating: rating,
-                reviewText: description
-            },
-            dataType: 'json',
-            success: function (response) {
-                if (response.status === 'success') {
-                    alert('تم تعديل التقييم بنجاح!');
-                    $('#editReviewModal').modal('hide'); // إغلاق المودال بعد التعديل
-                    loadPreviousReviews(); // إعادة تحميل التقييمات
-                } else {
-                    alert('حدث خطأ: ' + response.message);
+        if (rating > 0 && description.trim() !== "") {
+            $.ajax({
+                type: 'POST',
+                url: '../execute/review_operations.php',
+                data: {
+                    action: 'update',
+                    reviewID: reviewID,
+                    userID: userID,
+                    rating: rating,
+                    reviewText: description
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status === 'success') {
+                        alert('تم تعديل التقييم بنجاح!');
+                        $('#editReviewModal').modal('hide');
+                        loadPreviousReviews();
+                    } else {
+                        alert('حدث خطأ: ' + response.message);
+                    }
+                },
+                error: function () {
+                    alert('حدث خطأ أثناء تعديل التقييم.');
                 }
-            },
-            error: function () {
-                alert('حدث خطأ أثناء تعديل التقييم.');
-            }
-        });
+            });
+        } else {
+            alert('يرجى اختيار عدد النجوم وإضافة وصف.');
+        }
     });
 
     // وظيفة لحذف التقييم
@@ -182,12 +191,12 @@ $(document).ready(function () {
         $.ajax({
             type: 'POST',
             url: '../execute/review_operations.php',
-            data: { action: 'delete', reviewID: reviewID },
+            data: { action: 'delete', reviewID: reviewID, userID: userID },
             dataType: 'json',
             success: function (response) {
                 if (response.status === 'success') {
                     alert('تم حذف التقييم بنجاح!');
-                    loadPreviousReviews(); // إعادة تحميل التقييمات
+                    loadPreviousReviews();
                 } else {
                     alert('حدث خطأ: ' + response.message);
                 }
