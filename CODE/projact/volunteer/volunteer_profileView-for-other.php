@@ -23,7 +23,7 @@ include "head.php";
     <div class="col-xl-12">
       <div class="card">
         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-          <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle profileImage">
+          <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle profileImage2">
           <h2 class="fullName2"></h2> <!-- هنا سيتم عرض اسم المتطوع -->
         </div>
       </div>
@@ -94,7 +94,8 @@ $(document).ready(function () {
                     $('.skills').text(data.Skills); // عرض المهارات
                     $('.contactNumber').text(data.ContactNumber); // عرض رقم الهاتف
                     $('.contactEmail').text(data.Email); // عرض البريد
-
+                    $('.profileImage2').attr('src', 'data:image/png;base64,' + data.ProfilePicture);
+ 
                     // تحديث البيانات في حقول التع
                 } else {
                     alert(response.message);
