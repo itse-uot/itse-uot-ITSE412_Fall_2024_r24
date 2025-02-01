@@ -1,16 +1,38 @@
 $(document).ready(function () {
-    let userID = 2; // تعيين userID من الجلسة
+    let userID = null; // سيتم تعيينه من الجلسة
     let isSubmitting = false;
 
-    // عند فتح المودال، تعيين eventID
-    $('#reviewModal').on('show.bs.modal', function (event) {
-        const button = $(event.relatedTarget); // الزر الذي تم النقر عليه
-        const eventID = button.data('event-id'); // استخراج eventID من الزر
-        $('#eventID').val(eventID); // تعيين eventID في الحقل المخفي
-        loadPreviousReviews(eventID); // جلب التقييمات السابقة
+    // جلب userID من الجلسة عند تحميل الصفحة
+    $.ajax({
+        type: 'GET',
+        url: '../execute/get_session.php',
+        dataType: 'json',
+        success: function (response) {
+            if (response.status === 'success' && response.userID) {
+                userID = response.userID;
+            } else {
+                alert('يجب تسجيل الدخول لإضافة تقييم.');
+                window.location.href = '../login.php';
+            }
+        },
+        error: function () {
+            alert('حدث خطأ أثناء جلب بيانات الجلسة.');
+        }
     });
 
-    // وظيفة لجلب التقييمات السابقة
+    // عند فتح مودال الإضافة، تعيين eventID وجلب التقييمات السابقة
+    $('#reviewModal').on('show.bs.modal', function (event) {
+        const button = $(event.relatedTarget);
+        const eventID = button.data('event-id');
+        $('#eventID').val(eventID);
+        loadPreviousReviews(eventID);
+        
+        // إعادة تعيين النجوم في مودال الإضافة
+        $('#ratingStars i').removeClass('bi-star-fill').addClass('bi-star');
+        $('#ratingValue').val(0);
+    });
+
+    // تحميل التقييمات السابقة
     function loadPreviousReviews(eventID) {
         $.ajax({
             type: 'GET',
@@ -27,8 +49,15 @@ $(document).ready(function () {
                                 <div>
                                     <strong>${review.ReviewText}</strong>
                                     <p class="text-muted mb-0">${review.CreatedAt}</p>
-                                    <button class="btn btn-sm btn-outline-primary edit-review" data-id="${review.ReviewID}" data-rating="${review.Rating}" data-text="${review.ReviewText}">تعديل</button>
-                                    <button class="btn btn-sm btn-outline-danger delete-review" data-id="${review.ReviewID}">حذف</button>
+                                    <button class="btn btn-sm btn-outline-primary edit-review" 
+                                        data-id="${review.ReviewID}" 
+                                        data-rating="${review.Rating}" 
+                                        data-text="${review.ReviewText}">
+                                        تعديل
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger delete-review" data-id="${review.ReviewID}">
+                                        حذف
+                                    </button>
                                 </div>
                             </div>
                         `;
@@ -44,7 +73,7 @@ $(document).ready(function () {
         });
     }
 
-    // وظيفة لتحويل التقييم إلى نجوم
+    // دالة تحويل رقم التقييم إلى نجوم (للعرض فقط)
     function getStarRating(rating) {
         let stars = '';
         for (let i = 1; i <= 5; i++) {
@@ -53,105 +82,60 @@ $(document).ready(function () {
         return stars;
     }
 
-    // التفاعل مع النجوم للتقييم في مودال الإضافة
-    const stars = document.querySelectorAll('#ratingStars .bi-star');
-    const ratingValueInput = document.getElementById('ratingValue');
-
-    if (stars.length && ratingValueInput) {
-        stars.forEach((star, index) => {
-            star.addEventListener('click', () => {
-                stars.forEach((s, i) => {
-                    if (i <= index) {
-                        s.classList.remove('bi-star');
-                        s.classList.add('bi-star-fill');
-                    } else {
-                        s.classList.remove('bi-star-fill');
-                        s.classList.add('bi-star');
-                    }
-                });
-                ratingValueInput.value = index + 1;
-            });
+    // تفاعل النجوم في مودال الإضافة (باستخدام تفويض الحدث)
+    $('#ratingStars').on('click', 'i', function () {
+        const $allStars = $('#ratingStars i');
+        const clickedValue = parseInt($(this).data('value')); // القيمة المأخوذة من data-value
+        $allStars.each(function () {
+            const starValue = parseInt($(this).data('value'));
+            if (starValue <= clickedValue) {
+                $(this).removeClass('bi-star').addClass('bi-star-fill');
+            } else {
+                $(this).removeClass('bi-star-fill').addClass('bi-star');
+            }
         });
-    } else {
-        console.error('عناصر النجوم غير موجودة في الصفحة.');
-    }
-
-    // معالجة إرسال التقييم
-    $('#reviewForm').on('submit', function (e) {
-        e.preventDefault();
-
-        if (isSubmitting) return;
-
-        const eventID = $('#eventID').val();
-        const rating = parseInt($('#ratingValue').val());
-        const description = $('#reviewDescription').val();
-
-        if (rating > 0 && description.trim() !== "") {
-            isSubmitting = true;
-
-            $.ajax({
-                type: 'POST',
-                url: '../execute/review_operations.php',
-                data: {
-                    action: 'add',
-                    eventID: eventID,
-                    userID: userID,
-                    rating: rating,
-                    reviewText: description
-                },
-                dataType: 'json',
-                success: function (response) {
-                    if (response.status === 'success') {
-                        alert('تم إرسال التقييم بنجاح!');
-                        $('#reviewForm')[0].reset();
-                        $('#reviewModal').modal('hide');
-                        loadPreviousReviews(eventID);
-                    } else {
-                        alert('حدث خطأ: ' + response.message);
-                    }
-                    isSubmitting = false;
-                },
-                error: function () {
-                    alert('حدث خطأ أثناء إرسال التقييم. يرجى المحاولة مرة أخرى.');
-                    isSubmitting = false;
-                }
-            });
-        } else {
-            alert('يرجى اختيار عدد النجوم وإضافة وصف.');
-        }
+        $('#ratingValue').val(clickedValue);
     });
 
-    // تفعيل أزرار الحذف والتعديل
-    $(document).on('click', '.delete-review', function () {
-        const reviewID = $(this).data('id');
-        if (confirm('هل أنت متأكد من حذف هذا التقييم؟')) {
-            deleteReview(reviewID);
-        }
-    });
-
+    // فتح مودال التعديل وتعبئة البيانات
     $(document).on('click', '.edit-review', function () {
         const reviewID = $(this).data('id');
-        const rating = $(this).data('rating');
+        const rating = parseInt($(this).data('rating'));
         const reviewText = $(this).data('text');
 
+        // فتح مودال التعديل
         $('#editReviewModal').modal('show');
-        $('#editReviewModal #editRatingValue').val(rating);
-        $('#editReviewModal #editReviewDescription').val(reviewText);
-        $('#editReviewModal #editReviewID').val(reviewID);
+        $('#editReviewID').val(reviewID);
+        $('#editReviewDescription').val(reviewText);
+        $('#editRatingValue').val(rating);
 
-        const editStars = document.querySelectorAll('#editRatingStars .bi-star');
-        editStars.forEach((star, index) => {
-            if (index < rating) {
-                star.classList.remove('bi-star');
-                star.classList.add('bi-star-fill');
-            } else {
-                star.classList.remove('bi-star-fill');
-                star.classList.add('bi-star');
+        // إعادة تعيين النجوم في مودال التعديل
+        const $editStars = $('#editRatingStars i');
+        $editStars.removeClass('bi-star-fill').addClass('bi-star');
+        $editStars.each(function () {
+            const starValue = parseInt($(this).data('value'));
+            if (starValue <= rating) {
+                $(this).removeClass('bi-star').addClass('bi-star-fill');
             }
         });
     });
 
-    // معالجة إرسال التعديل
+    // تفاعل النجوم في مودال التعديل (باستخدام تفويض الحدث)
+    $('#editRatingStars').off('click').on('click', 'i', function () {
+        const $allEditStars = $('#editRatingStars i');
+        const clickedValue = parseInt($(this).data('value'));
+        $allEditStars.each(function () {
+            const starValue = parseInt($(this).data('value'));
+            if (starValue <= clickedValue) {
+                $(this).removeClass('bi-star').addClass('bi-star-fill');
+            } else {
+                $(this).removeClass('bi-star-fill').addClass('bi-star');
+            }
+        });
+        $('#editRatingValue').val(clickedValue);
+    });
+
+    // إرسال نموذج التعديل
     $('#editReviewForm').on('submit', function (e) {
         e.preventDefault();
         const reviewID = $('#editReviewID').val();
@@ -188,7 +172,58 @@ $(document).ready(function () {
         }
     });
 
-    // وظيفة لحذف التقييم
+    // إرسال نموذج الإضافة
+    $('#reviewForm').on('submit', function (e) {
+        e.preventDefault();
+        if (isSubmitting) return;
+
+        const eventID = $('#eventID').val();
+        const rating = parseInt($('#ratingValue').val());
+        const description = $('#reviewDescription').val();
+
+        if (rating > 0 && description.trim() !== "") {
+            isSubmitting = true;
+            $.ajax({
+                type: 'POST',
+                url: '../execute/review_operations.php',
+                data: {
+                    action: 'add',
+                    eventID: eventID,
+                    userID: userID,
+                    rating: rating,
+                    reviewText: description
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status === 'success') {
+                        alert('تم إرسال التقييم بنجاح!');
+                        $('#reviewForm')[0].reset();
+                        $('#reviewModal').modal('hide');
+                        loadPreviousReviews(eventID);
+                    } else {
+                        alert('حدث خطأ: ' + response.message);
+                    }
+                    isSubmitting = false;
+                },
+                error: function () {
+                    alert('حدث خطأ أثناء إرسال التقييم. يرجى المحاولة مرة أخرى.');
+                    isSubmitting = false;
+                }
+            });
+        } else {
+            alert('يرجى اختيار عدد النجوم وإضافة وصف.');
+        }
+    });
+
+    // حذف تقييم
+    $(document).on('click', '.delete-review', function () {
+        const reviewID = $(this).data('id');
+        if (confirm('هل أنت متأكد من حذف هذا التقييم؟')) {
+            deleteReview(reviewID);
+        }
+    });
+
+    // دالة حذف التقييم
     function deleteReview(reviewID) {
         $.ajax({
             type: 'POST',
@@ -208,4 +243,4 @@ $(document).ready(function () {
             }
         });
     }
-});أ
+});
