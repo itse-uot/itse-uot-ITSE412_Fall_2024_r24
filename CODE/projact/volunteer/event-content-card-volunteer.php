@@ -88,4 +88,3 @@ try {
 
 <!-- تضمين ملف التقييم مرة واحدة فقط -->
 <?php include "evaluation_content.php"; ?>
-

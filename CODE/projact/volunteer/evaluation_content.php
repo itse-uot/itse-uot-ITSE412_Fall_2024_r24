@@ -17,7 +17,7 @@
                 
                 <!-- نموذج التقييم -->
                 <form id="reviewForm">
-                    <input type="hidden" id="eventID" name="eventID" value="<?php  $eventID = $event['EventID']; echo $eventID; ?>">
+                    <input type="hidden" id="eventID" name="eventID" value="">
                     
                     <div class="mb-3">
                         <label for="ratingStars" class="form-label">التقييم:</label>

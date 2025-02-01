@@ -1,15 +1,17 @@
 $(document).ready(function () {
-    const eventID = $('#eventID').val();
-    userID =1; // تعيين userID من الجلسة
+    let userID = 2; // تعيين userID من الجلسة
     let isSubmitting = false;
 
-    // جلب التقييمات السابقة عند فتح المودال
-    $('#reviewModal').on('show.bs.modal', function () {
-        loadPreviousReviews();
+    // عند فتح المودال، تعيين eventID
+    $('#reviewModal').on('show.bs.modal', function (event) {
+        const button = $(event.relatedTarget); // الزر الذي تم النقر عليه
+        const eventID = button.data('event-id'); // استخراج eventID من الزر
+        $('#eventID').val(eventID); // تعيين eventID في الحقل المخفي
+        loadPreviousReviews(eventID); // جلب التقييمات السابقة
     });
 
     // وظيفة لجلب التقييمات السابقة
-    function loadPreviousReviews() {
+    function loadPreviousReviews(eventID) {
         $.ajax({
             type: 'GET',
             url: '../execute/review_operations.php',
@@ -103,7 +105,7 @@ $(document).ready(function () {
                         alert('تم إرسال التقييم بنجاح!');
                         $('#reviewForm')[0].reset();
                         $('#reviewModal').modal('hide');
-                        loadPreviousReviews();
+                        loadPreviousReviews(eventID);
                     } else {
                         alert('حدث خطأ: ' + response.message);
                     }
@@ -172,7 +174,7 @@ $(document).ready(function () {
                     if (response.status === 'success') {
                         alert('تم تعديل التقييم بنجاح!');
                         $('#editReviewModal').modal('hide');
-                        loadPreviousReviews();
+                        loadPreviousReviews($('#eventID').val());
                     } else {
                         alert('حدث خطأ: ' + response.message);
                     }
@@ -196,7 +198,7 @@ $(document).ready(function () {
             success: function (response) {
                 if (response.status === 'success') {
                     alert('تم حذف التقييم بنجاح!');
-                    loadPreviousReviews();
+                    loadPreviousReviews($('#eventID').val());
                 } else {
                     alert('حدث خطأ: ' + response.message);
                 }
@@ -206,4 +208,4 @@ $(document).ready(function () {
             }
         });
     }
-});
+});أ
