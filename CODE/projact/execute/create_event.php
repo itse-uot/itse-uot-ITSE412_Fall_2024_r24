@@ -1,4 +1,5 @@
 <?php
+session_start(); // بدء الجلسة
 include 'dbconfig.php'; // تضمين ملف الاتصال بقاعدة البيانات
 
 // تحقق إذا تم إرسال الطلب
@@ -11,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $eventSkills = $_POST['eventSkills'];
     $eventDescription = $_POST['eventDescription'];
     $eventImage = $_FILES['eventImage'];
-    $userID = 1; // قيمة ثابتة لـ UserID
 
     // التحقق من أن الحقول مطلوبة
     if (empty($eventName) || empty($eventStartDate) || empty($eventEndDate) || empty($eventLocation) || empty($eventSkills) || empty($eventDescription) || empty($eventImage)) {
@@ -27,9 +27,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
+    // الحصول على OrganizationID من الجلسة
+    if (!isset($_SESSION['org'])) {
+        echo json_encode(['status' => 'error', 'message' => 'يجب تسجيل الدخول كمنظمة أولاً.']);
+        exit;
+    }
+    $organizationID = $_SESSION['org'];
+
     // استعلام لإضافة الفعالية
-    $query = "INSERT INTO events (EventName, StartDate, EndDate, Location, RequiredSkills, Description, Image, UserID) 
-              VALUES (:eventName, :startDate, :endDate, :location, :skills, :description, :image, :userID)";
+    $query = "INSERT INTO events (EventName, StartDate, EndDate, Location, RequiredSkills, Description, Image, OrganizationID) 
+              VALUES (:eventName, :startDate, :endDate, :location, :skills, :description, :image, :organizationID)";
 
     try {
         $stmt = $conn->prepare($query);
@@ -41,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'skills' => $eventSkills,
             'description' => $eventDescription,
             'image' => $target_file,
-            'userID' => $userID // استخدام القيمة الثابتة
+            'organizationID' => $organizationID // استخدام OrganizationID من الجلسة
         ]);
 
         echo json_encode(['status' => 'success', 'message' => 'تم إنشاء الفعالية بنجاح!']);

@@ -217,6 +217,6 @@
     </div>
   </div>
 </main>
-
+<script src="../assets/js/event.js"></script>
 
 
