@@ -42,7 +42,7 @@
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown"
           aria-expanded="false">
-          <img src="assets/img/prof.jpeg" alt="الملف الشخصي" class="rounded-circle">
+          <img src="assets/img/prof.jpeg" alt="الملف الشخصي" class="rounded-circle profileImage">
           <span class="d-none d-md-block dropdown-toggle ps-2 organizationName" ></span>
         </a><!-- أيقونة الملف الشخصي -->
 
