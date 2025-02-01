@@ -4,12 +4,7 @@ include 'dbconfig.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // الحصول على OrganizationID من الجلسة
-    if (!isset($_SESSION['org'])) {
-        echo json_encode(['status' => 'error', 'message' => 'لم يتم العثور على بيانات المنظمة في الجلسة.']);
-        exit;
-    }
-
-    $organizationId = $_SESSION['org'];
+    $organizationId = isset($_POST['orginazationid']) ? $_POST['orginazationid'] : $_SESSION['org']; 
 
     $query = "SELECT OrganizationName, Description, Field, OrganizationPicture, Location, ContactEmail, PhoneNumber FROM organizations WHERE OrganizationID = :organizationId";
     

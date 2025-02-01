@@ -47,16 +47,16 @@ if ($query !== '') {
           <div id="volunteerResults" class="mt-4">
             <!-- نتائج البحث عن المتطوعين ستظهر هنا -->
             <?php if (isset($users) && !empty($users)): ?>
-              <?php foreach ($users as $users): ?>
+              <?php foreach ($users as $user): ?>
                 <div class="card w-100 mb-3">
                   <div class="card-body d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center" style="gap: 20px; width: 100%;">
-                      <img src="<?= isset($users['ProfilePicture']) ? $users['ProfilePicture'] : 'default-profile.png'; ?>" alt="Volunteer Profile Picture" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+                      <img src="<?= isset($user['ProfilePicture']) ? 'data:image/png;base64,' . base64_encode($user['ProfilePicture']) : 'default-profile.png'; ?>" alt="Volunteer Profile Picture" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
                       <div>
                         <h5 class="card-title mb-0">
-                          <a href="volunteer_profileView-for-other.php?id=<?= isset($users['UserID']) ? $users['UserID'] : ''; ?>" class="text-decoration-none text-dark"><?= isset($users['FullName']) ? $users['FullName'] : 'غير متوفر'; ?></a>
+                          <a href="volunteer_profileView-for-other.php?id=<?= isset($user['UserID']) ? $user['UserID'] : ''; ?>" class="text-decoration-none text-dark"><?= isset($user['FullName']) ? $user['FullName'] : 'غير متوفر'; ?></a>
                         </h5>
-                        <p class="mb-0 text-muted">البريد الإلكتروني: <?= isset($users['Email']) ? $users['Email'] : 'غير متوفر'; ?></p>
+                        <p class="mb-0 text-muted">البريد الإلكتروني: <?= isset($user['Email']) ? $user['Email'] : 'غير متوفر'; ?></p>
                       </div>
                     </div>
                   </div>
@@ -77,7 +77,7 @@ if ($query !== '') {
                 <div class="card w-100 mb-3">
                   <div class="card-body d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center" style="gap: 20px; width: 100%;">
-                      <img src="<?= isset($org['Logo']) ? $org['OrganizationPicture'] : 'default-logo.png'; ?>" alt="Organization Logo" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+                      <img src="<?= isset($org['OrganizationPicture']) ? 'data:image/png;base64,' . base64_encode($org['OrganizationPicture']) : 'default-logo.png'; ?>" alt="Organization Logo" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
                       <div>
                         <h5 class="card-title mb-0">
                           <a href="organization_profileView-for-other.php?id=<?= isset($org['OrganizationID']) ? $org['OrganizationID'] : ''; ?>" class="text-decoration-none text-dark"><?= isset($org['OrganizationName']) ? $org['OrganizationName'] : 'غير متوفر'; ?></a>
@@ -103,13 +103,13 @@ if ($query !== '') {
               <?php foreach ($events as $event): ?>
                 <div class="card mb-4">
                   <div class="d-flex align-items-center p-3">
-                    <img src="<?= isset($event['OrganizationLogo']) ? $event['OrganizationLogo'] : 'default-logo.png'; ?>" alt="Organization Logo" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+                    <img src="<?= isset($event['OrganizationLogo']) ? 'data:image/png;base64,' . base64_encode($event['OrganizationLogo']) : 'default-logo.png'; ?>" alt="Organization Logo" class="rounded-circle me-3" style="width: 50px; height: 50px;">
                     <div>
                       <h6 class="m-0"><?= isset($event['OrganizationName']) ? $event['OrganizationName'] : 'غير متوفر'; ?></h6>
                       <small class="text-muted"><?= isset($event['StartDate']) ? $event['StartDate'] : 'غير متوفر'; ?></small>
                     </div>
                   </div>
-                  <img src="<?= isset($event['Image']) ? $event['Image'] : 'default-event.png'; ?>" class="card-img-top" alt="Event Image">
+                  <img src="<?= isset($event['Image']) ? 'data:image/png;base64,' . base64_encode($event['Image']) : 'default-event.png'; ?>" class="card-img-top" alt="Event Image">
                   <div class="card-body">
                     <h5 class="card-title"><?= isset($event['EventName']) ? $event['EventName'] : 'غير متوفر'; ?></h5>
                     <p class="card-text mb-1"><strong>الوصف:</strong> <?= isset($event['Description']) ? $event['Description'] : 'غير متوفر'; ?></p>
@@ -129,4 +129,3 @@ if ($query !== '') {
     </div>
   </div>
 </main>
-

@@ -22,8 +22,8 @@ include "head.php";
         <div class="col-xl-4">
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-              <img src="assets/img/default-organization.png" alt="Profile" class="rounded-circle profileImage">
-              <h2 class="organizationName"></h2> <!-- هنا سيتم عرض اسم المنظمة -->
+              <img src="assets/img/default-organization.png" alt="Profile" class="rounded-circle profileImage2">
+              <h2 class="organizationName2"></h2> <!-- هنا سيتم عرض اسم المنظمة -->
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@ include "head.php";
               <h5 class="card-title">تفاصيل الملف الشخصي</h5>
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">اسم المنظمة</div>
-                <div class="col-lg-9 col-md-8 organizationName"></div> <!-- هنا سيتم عرض الاسم -->
+                <div class="col-lg-9 col-md-8 organizationName2"></div> <!-- هنا سيتم عرض الاسم -->
               </div>
               <div class="row">
                 <div class="col-lg-3 col-md-4 label">البريد الإلكتروني</div>
@@ -70,22 +70,24 @@ include "head.php";
 
 <script>
     $(document).ready(function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const orginazationid = urlParams.get('id');
         function loadProfileData() {
             $.ajax({
                 type: 'POST',
                 url: '../execute/get_organization_data.php',
-                data: { action: 'get_data' },
+                data: { action: 'get_data',orginazationid  },
                 dataType: 'json',
                 success: function (response) {
                     if (response.status === 'success') {
                         var data = response.data;
-                        $('.organizationName').text(data.OrganizationName);
+                        $('.organizationName2').text(data.OrganizationName);
                         $('.contactEmail').text(data.ContactEmail);
                         $('.phoneNumber').text(data.PhoneNumber);
                         $('.field').text(data.Field);
                         $('.location').text(data.Location);
                         $('.description').text(data.Description);
-                        $('.profileImage').attr('src', 'data:image/png;base64,' + data.OrganizationPicture);
+                        $('.profileImage2').attr('src', 'data:image/png;base64,' + data.OrganizationPicture);
                     } else {
                         alert(response.message);
                     }
