@@ -209,22 +209,169 @@
         </div>
       </div>
 
-      <!-- عرض الفعاليات -->
-      <div class="container">
-        <div class="row">
-          <!-- العمود الرئيسي للبطاقات -->
-          <div class="col-md-9 order-md-1" id="eventsContainer">
-            <!-- سيتم عرض الفعاليات هنا -->
-          </div>
+     <!-- عرض الفعاليات -->
+     <div class="container">
+    <div class="row" id="eventsContainer">
+        <!-- البطاقة الأولى -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <!-- زر الخيارات في أعلى البطاقة -->
+                <div class="d-flex justify-content-end p-2">
+                    <div class="dropdown">
+                        <button class="btn btn-link text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-three-dots-vertical"></i> <!-- أيقونة ثلاث نقاط عمودية -->
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item edit-event" href="#" data-event-id="1">تعديل</a></li>
+                            <li><a class="dropdown-item delete-event" href="#" data-event-id="1">حذف</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- صورة الفعالية -->
+                <img src="../uploads/event1.jpg" class="card-img-top" alt="Tree Planting Day" style="height: 200px; object-fit: cover;">
+
+                <!-- تفاصيل الفعالية -->
+                <div class="card-body">
+                    <h5 class="card-title">Tree Planting Day</h5>
+                    <p class="card-text"><strong>الوصف:</strong> Join us to plant trees and make the city greener!</p>
+                    <p class="card-text"><strong>الموقع:</strong> Central Park, NY</p>
+                    <p class="card-text"><strong>تاريخ البداية:</strong> 2025-03-15</p>
+                    <p class="card-text"><strong>تاريخ النهاية:</strong> 2025-03-15</p>
+                    <p class="card-text"><strong>المهارات المطلوبة:</strong> Gardening, Teamwork</p>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <!-- البطاقة الثانية -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <!-- زر الخيارات في أعلى البطاقة -->
+                <div class="d-flex justify-content-end p-2">
+                    <div class="dropdown">
+                        <button class="btn btn-link text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-three-dots-vertical"></i> <!-- أيقونة ثلاث نقاط عمودية -->
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item edit-event" href="#" data-event-id="2">تعديل</a></li>
+                            <li><a class="dropdown-item delete-event" href="#" data-event-id="2">حذف</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- صورة الفعالية -->
+                <img src="../uploads/event2.jpg" class="card-img-top" alt="Food Drive" style="height: 200px; object-fit: cover;">
+
+                <!-- تفاصيل الفعالية -->
+                <div class="card-body">
+                    <h5 class="card-title">Food Drive</h5>
+                    <p class="card-text"><strong>الوصف:</strong> Help collect and distribute food to those in need.</p>
+                    <p class="card-text"><strong>الموقع:</strong> London, UK</p>
+                    <p class="card-text"><strong>تاريخ البداية:</strong> 2025-04-10</p>
+                    <p class="card-text"><strong>تاريخ النهاية:</strong> 2025-04-12</p>
+                    <p class="card-text"><strong>المهارات المطلوبة:</strong> Logistics, Communication</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- البطاقة الثالثة -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <!-- زر الخيارات في أعلى البطاقة -->
+                <div class="d-flex justify-content-end p-2">
+                    <div class="dropdown">
+                        <button class="btn btn-link text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-three-dots-vertical"></i> <!-- أيقونة ثلاث نقاط عمودية -->
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item edit-event" href="#" data-event-id="3">تعديل</a></li>
+                            <li><a class="dropdown-item delete-event" href="#" data-event-id="3">حذف</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- صورة الفعالية -->
+                <img src="../uploads/event3.jpg" class="card-img-top" alt="Coding Workshop" style="height: 200px; object-fit: cover;">
+
+                <!-- تفاصيل الفعالية -->
+                <div class="card-body">
+                    <h5 class="card-title">Coding Workshop</h5>
+                    <p class="card-text"><strong>الوصف:</strong> Teach kids the basics of coding.</p>
+                    <p class="card-text"><strong>الموقع:</strong> San Francisco, USA</p>
+                    <p class="card-text"><strong>تاريخ البداية:</strong> 2025-05-20</p>
+                    <p class="card-text"><strong>تاريخ النهاية:</strong> 2025-05-21</p>
+                    <p class="card-text"><strong>المهارات المطلوبة:</strong> Teaching, Programming</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+<!-- نموذج تعديل الفعالية -->
+<div class="modal fade" id="editEventModal" tabindex="-1" aria-labelledby="editEventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editEventModalLabel">تعديل الفعالية</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editEventForm">
+                    <!-- Event Name -->
+                    <div class="mb-3">
+                        <label for="editEventName" class="form-label">اسم الفعالية</label>
+                        <input type="text" class="form-control" id="editEventName" name="eventName" required>
+                    </div>
+
+                    <!-- Event Start Date -->
+                    <div class="mb-3">
+                        <label for="editStartDate" class="form-label">تاريخ البداية</label>
+                        <input type="date" class="form-control" id="editStartDate" name="startDate" required>
+                    </div>
+
+                    <!-- Event End Date -->
+                    <div class="mb-3">
+                        <label for="editEndDate" class="form-label">تاريخ النهاية</label>
+                        <input type="date" class="form-control" id="editEndDate" name="endDate" required>
+                    </div>
+
+                    <!-- Event Location -->
+                    <div class="mb-3">
+                        <label for="editLocation" class="form-label">الموقع</label>
+                        <input type="text" class="form-control" id="editLocation" name="location" required>
+                    </div>
+
+                    <!-- Required Skills -->
+                    <div class="mb-3">
+                        <label for="editRequiredSkills" class="form-label">المهارات المطلوبة</label>
+                        <input type="text" class="form-control" id="editRequiredSkills" name="requiredSkills" required>
+                    </div>
+
+                    <!-- Event Description -->
+                    <div class="mb-3">
+                        <label for="editDescription" class="form-label">وصف الفعالية</label>
+                        <textarea class="form-control" id="editDescription" name="description" rows="3" required></textarea>
+                    </div>
+
+                    <!-- Event Image -->
+                    <div class="mb-3">
+                        <label for="editEventImage" class="form-label">صورة الفعالية</label>
+                        <input type="file" class="form-control" id="editEventImage" name="eventImage" accept="image/*">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </main>
 
 <!-- تضمين ملف JavaScript -->
+<script src="../assets/js/loadEventsOrgProfile.js"></script>
 <script src="../assets/js/event.js"></script>
-<script src="../assets/js/editEvent.js"></script>
+<script src="../assets/js/loadEventsOrgProfile.js"></script>
 <script src="../assets/js/deleteEvent.js"></script>
 <script src="../assets/js/loadEvents.js"></script>
-
