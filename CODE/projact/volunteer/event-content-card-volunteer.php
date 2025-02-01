@@ -75,7 +75,8 @@ try {
 
               <div class="d-flex justify-content-between align-items-center mt-3">
                 <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#reviewModal" data-event-id="<?= $event['EventID'] ?>">إضافة تقييم</button>
-                <button class="btn btn-outline-secondary btn-sm" data-event-id="<?= $event['EventID'] ?>">تقديم طلب</button>
+                <button class="btn btn-outline-secondary btn-sm submit-application" data-event-id="<?= $event['EventID'] ?>">تقديم طلب</button>
+
               </div>
             </div>
           </div>
@@ -88,3 +89,35 @@ try {
 
 <!-- تضمين ملف التقييم مرة واحدة فقط -->
 <?php include "evaluation_content.php"; ?>
+
+<script>
+
+$(document).ready(function() {
+    // عند الضغط على زر "تقديم طلب"
+    $('.submit-application').click(function() {
+        var eventID = $(this).data('event-id'); // الحصول على ID الحدث
+        var userID = <?php echo $_SESSION['user']['UserID']; ?>; // الحصول على UserID من الجلسة
+
+        // إرسال طلب AJAX
+        $.ajax({
+            url: '../execute/submit_application.php', // ملف PHP الذي سيتعامل مع الطلب
+            method: 'POST',
+            data: {
+                eventID: eventID,
+                userID: userID
+            },
+            success: function(response) {
+                // استجابة ناجحة
+                if (response.success) {
+                    alert("تم تقديم الطلب بنجاح!");
+                }
+            },
+            error: function() {
+                // لا يظهر أي شيء في حالة حدوث خطأ
+            }
+        });
+    });
+});
+
+
+</script>
