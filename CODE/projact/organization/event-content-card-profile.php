@@ -19,11 +19,14 @@ $query = "
     FROM events e
     LEFT JOIN organizations o ON e.OrganizationID = o.OrganizationID
     LEFT JOIN ratingsandreviews r ON e.EventID = r.EventID
+    WHERE e.OrganizationID = :orgID -- تمت إضافة هذا السطر لتصفية الفعاليات حسب المنظمة
     GROUP BY e.EventID
+    ORDER BY e.CreatedAt DESC
 ";
 
 try {
   $stmt = $conn->prepare($query);
+  $stmt->bindParam(':orgID', $_SESSION['org'], PDO::PARAM_INT); // ربط قيمة orgID بالمتغير في الجلسة
   $stmt->execute();
   $events = $stmt->fetchAll(PDO::FETCH_ASSOC); // استرجاع البيانات
 } catch (PDOException $e) {
@@ -52,8 +55,6 @@ try {
                   </div>
                 </div>
 
-                <!-- زر الخيارات على اليمين -->
-                <!-- زر الخيارات على اليمين -->
                 <!-- زر الخيارات على اليمين -->
                 <?php if (isset($_SESSION['org']) && $_SESSION['org'] == $event['OrganizationID']): ?>
                   <div class="dropdown">
